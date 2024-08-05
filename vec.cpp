@@ -3,10 +3,6 @@
 #include "include/vec.h"
 
 // class vecd methods
-std::ostream& operator<<(std::ostream& out, const vecd& s) {
-	out << s.m_dx << "," << s.m_dy;
-	return out;
-};
 DLLAPI_SE vecd vecd::operator+(vecd Input) {
 	vecd out;
 	out.m_dx = m_dx + Input.m_dx;
@@ -56,10 +52,6 @@ vecd::vecd(double dInx, double dIny) {
 };
 
 // class vect methods
-std::ostream& operator<<(std::ostream& out, const vect& s) {
-	out << s.m_dx << "," << s.m_dy << "," << s.m_dz;
-	return out;
-};
 DLLAPI_SE vect vect::operator+(vect Input) {
 	vect out;
 	out.m_dx = m_dx + Input.m_dx;
@@ -120,10 +112,6 @@ vect::vect(double dInx, double dIny, double dInz) {
 };
 
 // class dirt methods
-std::ostream& operator<<(std::ostream& out, const dirt& s) {
-	out << s.m_dxy << "," << s.m_dxz << "," << s.m_dyz;
-	return out;
-};
 DLLAPI_SE double dirt::m_fnxy() const {
 	return m_dxy;
 };

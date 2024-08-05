@@ -13,7 +13,10 @@ class DLLAPI_SE vecd {
 protected:
 	double m_dx, m_dy;
 public:
-	friend std::ostream& operator<<(std::ostream&, const vecd&);
+	friend std::ostream& operator<<(std::ostream& out, const vecd& s) {
+		out << s.m_dx << "," << s.m_dy;
+		return out;
+	};
 	vecd operator+(vecd);
 	vecd operator-(vecd);
 	vecd operator+=(vecd);
@@ -33,7 +36,10 @@ class DLLAPI_SE vect {
 protected:
 	double m_dx, m_dy, m_dz;
 public:
-	friend std::ostream& operator<<(std::ostream&, const vect&);
+	friend std::ostream& operator<<(std::ostream& out, const vect& s) {
+		out << s.m_dx << "," << s.m_dy << "," << s.m_dz;
+		return out;
+	};
 	vect operator+(vect);
 	vect operator-(vect);
 	vect operator+=(vect);
@@ -55,7 +61,10 @@ class DLLAPI_SE dirt {
 protected:
 	double m_dxy, m_dxz, m_dyz;
 public:
-	friend std::ostream& operator<<(std::ostream&, const dirt&);
+	friend std::ostream& operator<<(std::ostream& out, const dirt& s) {
+		out << s.m_dxy << "," << s.m_dxz << "," << s.m_dyz;
+		return out;
+	};
 	double m_fnxy() const;
 	double m_fnxz() const;
 	double m_fnyz() const;
