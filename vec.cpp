@@ -16,16 +16,14 @@ DLLAPI_SE vecd vecd::operator-(vecd Input) {
 	return out;
 };
 DLLAPI_SE vecd vecd::operator+=(vecd Input) {
-	vecd out;
-	out.m_dx = m_dx + Input.m_dx;
-	out.m_dy = m_dy + Input.m_dy;
-	return out;
+	m_dx += Input.m_dx;
+	m_dy += Input.m_dy;
+	return *this;
 };
 DLLAPI_SE vecd vecd::operator-=(vecd Input) {
-	vecd out;
-	out.m_dx = m_dx - Input.m_dx;
-	out.m_dy = m_dy - Input.m_dy;
-	return out;
+	m_dx -= Input.m_dx;
+	m_dy -= Input.m_dy;
+	return *this;
 };
 DLLAPI_SE bool vecd::operator==(vecd Input) {
 	return m_dx == Input.m_dx && m_dy == Input.m_dy;
@@ -67,18 +65,16 @@ DLLAPI_SE vect vect::operator-(vect Input) {
 	return out;
 };
 DLLAPI_SE vect vect::operator+=(vect Input) {
-	vect out;
-	out.m_dx = m_dx + Input.m_dx;
-	out.m_dy = m_dy + Input.m_dy;
-	out.m_dz = m_dz + Input.m_dz;
-	return out;
+	m_dx += Input.m_dx;
+	m_dy += Input.m_dy;
+	m_dz += Input.m_dz;
+	return *this;
 };
 DLLAPI_SE vect vect::operator-=(vect Input) {
-	vect out;
-	out.m_dx = m_dx - Input.m_dx;
-	out.m_dy = m_dy - Input.m_dy;
-	out.m_dz = m_dz - Input.m_dz;
-	return out;
+	m_dx -= Input.m_dx;
+	m_dy -= Input.m_dy;
+	m_dz -= Input.m_dz;
+	return *this;
 };
 DLLAPI_SE bool vect::operator==(vect Input) {
 	return m_dx == Input.m_dx && m_dy == Input.m_dy && m_dz == Input.m_dz;
