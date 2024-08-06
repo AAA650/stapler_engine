@@ -4,7 +4,7 @@
 
 #define STAPLERENGINE_H
 
-#define SE_VER 2.2.0
+#define SE_VER 0.2.2.0
 
 #include "include/defse.h"
 
