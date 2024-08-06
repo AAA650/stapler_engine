@@ -7,8 +7,7 @@ DLLAPI_SE vecd camera::m_fnGetScrPos(vect TargetPos) {
 	double tmpDist = sina * cosa * TargetPos.m_fnx() + sinb * TargetPos.m_fny() - cosa * cosb * TargetPos.m_fnz(),
 		CamToTargDistance = fabs(tmpDist),
 		ScrToTargDistance = fabs(m_dScreenDistance - tmpDist);
-	if (CamToTargDistance < m_dScreenDistance
-		&& CamToTargDistance < ScrToTargDistance)
+	if (CamToTargDistance < m_dScreenDistance && CamToTargDistance < ScrToTargDistance)
 		return vecd(0, 0);
 	vecd ret(0, 0);
 	if (cosb == 0) {
