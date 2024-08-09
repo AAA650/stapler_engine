@@ -14,7 +14,7 @@ protected:
 	double m_dx, m_dy;
 public:
 	friend std::ostream& operator<<(std::ostream& out, const vecd& s) {
-		out << s.m_dx << "," << s.m_dy;
+		out << s.m_fnx() << "," << s.m_fny();
 		return out;
 	};
 	vecd operator+(vecd);
@@ -37,7 +37,7 @@ protected:
 	double m_dx, m_dy, m_dz;
 public:
 	friend std::ostream& operator<<(std::ostream& out, const vect& s) {
-		out << s.m_dx << "," << s.m_dy << "," << s.m_dz;
+		out << s.m_fnx() << "," << s.m_fny() << "," << s.m_fnz();
 		return out;
 	};
 	vect operator+(vect);
