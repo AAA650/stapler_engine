@@ -4,5 +4,6 @@
 #define COLOUR_H
 #include "SEDefinition.h"
 
-typedef long colour;
+typedef int colour;
+typedef colour color;
 DLLAPI_SE colour RGBA(int,int,int,int);

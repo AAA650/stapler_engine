@@ -144,10 +144,10 @@ Xcopy /Y /E ".\include\*" ".\x64\DebugOutput\include\"</Command>
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>Xcopy /Y /E ".\x64\Release\StaplerEngine.dll" ".\x64\Output\"
-Xcopy /Y /E ".\x64\Release\StaplerEngine.lib" ".\x64\Output\"
-Xcopy /Y /E ".\StaplerEngine.h" ".\x64\Output\"
-Xcopy /Y /E ".\include\*" ".\x64\Output\include\"</Command>
+      <Command>Xcopy /Y /E ".\x64\Release\StaplerEngine.dll" ".\x64\SERelease\"
+Xcopy /Y /E ".\x64\Release\StaplerEngine.lib" ".\x64\SERelease\"
+Xcopy /Y /E ".\StaplerEngine.h" ".\x64\SERelease\"
+Xcopy /Y /E ".\include\*" ".\x64\SERelease\include\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -160,6 +160,7 @@ Xcopy /Y /E ".\include\*" ".\x64\Output\include\"</Command>
     <ClInclude Include="StaplerEngine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Colour.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="pch.cpp">
