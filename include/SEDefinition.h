@@ -1,8 +1,10 @@
-//defse.h   Define all things in SE.
+//SEDefinition.h   Define all things in SE.
 
 #pragma once
 
-#define DEFSE_H
+#ifndef SEDEFINITION_H
+#define SEDEFINITION_H
+#endif
 
 #ifdef STAPLERENGINE_EXPORTS
 #define DLLAPI_SE _declspec(dllexport)

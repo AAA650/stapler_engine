@@ -24,31 +24,16 @@
     <ClInclude Include="StaplerEngine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\defse.h">
+    <ClInclude Include="include\Colour.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\colour.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\QMath.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\rand.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\physics.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\object.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\pthread.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="include\se3d.h">
+    <ClInclude Include="include\Object.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\vec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SEDefinition.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,10 +44,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="object.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="se3d.cpp">
+    <ClCompile Include="Object.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="vec.cpp">

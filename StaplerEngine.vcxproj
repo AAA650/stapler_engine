@@ -152,28 +152,22 @@ Xcopy /Y /E ".\include\*" ".\x64\Output\include\"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
-    <ClInclude Include="include\colour.h" />
-    <ClInclude Include="include\defse.h" />
-    <ClInclude Include="include\object.h" />
-    <ClInclude Include="include\physics.h" />
-    <ClInclude Include="include\pthread.h" />
-    <ClInclude Include="include\QMath.h" />
-    <ClInclude Include="include\rand.h" />
-    <ClInclude Include="include\se3d.h" />
+    <ClInclude Include="include\Colour.h" />
+    <ClInclude Include="include\Object.h" />
+    <ClInclude Include="include\SEDefinition.h" />
     <ClInclude Include="include\vec.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StaplerEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="object.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="se3d.cpp" />
     <ClCompile Include="vec.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

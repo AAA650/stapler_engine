@@ -4,14 +4,13 @@
 
 #define STAPLERENGINE_H
 
-#define SE_VER 0.2.2.1
+#define SE_VER 0.2.2.2
 
-#include "include/defse.h"
+#include "include/SEDefinition.h"
 
 #ifndef STAPLERENGINE_EXPORTS
 #pragma comment(lib,"StaplerEngine.lib")
 #endif
 
-#include "include/object.h"
-#include "include/colour.h"
-#include "include/se3d.h"
+#include "include/Object.h"
+#include "include/Colour.h"

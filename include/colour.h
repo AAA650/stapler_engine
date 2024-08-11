@@ -2,7 +2,7 @@
 #pragma once
 
 #define COLOUR_H
-#include "defse.h"
+#include "SEDefinition.h"
 
 typedef long colour;
 DLLAPI_SE colour RGBA(int,int,int,int);

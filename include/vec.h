@@ -2,7 +2,7 @@
 #pragma once
 
 #define VEC_H
-#include "defse.h"
+#include "SEDefinition.h"
 #include <iostream>
 
 #define POSVECD(vec) vec.m_fnx(), vec.m_fny()

@@ -2,7 +2,7 @@
 #pragma once
 
 #define OBJECT_H
-#include "defse.h"
+#include "SEDefinition.h"
 #include <iostream>
 #include "vec.h"
 
