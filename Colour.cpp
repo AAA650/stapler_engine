@@ -1,4 +1,5 @@
 //Colour.cpp
+#include "pch.h"
 #include "include/Colour.h"
 
 DLLAPI_SE colour RGBA(int r, int g, int b, int a) {
