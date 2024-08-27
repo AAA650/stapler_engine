@@ -154,6 +154,7 @@ Xcopy /Y /E ".\include\*" ".\x64\SERelease\include\"</Command>
     <ClInclude Include="framework.h" />
     <ClInclude Include="include\Colour.h" />
     <ClInclude Include="include\Object.h" />
+    <ClInclude Include="include\Rand.h" />
     <ClInclude Include="include\SEDefinition.h" />
     <ClInclude Include="include\vec.h" />
     <ClInclude Include="pch.h" />
@@ -169,6 +170,7 @@ Xcopy /Y /E ".\include\*" ".\x64\SERelease\include\"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Rand.cpp" />
     <ClCompile Include="vec.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
