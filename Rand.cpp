@@ -2,13 +2,11 @@
 #include "pch.h"
 #include "include/Rand.h"
 
-template<class Type>
-Rand<Type>::Rand(Type min, Type max) {
+Rand::Rand(int min, int max) {
 	std::random_device RandDevice;
 	generator = std::mt19937(RandDevice());
-	distribution = std::uniform_int_distribution<Type>(min, max);
+	distribution = std::uniform_int_distribution<>(min, max);
 };
-template<class Type>
-DLLAPI_SE Type Rand<Type>::GetNum() {
+DLLAPI_SE int Rand::GetNum() {
 	return distribution(generator);
 };

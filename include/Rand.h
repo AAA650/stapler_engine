@@ -6,12 +6,11 @@
 #define RAND_H
 #endif
 
-template<class Type>
 class DLLAPI_SE Rand {
 protected:
 	std::mt19937 generator;
-	std::uniform_int_distribution<Type> distribution;
+	std::uniform_int_distribution<> distribution;
 public:
-	Rand(Type, Type);
-	Type GetNum();
+	Rand(int, int);
+	int GetNum();
 };
