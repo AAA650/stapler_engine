@@ -14,3 +14,4 @@
 
 #include "include/Object.h"
 #include "include/Colour.h"
+#include "include/Rand.h"
