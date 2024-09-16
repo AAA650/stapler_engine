@@ -6,7 +6,7 @@
 #define RAND_H
 #endif
 
-class DLLAPI_SE Rand {
+class DLLAPI_SE RandEng {
 protected:
 	std::mt19937 generator;
 	std::uniform_int_distribution<> distribution;
@@ -15,5 +15,5 @@ public:
 	int GetRandNum();
 	void Reset(int, int);
 	void Reset();
-	Rand(int, int);
+	RandEng(int, int);
 };

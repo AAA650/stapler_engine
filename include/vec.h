@@ -5,9 +5,12 @@
 #include "SEDefinition.h"
 #include <iostream>
 
-#define POSVECD(vec) vec.m_fnx(), vec.m_fny()
-#define POSVECT(vec) vec.m_fnx(), vec.m_fny(), vec.m_fnz()
-
+#define VECD(vec) (vec).m_fnx(), (vec).m_fny()
+#define VECT(vec) (vec).m_fnx(), (vec).m_fny(), (vec).m_fnz()
+#define TVECD(vec,type) (type)(vec).m_fnx(), (type)(vec).m_fny()
+#define TVECT(vec,type) (type)(vec).m_fnx(), (type)(vec).m_fny(), (type)(vec).m_fnz()
+#define OVECD(vec) (vec).m_fny(), (vec).m_fnx()
+#define OTVECD(vec,type) (type)(vec).m_fny(), (type)(vec).m_fnx()
 // 2D point
 class DLLAPI_SE vecd {
 protected:

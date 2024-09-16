@@ -18,7 +18,7 @@ DLLAPI_SE int object::m_fnSetBox(vect iInVec) {
 	return 0;
 };
 DLLAPI_SE int object::m_fnSetBox(vecd iInVec) {
-	box = vect(POSVECD(iInVec), box.m_fnz());
+	box = vect(VECD(iInVec), box.m_fnz());
 	return 0;
 };
 DLLAPI_SE const vect& object::m_fnGetBox() const {
