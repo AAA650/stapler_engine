@@ -14,7 +14,7 @@
 // 2D point
 class DLLAPI_SE vecd {
 protected:
-	double m_dx, m_dy;
+	float m_dx, m_dy;
 public:
 	friend std::ostream& operator<<(std::ostream& out, const vecd& s) {
 		out << s.m_fnx() << "," << s.m_fny();
@@ -26,18 +26,18 @@ public:
 	vecd operator-=(vecd);
 	bool operator==(vecd);
 	bool operator!=(vecd);
-	const double& m_fnx() const;
-	const double& m_fny() const;
-	void m_fnx(double);
-	void m_fny(double);
+	const float& m_fnx() const;
+	const float& m_fny() const;
+	void m_fnx(float);
+	void m_fny(float);
 	vecd();
-	vecd(double, double);
+	vecd(float, float);
 };
 
 // 3D point
 class DLLAPI_SE vect {
 protected:
-	double m_dx, m_dy, m_dz;
+	float m_dx, m_dy, m_dz;
 public:
 	friend std::ostream& operator<<(std::ostream& out, const vect& s) {
 		out << s.m_fnx() << "," << s.m_fny() << "," << s.m_fnz();
@@ -49,14 +49,14 @@ public:
 	vect operator-=(vect);
 	bool operator==(vect);
 	bool operator!=(vect);
-	const double& m_fnx() const;
-	const double& m_fny() const;
-	const double& m_fnz() const;
-	void m_fnx(double);
-	void m_fny(double);
-	void m_fnz(double);
+	const float& m_fnx() const;
+	const float& m_fny() const;
+	const float& m_fnz() const;
+	void m_fnx(float);
+	void m_fny(float);
+	void m_fnz(float);
 	vect();
-	vect(double, double, double);
+	vect(float, float, float);
 };
 
 // 3D rotate

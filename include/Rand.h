@@ -9,11 +9,15 @@
 class DLLAPI_SE RandEng {
 protected:
 	std::mt19937 generator;
-	std::uniform_int_distribution<> distribution;
-	int MinNum, MaxNum;
 public:
-	int GetRandNum();
-	void Reset(int, int);
+	unsigned int AutoResetFreq = NULL;
+private:
+	unsigned int CurrentFreq = NULL;
+	void AutoReset();
+public:
 	void Reset();
-	RandEng(int, int);
+	int RandNum(int, int);
+	double RandNum(double, double);
+	int RandPer(int[], const int&);
+	RandEng() { Reset(); };
 };

@@ -31,20 +31,20 @@ DLLAPI_SE bool vecd::operator==(vecd Input) {
 DLLAPI_SE bool vecd::operator!=(vecd Input) {
 	return m_dx != Input.m_dx || m_dy != Input.m_dy;
 };
-DLLAPI_SE const double& vecd::m_fnx() const {
+DLLAPI_SE const float& vecd::m_fnx() const {
 	return m_dx;
 };
-DLLAPI_SE const double& vecd::m_fny() const {
+DLLAPI_SE const float& vecd::m_fny() const {
 	return m_dy;
 };
-DLLAPI_SE void vecd::m_fnx(double dInx) {
+DLLAPI_SE void vecd::m_fnx(float dInx) {
 	m_dx = dInx;
 };
-DLLAPI_SE void vecd::m_fny(double dIny) {
+DLLAPI_SE void vecd::m_fny(float dIny) {
 	m_dy = dIny;
 };
 vecd::vecd() { m_dx = 0; m_dy = 0; };
-vecd::vecd(double dInx, double dIny) {
+vecd::vecd(float dInx, float dIny) {
 	m_dx = dInx;
 	m_dy = dIny;
 };
@@ -82,26 +82,26 @@ DLLAPI_SE bool vect::operator==(vect Input) {
 DLLAPI_SE bool vect::operator!=(vect Input) {
 	return m_dx != Input.m_dx || m_dy != Input.m_dy || m_dz != Input.m_dz;
 };
-DLLAPI_SE const double& vect::m_fnx() const {
+DLLAPI_SE const float& vect::m_fnx() const {
 	return m_dx;
 };
-DLLAPI_SE const double& vect::m_fny() const {
+DLLAPI_SE const float& vect::m_fny() const {
 	return m_dy;
 };
-DLLAPI_SE const double& vect::m_fnz() const {
+DLLAPI_SE const float& vect::m_fnz() const {
 	return m_dz;
 };
-DLLAPI_SE void vect::m_fnx(double dInx) {
+DLLAPI_SE void vect::m_fnx(float dInx) {
 	m_dx = dInx;
 };
-DLLAPI_SE void vect::m_fny(double dIny) {
+DLLAPI_SE void vect::m_fny(float dIny) {
 	m_dy = dIny;
 };
-DLLAPI_SE void vect::m_fnz(double dInz) {
+DLLAPI_SE void vect::m_fnz(float dInz) {
 	m_dz = dInz;
 };
 vect::vect() { m_dx = 0; m_dy = 0; m_dz = 0; };
-vect::vect(double dInx, double dIny, double dInz) {
+vect::vect(float dInx, float dIny, float dInz) {
 	m_dx = dInx;
 	m_dy = dIny;
 	m_dz = dInz;
