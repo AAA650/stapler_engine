@@ -1,6 +1,6 @@
 //StaplerEngine.h Include all things.
 //StaplerEngine Copyright 2022-2024 TEAH Technology Co. Ltd.
-//SE ver2.0
+//
 #ifndef STAPLERENGINE_H
 #define STAPLERENGINE_H
 
@@ -9,8 +9,8 @@
 #include "include/SEDefinition.h"
 
 #if (!defined STAPLERENGINE_EXPORTS) && (!defined STAPLERENGINE_COMMENT)
-#define STAPLERENGINE_COMMENT
-#pragma comment(lib,"StaplerEngine.lib")
+	#define STAPLERENGINE_COMMENT
+	#pragma comment(lib,"StaplerEngine.lib")
 #endif
 
 #include "include/Object.h"

@@ -156,7 +156,7 @@ Xcopy /Y /E ".\include\*" ".\x64\SERelease\include\"</Command>
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Rand.h" />
     <ClInclude Include="include\SEDefinition.h" />
-    <ClInclude Include="include\vec.h" />
+    <ClInclude Include="include\Vect.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StaplerEngine.h" />
   </ItemGroup>
@@ -171,7 +171,7 @@ Xcopy /Y /E ".\include\*" ".\x64\SERelease\include\"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Rand.cpp" />
-    <ClCompile Include="vec.cpp" />
+    <ClCompile Include="Vect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

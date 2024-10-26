@@ -2,26 +2,26 @@
 #include "pch.h"
 #include "include/Object.h"
 
-DLLAPI_SE int object::m_fnSetPos(vect iInVec) {
+DLLAPI_SE int object::m_fnSetPos(Vec3 iInVec) {
 	pos = iInVec;
 	return 0;
 };
-DLLAPI_SE int object::m_fnAddPos(vect iInVec) {
+DLLAPI_SE int object::m_fnAddPos(Vec3 iInVec) {
 	pos += iInVec;
 	return 0;
 };
-DLLAPI_SE const vect& object::m_fnGetPos() const {
+DLLAPI_SE const Vec3& object::m_fnGetPos() const {
 	return pos;
 };
-DLLAPI_SE int object::m_fnSetBox(vect iInVec) {
+DLLAPI_SE int object::m_fnSetBox(Vec3 iInVec) {
 	box = iInVec;
 	return 0;
 };
-DLLAPI_SE int object::m_fnSetBox(vecd iInVec) {
-	box = vect(VECD(iInVec), box.m_fnz());
+DLLAPI_SE int object::m_fnSetBox(Vec2 iInVec) {
+	box = Vec3(VEC2(iInVec), box.m_fnz());
 	return 0;
 };
-DLLAPI_SE const vect& object::m_fnGetBox() const {
+DLLAPI_SE const Vec3& object::m_fnGetBox() const {
 	return box;
 };
 DLLAPI_SE int object::m_fnSetStatus(int iInSta) {
@@ -32,8 +32,8 @@ DLLAPI_SE int object::m_fnGetStatus() const {
 	return m_iStatus;
 };
 DLLAPI_SE int object::m_fnSetupObj() {
-	pos = vect(0, 0, 0);
-	box = vect(0, 0, 0);
+	pos = Vec3(0, 0, 0);
+	box = Vec3(0, 0, 0);
 	dir = dirt(0, 0, 0);
 	m_iStatus = 0;
 	m_nVecMode = SE_OBJ_VECM_T;
@@ -49,14 +49,14 @@ DLLAPI_SE int object::m_fnSetupObj(ObjInfo Inf) {
 };
 
 
-DLLAPI_SE vecd camera::m_fnGetScrPos(vect TargetPos) {
+DLLAPI_SE Vec2 camera::m_fnGetScrPos(Vec3 TargetPos) {
 	double sina = sin(dir.m_fnxz()), cosa = cos(dir.m_fnxz()), sinb = sin(dir.m_fnyz()), cosb = cos(dir.m_fnyz());
 	double tmpDist = sina * cosa * TargetPos.m_fnx() + sinb * TargetPos.m_fny() - cosa * cosb * TargetPos.m_fnz(),
 		CamToTargDistance = fabs(tmpDist),
 		ScrToTargDistance = fabs(m_dScreenDistance - tmpDist);
 	if (CamToTargDistance < m_dScreenDistance && CamToTargDistance < ScrToTargDistance)
-		return vecd(0, 0);
-	vecd ret(0, 0);
+		return Vec2(0, 0);
+	Vec2 ret(0, 0);
 	if (cosb == 0) {
 		ret.m_fnx((TargetPos.m_fnx() * cosa + TargetPos.m_fnz() * sina) * m_dScreenDistance / CamToTargDistance);
 		ret.m_fny((TargetPos.m_fnx() * cosa - TargetPos.m_fnz() * sina) * m_dScreenDistance / CamToTargDistance);

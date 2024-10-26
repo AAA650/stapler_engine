@@ -5,58 +5,58 @@
 #include "SEDefinition.h"
 #include <iostream>
 
-#define VECD(vec) (vec).m_fnx(), (vec).m_fny()
-#define VECT(vec) (vec).m_fnx(), (vec).m_fny(), (vec).m_fnz()
-#define TVECD(vec,type) (type)(vec).m_fnx(), (type)(vec).m_fny()
-#define TVECT(vec,type) (type)(vec).m_fnx(), (type)(vec).m_fny(), (type)(vec).m_fnz()
-#define OVECD(vec) (vec).m_fny(), (vec).m_fnx()
-#define OTVECD(vec,type) (type)(vec).m_fny(), (type)(vec).m_fnx()
+#define VEC2(vec) (vec).m_fnx(), (vec).m_fny()
+#define VEC3(vec) (vec).m_fnx(), (vec).m_fny(), (vec).m_fnz()
+#define TVEC2(vec,type) (type)(vec).m_fnx(), (type)(vec).m_fny()
+#define TVEC3(vec,type) (type)(vec).m_fnx(), (type)(vec).m_fny(), (type)(vec).m_fnz()
+#define OVEC2(vec) (vec).m_fny(), (vec).m_fnx()
+#define OTVEC2(vec,type) (type)(vec).m_fny(), (type)(vec).m_fnx()
 // 2D point
-class DLLAPI_SE vecd {
+class DLLAPI_SE Vec2 {
 protected:
 	float m_dx, m_dy;
 public:
-	friend std::ostream& operator<<(std::ostream& out, const vecd& s) {
+	friend std::ostream& operator<<(std::ostream& out, const Vec2& s) {
 		out << s.m_fnx() << "," << s.m_fny();
 		return out;
 	};
-	vecd operator+(vecd);
-	vecd operator-(vecd);
-	vecd operator+=(vecd);
-	vecd operator-=(vecd);
-	bool operator==(vecd);
-	bool operator!=(vecd);
+	Vec2 operator+(Vec2);
+	Vec2 operator-(Vec2);
+	Vec2 operator+=(Vec2);
+	Vec2 operator-=(Vec2);
+	bool operator==(Vec2);
+	bool operator!=(Vec2);
 	const float& m_fnx() const;
 	const float& m_fny() const;
 	void m_fnx(float);
 	void m_fny(float);
-	vecd();
-	vecd(float, float);
+	Vec2();
+	Vec2(float, float);
 };
 
 // 3D point
-class DLLAPI_SE vect {
+class DLLAPI_SE Vec3 {
 protected:
 	float m_dx, m_dy, m_dz;
 public:
-	friend std::ostream& operator<<(std::ostream& out, const vect& s) {
+	friend std::ostream& operator<<(std::ostream& out, const Vec3& s) {
 		out << s.m_fnx() << "," << s.m_fny() << "," << s.m_fnz();
 		return out;
 	};
-	vect operator+(vect);
-	vect operator-(vect);
-	vect operator+=(vect);
-	vect operator-=(vect);
-	bool operator==(vect);
-	bool operator!=(vect);
+	Vec3 operator+(Vec3);
+	Vec3 operator-(Vec3);
+	Vec3 operator+=(Vec3);
+	Vec3 operator-=(Vec3);
+	bool operator==(Vec3);
+	bool operator!=(Vec3);
 	const float& m_fnx() const;
 	const float& m_fny() const;
 	const float& m_fnz() const;
 	void m_fnx(float);
 	void m_fny(float);
 	void m_fnz(float);
-	vect();
-	vect(float, float, float);
+	Vec3();
+	Vec3(float, float, float);
 };
 
 // 3D rotate

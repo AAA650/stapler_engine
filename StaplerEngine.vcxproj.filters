@@ -30,7 +30,7 @@
     <ClInclude Include="include\Object.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\vec.h">
+    <ClInclude Include="include\Vect.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\SEDefinition.h">
@@ -50,7 +50,7 @@
     <ClCompile Include="Object.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="vec.cpp">
+    <ClCompile Include="Vect.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Colour.cpp">

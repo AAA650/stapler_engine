@@ -1,5 +1,4 @@
 //SEDefinition.h   Define all things in SE.
-
 #pragma once
 
 #ifndef SEDEFINITION_H
