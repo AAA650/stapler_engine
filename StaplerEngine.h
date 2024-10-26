@@ -8,7 +8,7 @@
 
 #include "include/SEDefinition.h"
 
-#ifndef STAPLERENGINE_EXPORTS && STAPLERENGINE_COMMENT
+#if (!defined STAPLERENGINE_EXPORTS) && (!defined STAPLERENGINE_COMMENT)
 #define STAPLERENGINE_COMMENT
 #pragma comment(lib,"StaplerEngine.lib")
 #endif
