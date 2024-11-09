@@ -8,22 +8,22 @@
 
 class DLLAPI_SE RandEng {
 protected:
-	std::mt19937* generator;
+	std::mt19937* generator_;
 public:
-	void Reset();
-	void Reset(int);
-	unsigned int AutoResetFreq = NULL;
+	void reset_();
+	void reset_(int);
+	unsigned int auto_reset_freq_ = NULL;
 private:
-	unsigned int currentFreq = NULL;
-	bool autoReset();
+	unsigned int current_freq_ = NULL;
+	bool auto_reset_();
 public:
-	int UniformInt(int, int);
-	double UniformReal(double, double);
+	int uniform_int_rand_(int, int);
+	double uniform_real_rand_(double, double);
 	//... Other random types
-	int UniformIntOdd(int[], const int&);
-	int UniformRealOdd(double[], const int&);
+	int uniform_intodd(int[], const int&);
+	int uniform_realodd(double[], const int&);
 	//... Other Percentage random types
 
-	RandEng() { Reset(); };
-	RandEng(int seed) { Reset(seed); };
+	RandEng() { reset_(); };
+	RandEng(int seed) { reset_(seed); };
 };

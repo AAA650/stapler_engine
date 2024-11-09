@@ -2,79 +2,85 @@
 #include "pch.h"
 #include "include/Rand.h"
 
-DLLAPI_SE void RandEng::Reset() {
+DLLAPI_SE void RandEng::reset_() {
 	std::random_device RandDevice;
-	generator = new std::mt19937(RandDevice());
+	generator_ = new std::mt19937(RandDevice());
 };
-DLLAPI_SE void RandEng::Reset(int seed) {
-	generator = new std::mt19937(seed);
+
+DLLAPI_SE void RandEng::reset_(int seed) {
+	generator_ = new std::mt19937(seed);
 };
-DLLAPI_SE bool RandEng::autoReset() {
-	if (AutoResetFreq <= 0) {
-		currentFreq = 0;
+
+DLLAPI_SE bool RandEng::auto_reset_() {
+	if (auto_reset_freq_ <= 0) {
+		current_freq_ = 0;
 		return false;
 	};
-	currentFreq++;
-	if (currentFreq >= AutoResetFreq) {
-		currentFreq = 0;
-		Reset();
+	current_freq_++;
+	if (current_freq_ >= auto_reset_freq_) {
+		current_freq_ = 0;
+		reset_();
 		return true;
 	};
 	return false;
 };
-DLLAPI_SE int RandEng::UniformInt(int min, int max) {
-	autoReset();
+
+DLLAPI_SE int RandEng::uniform_int_rand_(int min, int max) {
+	auto_reset_();
 	std::uniform_int_distribution<> distribution(min, max);
-	return distribution(*generator);
+	return distribution(*generator_);
 };
-DLLAPI_SE double RandEng::UniformReal(double min, double max) {
-	autoReset();
+
+DLLAPI_SE double RandEng::uniform_real_rand_(double min, double max) {
+	auto_reset_();
 	std::uniform_real_distribution<> distribution(min, max);
-	return distribution(*generator);
+	return distribution(*generator_);
 };
-DLLAPI_SE int RandEng::UniformIntOdd(int _odd[], const int& _size) {
-	if (_size <= 0)
+
+DLLAPI_SE int RandEng::uniform_intodd(int odd[], const int& size) {
+	if (size <= 0)
 		return -1;
-	int sum = 0;
-	for (int i = 1; i < _size; i++) {
-		if (_odd[i] < 0) {
+	int sum_num = 0;
+	for (int i = 1; i < size; i++) {
+		if (odd[i] < 0) {
 			throw std::range_error("Cannot below zero");
 			return -1;
 		};
-		sum += _odd[i];
+		sum_num += odd[i];
 	};
-	if (sum < 0) {
+	if (sum_num < 0) {
 		throw std::overflow_error("Overflowed");
 		return -1;
 	}
-	int Num = UniformInt(0, sum - 1);
-	for (int i = 0; i < _size; i++) {
-		Num -= _odd[i];
-		if (Num < 0)
+	int minus_num = uniform_int_rand_(0, sum_num - 1);
+	for (int i = 0; i < size; i++) {
+		minus_num -= odd[i];
+		if (minus_num < 0)
 			return i;
 	};
 	throw std::bad_exception();
 	return -1;
 };
-DLLAPI_SE int RandEng::UniformRealOdd(double _odd[], const int& _size) {
-	if (_size <= 0)
+
+DLLAPI_SE int RandEng::uniform_realodd(double odd[], const int& size) {
+	if (size <= 0)
 		return -1;
-	double sum = 0;
-	for (int i = 1; i < _size; i++) {
-		if (_odd[i] < 0) {
+	double sum_num = 0;
+	for (int i = 1; i < size; i++) {
+		if (odd[i] < 0) {
 			throw std::range_error("Cannot below zero");
 			return -1;
 		};
-		sum += _odd[i];
+		sum_num += odd[i];
 	};
-	if (sum < 0) {
+	if (sum_num < 0) {
 		throw std::overflow_error("Overflowed");
 		return -1;
 	}
-	int Num = UniformReal(0, sum - 1);
-	for (int i = 0; i < _size; i++) {
-		Num -= _odd[i];
-		if (Num < 0)
+	int minus_num = uniform_real_rand_(0, sum_num - 1);
+	for (int i = 0; i < size; i++) {
+		minus_num -= odd[i];
+		if (minus_num < 0)
 			return i;
 	};
 	throw std::bad_exception();

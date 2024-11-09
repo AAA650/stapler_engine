@@ -18,7 +18,7 @@ DLLAPI_SE int object::m_fnSetBox(Vec3 iInVec) {
 	return 0;
 };
 DLLAPI_SE int object::m_fnSetBox(Vec2 iInVec) {
-	box = Vec3(VEC2(iInVec), box.m_fnz());
+	box = Vec3(VEC2(iInVec), box.z_);
 	return 0;
 };
 DLLAPI_SE const Vec3& object::m_fnGetBox() const {
@@ -50,27 +50,27 @@ DLLAPI_SE int object::m_fnSetupObj(ObjInfo Inf) {
 
 
 DLLAPI_SE Vec2 camera::m_fnGetScrPos(Vec3 TargetPos) {
-	double sina = sin(dir.m_fnxz()), cosa = cos(dir.m_fnxz()), sinb = sin(dir.m_fnyz()), cosb = cos(dir.m_fnyz());
-	double tmpDist = sina * cosa * TargetPos.m_fnx() + sinb * TargetPos.m_fny() - cosa * cosb * TargetPos.m_fnz(),
+	double sina = sin(dir.x_z_), cosa = cos(dir.x_z_), sinb = sin(dir.y_z_), cosb = cos(dir.y_z_);
+	double tmpDist = sina * cosa * TargetPos.x_ + sinb * TargetPos.y_ - cosa * cosb * TargetPos.z_,
 		CamToTargDistance = fabs(tmpDist),
 		ScrToTargDistance = fabs(m_dScreenDistance - tmpDist);
 	if (CamToTargDistance < m_dScreenDistance && CamToTargDistance < ScrToTargDistance)
 		return Vec2(0, 0);
 	Vec2 ret(0, 0);
 	if (cosb == 0) {
-		ret.m_fnx((TargetPos.m_fnx() * cosa + TargetPos.m_fnz() * sina) * m_dScreenDistance / CamToTargDistance);
-		ret.m_fny((TargetPos.m_fnx() * cosa - TargetPos.m_fnz() * sina) * m_dScreenDistance / CamToTargDistance);
+		ret.x_ = (TargetPos.x_ * cosa + TargetPos.z_ * sina)* m_dScreenDistance / CamToTargDistance;
+		ret.y_ = (TargetPos.x_ * cosa - TargetPos.z_ * sina)* m_dScreenDistance / CamToTargDistance;
 		return ret;
 	};
 	if (sinb == 0)
-		ret.m_fny(m_dScreenDistance * TargetPos.m_fny() / (CamToTargDistance * cosb));
+		ret.y_ = m_dScreenDistance * TargetPos.y_ / (CamToTargDistance * cosb);
 	else
-		ret.m_fny(m_dScreenDistance * (TargetPos.m_fny() - CamToTargDistance * sinb) / (CamToTargDistance * cosb));
+		ret.y_ = m_dScreenDistance * (TargetPos.y_ - CamToTargDistance * sinb) / (CamToTargDistance * cosb);
 	if (sina == 0)
-		ret.m_fnx((TargetPos.m_fnx() * m_dScreenDistance) / (cosa * CamToTargDistance));
+		ret.x_ = (TargetPos.x_ * m_dScreenDistance) / (cosa * CamToTargDistance);
 	else if (cosa == 0)
-		ret.m_fnx((TargetPos.m_fnz() * m_dScreenDistance) / (sina * CamToTargDistance));
+		ret.x_ = (TargetPos.z_ * m_dScreenDistance) / (sina * CamToTargDistance);
 	else
-		ret.m_fnx((TargetPos.m_fnx() * cosb + TargetPos.m_fny() * sina * sinb - sina * CamToTargDistance) * m_dScreenDistance / (cosa * cosb * CamToTargDistance));
+		ret.x_ = (TargetPos.x_ * cosb + TargetPos.y_ * sina * sinb - sina * CamToTargDistance) * m_dScreenDistance / (cosa * cosb * CamToTargDistance);
 	return ret;
 };

@@ -4,7 +4,7 @@
 #ifndef STAPLERENGINE_H
 #define STAPLERENGINE_H
 
-#define SE_VER 0.2.2.2
+#define SE_VER "0.3.0"
 
 #include "include/SEDefinition.h"
 

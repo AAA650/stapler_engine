@@ -1,8 +1,8 @@
 //SEDefinition.h   Define all things in SE.
 #pragma once
 
-#ifndef SEDEFINITION_H
-#define SEDEFINITION_H
+#ifndef SE_SEDEFINITION_H
+#define SE_SEDEFINITION_H
 #endif
 
 #ifdef STAPLERENGINE_EXPORTS
