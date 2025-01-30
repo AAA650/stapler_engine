@@ -31,14 +31,14 @@
     <Filter Include="头文件\plugin">
       <UniqueIdentifier>{03b11ef5-2b30-4481-8efd-92cfbc9d5785}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\dll">
+      <UniqueIdentifier>{cd706c36-0b11-47c8-9f8c-23738474df7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\dll">
+      <UniqueIdentifier>{4515336f-4083-4dae-9750-caca00765287}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\stapler_engine\stapler_engine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\stapler_engine\dll_config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="lib\stapler_engine\vector\vec.h">
       <Filter>头文件\vec</Filter>
     </ClInclude>
@@ -102,11 +102,14 @@
     <ClInclude Include="lib\stapler_engine\plugin\controller.h">
       <Filter>头文件\plugin</Filter>
     </ClInclude>
+    <ClInclude Include="lib\stapler_engine\dll_config.h">
+      <Filter>头文件\dll</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\stapler_engine.h">
+      <Filter>头文件\dll</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bin\stapler_engine\stapler_engine.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="bin\stapler_engine\vector\vec_2.cpp">
       <Filter>源文件\vec</Filter>
     </ClCompile>
@@ -124,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="bin\stapler_engine\vector\vec_3i.cpp">
       <Filter>源文件\vec</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\stapler_engine\stapler_engine.cpp">
+      <Filter>源文件\dll</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
