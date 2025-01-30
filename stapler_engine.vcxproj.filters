@@ -131,5 +131,11 @@
     <ClCompile Include="bin\stapler_engine\stapler_engine.cpp">
       <Filter>源文件\dll</Filter>
     </ClCompile>
+    <ClCompile Include="bin\stapler_engine\vector\vec_4.cpp">
+      <Filter>源文件\vec</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\stapler_engine\vector\vec_4i.cpp">
+      <Filter>源文件\vec</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

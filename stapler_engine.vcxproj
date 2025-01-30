@@ -168,6 +168,8 @@
     <ClCompile Include="bin\stapler_engine\vector\vec_2i.cpp" />
     <ClCompile Include="bin\stapler_engine\vector\vec_3.cpp" />
     <ClCompile Include="bin\stapler_engine\vector\vec_3i.cpp" />
+    <ClCompile Include="bin\stapler_engine\vector\vec_4.cpp" />
+    <ClCompile Include="bin\stapler_engine\vector\vec_4i.cpp" />
     <ClCompile Include="bin\stapler_engine\vector\vec_base.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
