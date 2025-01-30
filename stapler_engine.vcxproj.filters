@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\vec">
+      <UniqueIdentifier>{f15af1ee-cd83-4631-8b57-0ca7cd06d21c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\struct">
+      <UniqueIdentifier>{b697c101-5047-4638-9e79-39db9ac21cad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\object">
+      <UniqueIdentifier>{9acff051-3991-4744-bd1d-aba133aeb0b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\vec">
+      <UniqueIdentifier>{40af35e0-2c23-4b1b-a0f3-343da9f79890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\object">
+      <UniqueIdentifier>{41c99f13-9378-4a4d-b6a6-98f7989c3c6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\plugin">
+      <UniqueIdentifier>{03b11ef5-2b30-4481-8efd-92cfbc9d5785}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\stapler_engine\stapler_engine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\dll_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec_2.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec_2i.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec_3.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec_3i.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec_4.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec_4i.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\vector\vec_base.h">
+      <Filter>头文件\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\structure\structure_ui.h">
+      <Filter>头文件\struct</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\structure\structure.h">
+      <Filter>头文件\struct</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\structure\structure_2d.h">
+      <Filter>头文件\struct</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\structure\structure_3d.h">
+      <Filter>头文件\struct</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\structure\structure_base.h">
+      <Filter>头文件\struct</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\object\object.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\object\connector.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\plugin\plugin.h">
+      <Filter>头文件\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\plugin\plugin_base.h">
+      <Filter>头文件\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\plugin\random_eng.h">
+      <Filter>头文件\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\plugin\timer.h">
+      <Filter>头文件\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\plugin\delegate.h">
+      <Filter>头文件\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stapler_engine\plugin\controller.h">
+      <Filter>头文件\plugin</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bin\stapler_engine\stapler_engine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\stapler_engine\vector\vec_2.cpp">
+      <Filter>源文件\vec</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\stapler_engine\vector\vec_base.cpp">
+      <Filter>源文件\vec</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\stapler_engine\vector\vec_2i.cpp">
+      <Filter>源文件\vec</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\stapler_engine\vector\vec_3.cpp">
+      <Filter>源文件\vec</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\stapler_engine\object\object.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
