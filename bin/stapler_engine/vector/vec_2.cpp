@@ -93,6 +93,11 @@ namespace stapler_engine::vector
 		return this->divide_(arg);
 	}
 
+	DLLAPI_SE float_precision Vec2::norm_without_radical_()
+	{
+		return x * x + y * y;
+	}
+
 	DLLAPI_SE void Vec2::operator+=(Vec2& arg)
 	{
 		*this = this->plus_(arg);

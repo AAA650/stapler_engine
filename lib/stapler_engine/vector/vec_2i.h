@@ -1,4 +1,4 @@
-// Vec2ii.h
+// vec2_i.h
 #ifndef SE_VEC_2I_H
 #define SE_VEC_2I_H
 #include "vec_base.h"
@@ -18,14 +18,14 @@ namespace stapler_engine::vector {
 		//Set y axis
 		virtual inline void y_(int num);
 		//Plus Vec2i
-		virtual inline Vec2i plus_(Vec2i& Vec2i);
-		virtual inline Vec2i operator+(Vec2i& Vec2i);
+		virtual inline Vec2i plus_(Vec2i& vec2i);
+		virtual inline Vec2i operator+(Vec2i& vec2i);
 		//Plus num
 		virtual inline Vec2i plus_(int num);
 		virtual inline Vec2i operator+(int num);
 		//Minus Vec2i
-		virtual inline Vec2i minus_(Vec2i& Vec2i);
-		virtual inline Vec2i operator-(Vec2i& Vec2i);
+		virtual inline Vec2i minus_(Vec2i& vec2i);
+		virtual inline Vec2i operator-(Vec2i& vec2i);
 		//Minus num
 		virtual inline Vec2i minus_(int num);
 		virtual inline Vec2i operator-(int num);
@@ -33,14 +33,16 @@ namespace stapler_engine::vector {
 		virtual inline Vec2i ride_(int num);
 		virtual inline Vec2i operator*(int num);
 		//Dot Vec2i
-		virtual inline int dot_(Vec2i& Vec2i);
+		virtual inline int dot_(Vec2i& vec2i);
 		//Cross Vec2i
-		virtual inline int cross_(Vec2i& Vec2i);
+		virtual inline int cross_(Vec2i& vec2i);
 		//Divide num
 		virtual inline Vec2i divide_(int num);
 		virtual inline Vec2i operator/(int num);
+		//Norm without radical
+		virtual inline int norm_without_radical_();
 		//Self add
-		virtual inline void operator+=(Vec2i& Vec2i);
+		virtual inline void operator+=(Vec2i& vec2i);
 		virtual inline void operator+=(int num);
 		//Self minus
 		virtual inline void operator-=(Vec2i&);
@@ -50,11 +52,11 @@ namespace stapler_engine::vector {
 		//Self divide
 		virtual inline void operator/=(int num);
 		//Is equal
-		virtual inline bool equal_(Vec2i& Vec2i);
-		virtual inline bool operator==(Vec2i& Vec2i);
+		virtual inline bool equal_(Vec2i& vec2i);
+		virtual inline bool operator==(Vec2i& vec2i);
 		//Is unequal
-		virtual inline bool unequal_(Vec2i& Vec2i);
-		virtual inline bool operator!=(Vec2i& Vec2i);
+		virtual inline bool unequal_(Vec2i& vec2i);
+		virtual inline bool operator!=(Vec2i& vec2i);
 		//Init as (0,0)
 		Vec2i();
 		//Init as (x,y)

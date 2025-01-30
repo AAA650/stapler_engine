@@ -107,6 +107,11 @@ namespace stapler_engine::vector
 		return this->divide_(arg);
 	}
 
+	DLLAPI_SE float_precision Vec3::norm_without_radical_()
+	{
+		return x * x + y * y + z * z;
+	}
+
 	DLLAPI_SE void Vec3::operator+=(Vec3& arg)
 	{
 		*this = this->plus_(arg);

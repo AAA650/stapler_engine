@@ -1,4 +1,4 @@
-//
+// vec_2.h
 #ifndef SE_VEC_2_H
 #define SE_VEC_2_H
 #include "vec_base.h"
@@ -39,6 +39,8 @@ namespace stapler_engine::vector
 		//Divide num
 		virtual inline Vec2 divide_(float_precision num);
 		virtual inline Vec2 operator/(float_precision num);
+		//Norm without radical
+		virtual inline float_precision norm_without_radical_();
 		//Self add
 		virtual inline void operator+=(Vec2& vec2);
 		virtual inline void operator+=(float_precision num);
