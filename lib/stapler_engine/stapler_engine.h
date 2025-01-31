@@ -2,7 +2,7 @@
 #define STAPLER_ENGINE_H
 
 #ifndef STAPLER_ENGINE_EXPORTS
-#pragma comment(lib,"stapler_engine.dll")
+#pragma comment(lib,"stapler_engine.lib")
 #endif
 
 #include "object/object.h"

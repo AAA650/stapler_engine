@@ -14,10 +14,10 @@ typedef float float_precision;
 #define EPS 1e-8f
 #endif
 
-#define VEC_2(vec) (vec).x_, (vec).y_
-#define T_VEC_2(vec,type) (type)(vec).x_, (type)(vec).y_
-#define O_VEC_2(vec) (vec).y_, (vec).x_
-#define OT_VEC_2(vec,type) (type)(vec).y_, (type)(vec).x_
+#define VEC_2(vec)         (vec).x_(), (vec).y_()
+#define T_VEC_2(vec,type)  (type)(vec).x_(), (type)(vec).y_()
+#define O_VEC_2(vec)       (vec).y_(), (vec).x_()
+#define OT_VEC_2(vec,type) (type)(vec).y_(), (type)(vec).x_()
 
 namespace stapler_engine::vec {
 	class Vector : public Object {
