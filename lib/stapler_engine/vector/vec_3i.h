@@ -8,18 +8,12 @@ namespace stapler_engine::vec {
 	protected:
 		int x, y, z;
 	public:
-		//Get x axis
+		//X axis
 		virtual inline int& x_();
-		//Set x axis
-		virtual inline void x_(int num);
-		//Get y axis
+		//Y axis
 		virtual inline int& y_();
-		//Set y axis
-		virtual inline void y_(int num);
-		//Get z axis
+		//Z axis
 		virtual inline int& z_();
-		//Set z axis
-		virtual inline void z_(int num);
 		//Plus Vector3i
 		virtual inline Vector3i plus_(const Vector3i& vec3) const;
 		virtual inline Vector3i operator+(const Vector3i& vec3) const;

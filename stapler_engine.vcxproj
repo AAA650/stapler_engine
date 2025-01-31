@@ -134,6 +134,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <Version>
       </Version>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

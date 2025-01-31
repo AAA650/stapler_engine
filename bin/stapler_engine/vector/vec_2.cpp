@@ -8,19 +8,9 @@ namespace stapler_engine::vec
 		return x;
 	}
 
-	DLLAPI_SE void Vector2::x_(float_precision arg)
-	{
-		this->x = arg;
-	}
-
 	DLLAPI_SE float_precision& Vector2::y_()
 	{
 		return y;
-	}
-
-	DLLAPI_SE void Vector2::y_(float_precision arg)
-	{
-		this->y = arg;
 	}
 
 	DLLAPI_SE Vector2 Vector2::plus_(const Vector2& arg) const

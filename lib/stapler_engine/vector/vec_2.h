@@ -9,14 +9,10 @@ namespace stapler_engine::vec
 	protected:
 		float_precision x, y;
 	public:
-		//Get x axis
+		//X axis
 		virtual inline float_precision& x_();
-		//Set x axis
-		virtual inline void x_(float_precision num);
-		//Get y axis
+		//Y axis
 		virtual inline float_precision& y_();
-		//Set y axis
-		virtual inline void y_(float_precision num);
 		//Plus Vector2
 		virtual inline Vector2 plus_(const Vector2& vec2) const;
 		virtual inline Vector2 operator+(const Vector2& vec2) const;

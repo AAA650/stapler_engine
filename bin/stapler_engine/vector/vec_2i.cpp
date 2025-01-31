@@ -8,19 +8,9 @@ namespace stapler_engine::vec
 		return x;
 	}
 
-	DLLAPI_SE void Vector2i::x_(int arg)
-	{
-		this->x = arg;
-	}
-
 	DLLAPI_SE int& Vector2i::y_()
 	{
 		return y;
-	}
-
-	DLLAPI_SE void Vector2i::y_(int arg)
-	{
-		this->y = arg;
 	}
 
 	DLLAPI_SE Vector2i Vector2i::plus_(const Vector2i& arg) const

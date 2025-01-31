@@ -8,29 +8,14 @@ namespace stapler_engine::vec
 		return x;
 	}
 
-	DLLAPI_SE void Vector3::x_(float_precision arg)
-	{
-		this->x = arg;
-	}
-
 	DLLAPI_SE float_precision& Vector3::y_()
 	{
 		return y;
 	}
 
-	DLLAPI_SE void Vector3::y_(float_precision arg)
-	{
-		this->y = arg;
-	}
-
 	DLLAPI_SE float_precision& Vector3::z_()
 	{
 		return z;
-	}
-
-	DLLAPI_SE void Vector3::z_(float_precision arg)
-	{
-		this->z = arg;
 	}
 
 	DLLAPI_SE Vector3 Vector3::plus_(const Vector3& arg) const
@@ -91,9 +76,9 @@ namespace stapler_engine::vec
 	DLLAPI_SE Vector3 Vector3::cross_(const Vector3& arg) const
 	{
 		Vector3 ret = Vector3();
-		ret.x_(this->y * arg.z - this->z * arg.y);
-		ret.y_(this->z * arg.x - this->x * arg.z);
-		ret.z_(this->x * arg.y - this->y * arg.x);
+		ret.x_() = this->y * arg.z - this->z * arg.y;
+		ret.y_() = this->z * arg.x - this->x * arg.z;
+		ret.z_() = this->x * arg.y - this->y * arg.x;
 		return ret;
 	}
 

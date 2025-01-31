@@ -8,19 +8,9 @@ namespace stapler_engine::vec
 		return x;
 	}
 
-	DLLAPI_SE void Vector4i::x_(int arg)
-	{
-		this->x = arg;
-	}
-
 	DLLAPI_SE int& Vector4i::y_()
 	{
 		return y;
-	}
-
-	DLLAPI_SE void Vector4i::y_(int arg)
-	{
-		this->y = arg;
 	}
 
 	DLLAPI_SE int& Vector4i::z_()
@@ -28,19 +18,9 @@ namespace stapler_engine::vec
 		return z;
 	}
 
-	DLLAPI_SE void Vector4i::z_(int arg)
-	{
-		this->z = arg;
-	}
-
 	DLLAPI_SE int& Vector4i::w_()
 	{
 		return w;
-	}
-
-	DLLAPI_SE void Vector4i::w_(int arg)
-	{
-		this->w = arg;
 	}
 
 	DLLAPI_SE Vector4i Vector4i::plus_(const Vector4i& arg) const
@@ -101,9 +81,9 @@ namespace stapler_engine::vec
 	DLLAPI_SE Vector4i Vector4i::cross_(const Vector4i& arg) const
 	{
 		Vector4i ret = Vector4i();
-		ret.x_(this->y * arg.z - this->z * arg.y);
-		ret.y_(this->z * arg.x - this->x * arg.z);
-		ret.z_(this->x * arg.y - this->y * arg.x);
+		ret.x_() = this->y * arg.z - this->z * arg.y;
+		ret.y_() = this->z * arg.x - this->x * arg.z;
+		ret.z_() = this->x * arg.y - this->y * arg.x;
 		return ret;
 	}
 
