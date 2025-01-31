@@ -9,10 +9,11 @@ namespace stapler_engine
 	public:
 		//Stapler engine main function
 		static void se_main();
+		Object() = default;
 	};
 
 	template<typename Tdata>
-	class Attribute :public Object 
+	class Attribute
 	{
 	public:
 		virtual void get_(Tdata) = 0;

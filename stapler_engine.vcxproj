@@ -172,6 +172,9 @@
     <ClCompile Include="bin\stapler_engine\vector\vec_4i.cpp" />
     <ClCompile Include="bin\stapler_engine\vector\vec_base.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

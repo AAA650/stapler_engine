@@ -43,86 +43,86 @@ namespace stapler_engine::vec
 		this->w = arg;
 	}
 
-	DLLAPI_SE Vector4 Vector4::plus_(Vector4 arg)
+	DLLAPI_SE Vector4 Vector4::plus_(const Vector4& arg) const
 	{
-		return Vector4(this->x + arg.x_(), this->y + arg.y_(), this->z + arg.z_(), this->w + arg.w_());
+		return Vector4(this->x + arg.x, this->y + arg.y, this->z + arg.z, this->w + arg.w);
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator+(Vector4 arg)
+	DLLAPI_SE Vector4 Vector4::operator+(const Vector4& arg) const
 	{
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::plus_(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::plus_(float_precision arg) const
 	{
 		return Vector4(this->x + arg, this->y + arg, this->z + arg, this->w + arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator+(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::operator+(float_precision arg) const
 	{
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::minus_(Vector4 arg)
+	DLLAPI_SE Vector4 Vector4::minus_(const Vector4& arg) const
 	{
-		return Vector4(this->x - arg.x_(), this->y - arg.y_(), this->z - arg.z_(), this->w - arg.z_());
+		return Vector4(this->x - arg.x, this->y - arg.y, this->z - arg.z, this->w - arg.z);
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator-(Vector4 arg)
+	DLLAPI_SE Vector4 Vector4::operator-(const Vector4& arg) const
 	{
 		return this->minus_(arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::minus_(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::minus_(float_precision arg) const
 	{
 		return Vector4(this->x - arg, this->y - arg, this->z - arg, this->w - arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator-(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::operator-(float_precision arg) const
 	{
 		return this->minus_(arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::ride_(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::ride_(float_precision arg) const
 	{
 		return Vector4(this->x * arg, this->y * arg, this->z * arg, this->w * arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator*(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::operator*(float_precision arg) const
 	{
 		return this->ride_(arg);
 	}
 
-	DLLAPI_SE float_precision Vector4::dot_(Vector4 arg)
+	DLLAPI_SE float_precision Vector4::dot_(const Vector4& arg) const
 	{
-		return this->x * arg.x_() + this->y * arg.y_() + this->z * arg.z_() + this->w * arg.w_();
+		return this->x * arg.x + this->y * arg.y + this->z * arg.z + this->w * arg.w;
 	}
 
-	DLLAPI_SE Vector4 Vector4::cross_(Vector4 arg)
+	DLLAPI_SE Vector4 Vector4::cross_(const Vector4& arg) const
 	{
 		Vector4 ret = Vector4();
-		ret.x_(this->y * arg.z_() - this->z * arg.y_());
-		ret.y_(this->z * arg.x_() - this->x * arg.z_());
-		ret.z_(this->x * arg.y_() - this->y * arg.x_());
+		ret.x_(this->y * arg.z - this->z * arg.y);
+		ret.y_(this->z * arg.x - this->x * arg.z);
+		ret.z_(this->x * arg.y - this->y * arg.x);
 		return ret;
 	}
 
-	DLLAPI_SE Vector4 Vector4::divide_(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::divide_(float_precision arg) const
 	{
 		return Vector4(this->x / arg, this->y / arg, this->z / arg, this->w / arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator/(float_precision arg)
+	DLLAPI_SE Vector4 Vector4::operator/(float_precision arg) const
 	{
 		return this->divide_(arg);
 	}
 
-	DLLAPI_SE float_precision Vector4::norm_without_radical_()
+	DLLAPI_SE float_precision Vector4::norm_without_radical_() const
 	{
 		return x * x + y * y + z * z + w * w;
 	}
 
-	DLLAPI_SE void Vector4::operator+=(Vector4 arg)
+	DLLAPI_SE void Vector4::operator+=(const Vector4& arg)
 	{
 		*this = this->plus_(arg);
 	}
@@ -132,7 +132,7 @@ namespace stapler_engine::vec
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vector4::operator-=(Vector4 arg)
+	DLLAPI_SE void Vector4::operator-=(const Vector4& arg)
 	{
 		*this = this->minus_(arg);
 	}
@@ -152,26 +152,26 @@ namespace stapler_engine::vec
 		*this = this->divide_(arg);
 	}
 
-	DLLAPI_SE bool Vector4::equal_(Vector4 arg)
+	DLLAPI_SE bool Vector4::equal_(const Vector4& arg) const
 	{
 #ifdef USING_DOUBLE_VEC
-		return (fabs(this->x - arg.x_()) < EPS) && (fabs(this->y - arg.y_()) < EPS) && (fabs(this->z - arg.z_()) < EPS) && (fabs(this->w - arg.w_()) < EPS);
+		return (fabs(this->x - arg.x) < EPS) && (fabs(this->y - arg.y) < EPS) && (fabs(this->z - arg.z) < EPS) && (fabs(this->w - arg.w) < EPS);
 #else
-		return (fabsf(this->x - arg.x_()) < EPS) && (fabsf(this->y - arg.y_()) < EPS) && (fabsf(this->z - arg.z_()) < EPS) && (fabsf(this->w - arg.w_()) < EPS);
+		return (fabsf(this->x - arg.x) < EPS) && (fabsf(this->y - arg.y) < EPS) && (fabsf(this->z - arg.z) < EPS) && (fabsf(this->w - arg.w) < EPS);
 #endif
 	}
 
-	DLLAPI_SE bool Vector4::operator==(Vector4 arg)
+	DLLAPI_SE bool Vector4::operator==(const Vector4& arg) const
 	{
 		return this->equal_(arg);
 	}
 
-	DLLAPI_SE bool Vector4::unequal_(Vector4 arg)
+	DLLAPI_SE bool Vector4::unequal_(const Vector4& arg) const
 	{
 		return !(this->equal_(arg));
 	}
 
-	DLLAPI_SE bool Vector4::operator!=(Vector4 arg)
+	DLLAPI_SE bool Vector4::operator!=(const Vector4& arg) const
 	{
 		return this->unequal_(arg);
 	}

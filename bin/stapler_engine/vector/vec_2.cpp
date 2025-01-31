@@ -23,82 +23,82 @@ namespace stapler_engine::vec
 		this->y = arg;
 	}
 
-	DLLAPI_SE Vector2 Vector2::plus_(Vector2 arg)
+	DLLAPI_SE Vector2 Vector2::plus_(const Vector2& arg) const
 	{
-		return Vector2(this->x + arg.x_(), this->y + arg.y_());
+		return Vector2(this->x + arg.x, this->y + arg.y);
 	}
 
-	DLLAPI_SE Vector2 Vector2::operator+(Vector2 arg)
+	DLLAPI_SE Vector2 Vector2::operator+(const Vector2& arg) const
 	{
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::plus_(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::plus_(float_precision arg) const
 	{
 		return Vector2(this->x + arg, this->y + arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::operator+(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator+(float_precision arg) const
 	{
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::minus_(Vector2 arg)
+	DLLAPI_SE Vector2 Vector2::minus_(const Vector2& arg) const
 	{
-		return Vector2(this->x - arg.x_(), this->y - arg.y_());
+		return Vector2(this->x - arg.x, this->y - arg.y);
 	}
 
-	DLLAPI_SE Vector2 Vector2::operator-(Vector2 arg)
+	DLLAPI_SE Vector2 Vector2::operator-(const Vector2& arg) const
 	{
 		return this->minus_(arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::minus_(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::minus_(float_precision arg) const
 	{
 		return Vector2(this->x - arg, this->y - arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::operator-(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator-(float_precision arg) const
 	{
 		return this->minus_(arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::ride_(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::ride_(float_precision arg) const
 	{
 		return Vector2(this->x * arg, this->y * arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::operator*(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator*(float_precision arg) const
 	{
 		return this->ride_(arg);
 	}
 
-	DLLAPI_SE float_precision Vector2::dot_(Vector2 arg)
+	DLLAPI_SE float_precision Vector2::dot_(const Vector2& arg) const
 	{
-		return this->x * arg.x_() + this->y * arg.y_();
+		return this->x * arg.x + this->y * arg.y;
 	}
 
-	DLLAPI_SE float_precision Vector2::cross_(Vector2 arg)
+	DLLAPI_SE float_precision Vector2::cross_(const Vector2& arg) const
 	{
-		return this->x * arg.y_() - this->y * arg.x_();
+		return this->x * arg.y - this->y * arg.x;
 	}
 
-	DLLAPI_SE Vector2 Vector2::divide_(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::divide_(float_precision arg) const
 	{
 		return Vector2(this->x / arg, this->y / arg);
 	}
 
-	DLLAPI_SE Vector2 Vector2::operator/(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator/(float_precision arg) const
 	{
 		return this->divide_(arg);
 	}
 
-	DLLAPI_SE float_precision Vector2::norm_without_radical_()
+	DLLAPI_SE float_precision Vector2::norm_without_radical_() const
 	{
 		return x * x + y * y;
 	}
 
-	DLLAPI_SE void Vector2::operator+=(Vector2 arg)
+	DLLAPI_SE void Vector2::operator+=(const Vector2& arg)
 	{
 		*this = this->plus_(arg);
 	}
@@ -108,7 +108,7 @@ namespace stapler_engine::vec
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vector2::operator-=(Vector2 arg)
+	DLLAPI_SE void Vector2::operator-=(const Vector2& arg)
 	{
 		*this = this->minus_(arg);
 	}
@@ -128,26 +128,26 @@ namespace stapler_engine::vec
 		*this = this->divide_(arg);
 	}
 
-	DLLAPI_SE bool Vector2::equal_(Vector2 arg)
+	DLLAPI_SE bool Vector2::equal_(const Vector2& arg) const
 	{
 #ifdef USING_DOUBLE_VEC
-		return (fabs(this->x - arg.x_()) < EPS) && (fabs(this->y - arg.y_()) < EPS);
+		return (fabs(this->x - arg.x) < EPS) && (fabs(this->y - arg.y) < EPS);
 #else
-		return (fabsf(this->x - arg.x_()) < EPS) && (fabsf(this->y - arg.y_()) < EPS);
+		return (fabsf(this->x - arg.x) < EPS) && (fabsf(this->y - arg.y) < EPS);
 #endif
 	}
 
-	DLLAPI_SE bool Vector2::operator==(Vector2 arg)
+	DLLAPI_SE bool Vector2::operator==(const Vector2& arg) const
 	{
 		return this->equal_(arg);
 	}
 
-	DLLAPI_SE bool Vector2::unequal_(Vector2 arg)
+	DLLAPI_SE bool Vector2::unequal_(const Vector2& arg) const
 	{
 		return !(this->equal_(arg));
 	}
 
-	DLLAPI_SE bool Vector2::operator!=(Vector2 arg)
+	DLLAPI_SE bool Vector2::operator!=(const Vector2& arg) const
 	{
 		return this->unequal_(arg);
 	}

@@ -1,0 +1,4 @@
+// 提示文件帮助 Visual Studio IDE 解释 Visual C++ 标识符,
+// 如函数和宏的名称。
+#define DLLAPI_SE _declspec(dllexport)
+#define DLLAPI_SE _declspec(dllimport)
