@@ -1,7 +1,7 @@
 // vec_2.cpp
 #include "../../../lib/stapler_engine/vector/vec_2.h"
 
-namespace stapler_engine::vector 
+namespace stapler_engine::vec 
 {
 	DLLAPI_SE const float_precision Vector2::x_()
 	{

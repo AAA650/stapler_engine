@@ -3,7 +3,7 @@
 #define SE_VEC_4_H
 #include "vec_base.h"
 
-namespace stapler_engine::vector {
+namespace stapler_engine::vec {
 	class DLLAPI_SE Vector4 : public Vector {
 	protected:
 		float_precision x, y, z, w;

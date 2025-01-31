@@ -3,7 +3,7 @@
 #define SE_VEC_4I_H
 #include "vec_base.h"
 
-namespace stapler_engine::vector {
+namespace stapler_engine::vec {
 	class DLLAPI_SE Vector4i : public Vector {
 	protected:
 		int x, y, z, w;

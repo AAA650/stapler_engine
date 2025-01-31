@@ -1,7 +1,7 @@
 // vec_2i.cpp
 #include "../../../lib/stapler_engine/vector/vec_2i.h"
 
-namespace stapler_engine::vector 
+namespace stapler_engine::vec 
 {
 	DLLAPI_SE const int Vector2i::x_()
 	{

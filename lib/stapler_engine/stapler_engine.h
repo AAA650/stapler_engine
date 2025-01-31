@@ -10,7 +10,7 @@
 #include "vector/vec.h"
 
 namespace se = stapler_engine;
-namespace se_vec = stapler_engine::vector;
+namespace se_vec = stapler_engine::vec;
 
 namespace stapler_engine 
 {

@@ -3,7 +3,7 @@
 #define SE_VEC_2_H
 #include "vec_base.h"
 
-namespace stapler_engine::vector 
+namespace stapler_engine::vec 
 {
 	class DLLAPI_SE Vector2 : public Vector {
 	protected:
