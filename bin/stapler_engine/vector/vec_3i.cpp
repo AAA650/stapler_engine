@@ -33,12 +33,12 @@ namespace stapler_engine::vector
 		this->z = arg;
 	}
 
-	DLLAPI_SE Vector3i Vector3i::plus_(Vector3i& arg)
+	DLLAPI_SE Vector3i Vector3i::plus_(Vector3i arg)
 	{
 		return Vector3i(this->x + arg.x_(), this->y + arg.y_(), this->z + arg.z_());
 	}
 
-	DLLAPI_SE Vector3i Vector3i::operator+(Vector3i& arg)
+	DLLAPI_SE Vector3i Vector3i::operator+(Vector3i arg)
 	{
 		return this->plus_(arg);
 	}
@@ -53,12 +53,12 @@ namespace stapler_engine::vector
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector3i Vector3i::minus_(Vector3i& arg)
+	DLLAPI_SE Vector3i Vector3i::minus_(Vector3i arg)
 	{
 		return Vector3i(this->x - arg.x_(), this->y - arg.y_(), this->z - arg.z_());
 	}
 
-	DLLAPI_SE Vector3i Vector3i::operator-(Vector3i& arg)
+	DLLAPI_SE Vector3i Vector3i::operator-(Vector3i arg)
 	{
 		return this->minus_(arg);
 	}
@@ -83,12 +83,12 @@ namespace stapler_engine::vector
 		return this->ride_(arg);
 	}
 
-	DLLAPI_SE int Vector3i::dot_(Vector3i& arg)
+	DLLAPI_SE int Vector3i::dot_(Vector3i arg)
 	{
 		return this->x * arg.x_() + this->y * arg.y_() + this->z * arg.z_();
 	}
 
-	DLLAPI_SE Vector3i Vector3i::cross_(Vector3i& arg)
+	DLLAPI_SE Vector3i Vector3i::cross_(Vector3i arg)
 	{
 		Vector3i ret = Vector3i();
 		ret.x_(this->y * arg.z_() - this->z * arg.y_());
@@ -112,7 +112,7 @@ namespace stapler_engine::vector
 		return x * x + y * y + z * z;
 	}
 
-	DLLAPI_SE void Vector3i::operator+=(Vector3i& arg)
+	DLLAPI_SE void Vector3i::operator+=(Vector3i arg)
 	{
 		*this = this->plus_(arg);
 	}
@@ -122,7 +122,7 @@ namespace stapler_engine::vector
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vector3i::operator-=(Vector3i& arg)
+	DLLAPI_SE void Vector3i::operator-=(Vector3i arg)
 	{
 		*this = this->minus_(arg);
 	}
@@ -142,22 +142,22 @@ namespace stapler_engine::vector
 		*this = this->divide_(arg);
 	}
 
-	DLLAPI_SE bool Vector3i::equal_(Vector3i& arg)
+	DLLAPI_SE bool Vector3i::equal_(Vector3i arg)
 	{
 		return (this->x == arg.x_()) && (this->y == arg.y_()) && (this->z == arg.z_());
 	}
 
-	DLLAPI_SE bool Vector3i::operator==(Vector3i& arg)
+	DLLAPI_SE bool Vector3i::operator==(Vector3i arg)
 	{
 		return this->equal_(arg);
 	}
 
-	DLLAPI_SE bool Vector3i::unequal_(Vector3i& arg)
+	DLLAPI_SE bool Vector3i::unequal_(Vector3i arg)
 	{
 		return !(this->equal_(arg));
 	}
 
-	DLLAPI_SE bool Vector3i::operator!=(Vector3i& arg)
+	DLLAPI_SE bool Vector3i::operator!=(Vector3i arg)
 	{
 		return this->unequal_(arg);
 	}

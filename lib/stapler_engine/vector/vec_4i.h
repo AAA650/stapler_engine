@@ -25,14 +25,14 @@ namespace stapler_engine::vector {
 		//Set z axi
 		virtual inline void w_(int num);
 		//Plus Vector4i
-		virtual inline Vector4i plus_(Vector4i& vec4i);
-		virtual inline Vector4i operator+(Vector4i& vec4i);
+		virtual inline Vector4i plus_(Vector4i vec4i);
+		virtual inline Vector4i operator+(Vector4i vec4i);
 		//Plus num
 		virtual inline Vector4i plus_(int num);
 		virtual inline Vector4i operator+(int num);
 		//Minus Vector4i
-		virtual inline Vector4i minus_(Vector4i& vec4i);
-		virtual inline Vector4i operator-(Vector4i& vec4i);
+		virtual inline Vector4i minus_(Vector4i vec4i);
+		virtual inline Vector4i operator-(Vector4i vec4i);
 		//Minus num
 		virtual inline Vector4i minus_(int num);
 		virtual inline Vector4i operator-(int num);
@@ -40,30 +40,30 @@ namespace stapler_engine::vector {
 		virtual inline Vector4i ride_(int num);
 		virtual inline Vector4i operator*(int num);
 		//Dot Vector4i
-		virtual inline int dot_(Vector4i& vec4i);
+		virtual inline int dot_(Vector4i vec4i);
 		//Cross Vector4i
-		virtual inline Vector4i cross_(Vector4i& vec4i);
+		virtual inline Vector4i cross_(Vector4i vec4i);
 		//Divide num
 		virtual inline Vector4i divide_(int num);
 		virtual inline Vector4i operator/(int num);
 		//Norm without radical
 		virtual inline int norm_without_radical_();
 		//Self add
-		virtual inline void operator+=(Vector4i& vec4i);
+		virtual inline void operator+=(Vector4i vec4i);
 		virtual inline void operator+=(int num);
 		//Self minus
-		virtual inline void operator-=(Vector4i& vec4i);
+		virtual inline void operator-=(Vector4i vec4i);
 		virtual inline void operator-=(int num);
 		//Self ride
 		virtual inline void operator*=(int num);
 		//Self divide
 		virtual inline void operator/=(int num);
 		//Is equal
-		virtual inline bool equal_(Vector4i& vec4i);
-		virtual inline bool operator==(Vector4i& vec4i);
+		virtual inline bool equal_(Vector4i vec4i);
+		virtual inline bool operator==(Vector4i vec4i);
 		//Is unequal
-		virtual inline bool unequal_(Vector4i& vec4i);
-		virtual inline bool operator!=(Vector4i& vec4i);
+		virtual inline bool unequal_(Vector4i vec4i);
+		virtual inline bool operator!=(Vector4i vec4i);
 		//Init as (0,0,0,0)
 		Vector4i();
 		//Init as (x,y,z,w)

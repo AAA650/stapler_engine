@@ -21,14 +21,14 @@ namespace stapler_engine::vector {
 		//Set z axis
 		virtual inline void z_(int num);
 		//Plus Vector3i
-		virtual inline Vector3i plus_(Vector3i& vec3);
-		virtual inline Vector3i operator+(Vector3i& vec3);
+		virtual inline Vector3i plus_(Vector3i vec3);
+		virtual inline Vector3i operator+(Vector3i vec3);
 		//Plus num
 		virtual inline Vector3i plus_(int num);
 		virtual inline Vector3i operator+(int num);
 		//Minus Vector3i
-		virtual inline Vector3i minus_(Vector3i& vec3);
-		virtual inline Vector3i operator-(Vector3i& vec3);
+		virtual inline Vector3i minus_(Vector3i vec3);
+		virtual inline Vector3i operator-(Vector3i vec3);
 		//Minus num
 		virtual inline Vector3i minus_(int num);
 		virtual inline Vector3i operator-(int num);
@@ -36,30 +36,30 @@ namespace stapler_engine::vector {
 		virtual inline Vector3i ride_(int num);
 		virtual inline Vector3i operator*(int num);
 		//Dot Vector3i
-		virtual inline int dot_(Vector3i& vec3);
+		virtual inline int dot_(Vector3i vec3);
 		//Cross Vector3i
-		virtual inline Vector3i cross_(Vector3i& vec3);
+		virtual inline Vector3i cross_(Vector3i vec3);
 		//Divide num
 		virtual inline Vector3i divide_(int num);
 		virtual inline Vector3i operator/(int num);
 		//Norm without radical
 		virtual inline int norm_without_radical_();
 		//Self add
-		virtual inline void operator+=(Vector3i& vec3);
+		virtual inline void operator+=(Vector3i vec3);
 		virtual inline void operator+=(int num);
 		//Self minus
-		virtual inline void operator-=(Vector3i& vec3);
+		virtual inline void operator-=(Vector3i vec3);
 		virtual inline void operator-=(int num);
 		//Self ride
 		virtual inline void operator*=(int num);
 		//Self divide
 		virtual inline void operator/=(int num);
 		//Is equal
-		virtual inline bool equal_(Vector3i& vec3);
-		virtual inline bool operator==(Vector3i& vec3);
+		virtual inline bool equal_(Vector3i vec3);
+		virtual inline bool operator==(Vector3i vec3);
 		//Is unequal
-		virtual inline bool unequal_(Vector3i& vec3);
-		virtual inline bool operator!=(Vector3i& vec3);
+		virtual inline bool unequal_(Vector3i vec3);
+		virtual inline bool operator!=(Vector3i vec3);
 		//Init as (0,0,0)
 		Vector3i();
 		//Init as (x,y,z)

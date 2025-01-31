@@ -43,12 +43,12 @@ namespace stapler_engine::vector
 		this->w = arg;
 	}
 
-	DLLAPI_SE Vector4 Vector4::plus_(Vector4& arg)
+	DLLAPI_SE Vector4 Vector4::plus_(Vector4 arg)
 	{
 		return Vector4(this->x + arg.x_(), this->y + arg.y_(), this->z + arg.z_(), this->w + arg.w_());
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator+(Vector4& arg)
+	DLLAPI_SE Vector4 Vector4::operator+(Vector4 arg)
 	{
 		return this->plus_(arg);
 	}
@@ -63,12 +63,12 @@ namespace stapler_engine::vector
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector4 Vector4::minus_(Vector4& arg)
+	DLLAPI_SE Vector4 Vector4::minus_(Vector4 arg)
 	{
 		return Vector4(this->x - arg.x_(), this->y - arg.y_(), this->z - arg.z_(), this->w - arg.z_());
 	}
 
-	DLLAPI_SE Vector4 Vector4::operator-(Vector4& arg)
+	DLLAPI_SE Vector4 Vector4::operator-(Vector4 arg)
 	{
 		return this->minus_(arg);
 	}
@@ -93,12 +93,12 @@ namespace stapler_engine::vector
 		return this->ride_(arg);
 	}
 
-	DLLAPI_SE float_precision Vector4::dot_(Vector4& arg)
+	DLLAPI_SE float_precision Vector4::dot_(Vector4 arg)
 	{
 		return this->x * arg.x_() + this->y * arg.y_() + this->z * arg.z_() + this->w * arg.w_();
 	}
 
-	DLLAPI_SE Vector4 Vector4::cross_(Vector4& arg)
+	DLLAPI_SE Vector4 Vector4::cross_(Vector4 arg)
 	{
 		Vector4 ret = Vector4();
 		ret.x_(this->y * arg.z_() - this->z * arg.y_());
@@ -122,7 +122,7 @@ namespace stapler_engine::vector
 		return x * x + y * y + z * z + w * w;
 	}
 
-	DLLAPI_SE void Vector4::operator+=(Vector4& arg)
+	DLLAPI_SE void Vector4::operator+=(Vector4 arg)
 	{
 		*this = this->plus_(arg);
 	}
@@ -132,7 +132,7 @@ namespace stapler_engine::vector
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vector4::operator-=(Vector4& arg)
+	DLLAPI_SE void Vector4::operator-=(Vector4 arg)
 	{
 		*this = this->minus_(arg);
 	}
@@ -152,7 +152,7 @@ namespace stapler_engine::vector
 		*this = this->divide_(arg);
 	}
 
-	DLLAPI_SE bool Vector4::equal_(Vector4& arg)
+	DLLAPI_SE bool Vector4::equal_(Vector4 arg)
 	{
 #ifdef USING_DOUBLE_VEC
 		return (fabs(this->x - arg.x_()) < EPS) && (fabs(this->y - arg.y_()) < EPS) && (fabs(this->z - arg.z_()) < EPS) && (fabs(this->w - arg.w_()) < EPS);
@@ -161,17 +161,17 @@ namespace stapler_engine::vector
 #endif
 	}
 
-	DLLAPI_SE bool Vector4::operator==(Vector4& arg)
+	DLLAPI_SE bool Vector4::operator==(Vector4 arg)
 	{
 		return this->equal_(arg);
 	}
 
-	DLLAPI_SE bool Vector4::unequal_(Vector4& arg)
+	DLLAPI_SE bool Vector4::unequal_(Vector4 arg)
 	{
 		return !(this->equal_(arg));
 	}
 
-	DLLAPI_SE bool Vector4::operator!=(Vector4& arg)
+	DLLAPI_SE bool Vector4::operator!=(Vector4 arg)
 	{
 		return this->unequal_(arg);
 	}

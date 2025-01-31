@@ -23,12 +23,12 @@ namespace stapler_engine::vector
 		this->y = arg;
 	}
 
-	DLLAPI_SE Vector2i Vector2i::plus_(Vector2i& arg)
+	DLLAPI_SE Vector2i Vector2i::plus_(Vector2i arg)
 	{
 		return Vector2i(this->x + arg.x_(), this->y + arg.y_());
 	}
 
-	DLLAPI_SE Vector2i Vector2i::operator+(Vector2i& arg)
+	DLLAPI_SE Vector2i Vector2i::operator+(Vector2i arg)
 	{
 		return this->plus_(arg);
 	}
@@ -43,12 +43,12 @@ namespace stapler_engine::vector
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector2i Vector2i::minus_(Vector2i& arg)
+	DLLAPI_SE Vector2i Vector2i::minus_(Vector2i arg)
 	{
 		return Vector2i(this->x - arg.x_(), this->y - arg.y_());
 	}
 
-	DLLAPI_SE Vector2i Vector2i::operator-(Vector2i& arg)
+	DLLAPI_SE Vector2i Vector2i::operator-(Vector2i arg)
 	{
 		return this->minus_(arg);
 	}
@@ -73,12 +73,12 @@ namespace stapler_engine::vector
 		return this->ride_(arg);
 	}
 
-	DLLAPI_SE int Vector2i::dot_(Vector2i& arg)
+	DLLAPI_SE int Vector2i::dot_(Vector2i arg)
 	{
 		return this->x * arg.x_() + this->y * arg.y_();
 	}
 
-	DLLAPI_SE int Vector2i::cross_(Vector2i& arg)
+	DLLAPI_SE int Vector2i::cross_(Vector2i arg)
 	{
 		return this->x * arg.y_() - this->y * arg.x_();
 	}
@@ -98,7 +98,7 @@ namespace stapler_engine::vector
 		return x * x + y * y;
 	}
 
-	DLLAPI_SE void Vector2i::operator+=(Vector2i& arg)
+	DLLAPI_SE void Vector2i::operator+=(Vector2i arg)
 	{
 		*this = this->plus_(arg);
 	}
@@ -108,7 +108,7 @@ namespace stapler_engine::vector
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vector2i::operator-=(Vector2i& arg)
+	DLLAPI_SE void Vector2i::operator-=(Vector2i arg)
 	{
 		*this = this->minus_(arg);
 	}
@@ -128,22 +128,22 @@ namespace stapler_engine::vector
 		*this = this->divide_(arg);
 	}
 
-	DLLAPI_SE bool Vector2i::equal_(Vector2i& arg)
+	DLLAPI_SE bool Vector2i::equal_(Vector2i arg)
 	{
 		return this->x == arg.x_() && this->y == arg.y_();
 	}
 
-	DLLAPI_SE bool Vector2i::operator==(Vector2i& arg)
+	DLLAPI_SE bool Vector2i::operator==(Vector2i arg)
 	{
 		return this->equal_(arg);
 	}
 
-	DLLAPI_SE bool Vector2i::unequal_(Vector2i& arg)
+	DLLAPI_SE bool Vector2i::unequal_(Vector2i arg)
 	{
 		return !(this->equal_(arg));
 	}
 
-	DLLAPI_SE bool Vector2i::operator!=(Vector2i& arg)
+	DLLAPI_SE bool Vector2i::operator!=(Vector2i arg)
 	{
 		return this->unequal_(arg);
 	}

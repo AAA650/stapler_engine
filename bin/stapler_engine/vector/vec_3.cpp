@@ -33,12 +33,12 @@ namespace stapler_engine::vector
 		this->z = arg;
 	}
 
-	DLLAPI_SE Vector3 Vector3::plus_(Vector3& arg)
+	DLLAPI_SE Vector3 Vector3::plus_(Vector3 arg)
 	{
 		return Vector3(this->x + arg.x_(), this->y + arg.y_(), this->z + arg.z_());
 	}
 
-	DLLAPI_SE Vector3 Vector3::operator+(Vector3& arg)
+	DLLAPI_SE Vector3 Vector3::operator+(Vector3 arg)
 	{
 		return this->plus_(arg);
 	}
@@ -53,12 +53,12 @@ namespace stapler_engine::vector
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vector3 Vector3::minus_(Vector3& arg)
+	DLLAPI_SE Vector3 Vector3::minus_(Vector3 arg)
 	{
 		return Vector3(this->x - arg.x_(), this->y - arg.y_(), this->z - arg.z_());
 	}
 
-	DLLAPI_SE Vector3 Vector3::operator-(Vector3& arg)
+	DLLAPI_SE Vector3 Vector3::operator-(Vector3 arg)
 	{
 		return this->minus_(arg);
 	}
@@ -83,12 +83,12 @@ namespace stapler_engine::vector
 		return this->ride_(arg);
 	}
 
-	DLLAPI_SE float_precision Vector3::dot_(Vector3& arg)
+	DLLAPI_SE float_precision Vector3::dot_(Vector3 arg)
 	{
 		return this->x * arg.x_() + this->y * arg.y_() + this->z * arg.z_();
 	}
 
-	DLLAPI_SE Vector3 Vector3::cross_(Vector3& arg)
+	DLLAPI_SE Vector3 Vector3::cross_(Vector3 arg)
 	{
 		Vector3 ret = Vector3();
 		ret.x_(this->y * arg.z_() - this->z * arg.y_());
@@ -112,7 +112,7 @@ namespace stapler_engine::vector
 		return x * x + y * y + z * z;
 	}
 
-	DLLAPI_SE void Vector3::operator+=(Vector3& arg)
+	DLLAPI_SE void Vector3::operator+=(Vector3 arg)
 	{
 		*this = this->plus_(arg);
 	}
@@ -122,7 +122,7 @@ namespace stapler_engine::vector
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vector3::operator-=(Vector3& arg)
+	DLLAPI_SE void Vector3::operator-=(Vector3 arg)
 	{
 		*this = this->minus_(arg);
 	}
@@ -142,7 +142,7 @@ namespace stapler_engine::vector
 		*this = this->divide_(arg);
 	}
 
-	DLLAPI_SE bool Vector3::equal_(Vector3& arg)
+	DLLAPI_SE bool Vector3::equal_(Vector3 arg)
 	{
 #ifdef USING_DOUBLE_VEC
 		return (fabs(this->x - arg.x_()) < EPS) && (fabs(this->y - arg.y_()) < EPS) && (fabs(this->z - arg.z_()) < EPS);
@@ -151,17 +151,17 @@ namespace stapler_engine::vector
 #endif
 	}
 
-	DLLAPI_SE bool Vector3::operator==(Vector3& arg)
+	DLLAPI_SE bool Vector3::operator==(Vector3 arg)
 	{
 		return this->equal_(arg);
 	}
 
-	DLLAPI_SE bool Vector3::unequal_(Vector3& arg)
+	DLLAPI_SE bool Vector3::unequal_(Vector3 arg)
 	{
 		return !(this->equal_(arg));
 	}
 
-	DLLAPI_SE bool Vector3::operator!=(Vector3& arg)
+	DLLAPI_SE bool Vector3::operator!=(Vector3 arg)
 	{
 		return this->unequal_(arg);
 	}
