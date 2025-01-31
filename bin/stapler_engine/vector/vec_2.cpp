@@ -3,132 +3,132 @@
 
 namespace stapler_engine::vector 
 {
-	DLLAPI_SE const float_precision Vec2::x_()
+	DLLAPI_SE const float_precision Vector2::x_()
 	{
 		return x;
 	}
 
-	DLLAPI_SE void Vec2::x_(float_precision arg)
+	DLLAPI_SE void Vector2::x_(float_precision arg)
 	{
 		this->x = arg;
 	}
 
-	DLLAPI_SE const float_precision Vec2::y_()
+	DLLAPI_SE const float_precision Vector2::y_()
 	{
 		return y;
 	}
 
-	DLLAPI_SE void Vec2::y_(float_precision arg)
+	DLLAPI_SE void Vector2::y_(float_precision arg)
 	{
 		this->y = arg;
 	}
 
-	DLLAPI_SE Vec2 Vec2::plus_(Vec2& arg)
+	DLLAPI_SE Vector2 Vector2::plus_(Vector2& arg)
 	{
-		return Vec2(this->x + arg.x_(), this->y + arg.y_());
+		return Vector2(this->x + arg.x_(), this->y + arg.y_());
 	}
 
-	DLLAPI_SE Vec2 Vec2::operator+(Vec2& arg)
-	{
-		return this->plus_(arg);
-	}
-
-	DLLAPI_SE Vec2 Vec2::plus_(float_precision arg)
-	{
-		return Vec2(this->x + arg, this->y + arg);
-	}
-
-	DLLAPI_SE Vec2 Vec2::operator+(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator+(Vector2& arg)
 	{
 		return this->plus_(arg);
 	}
 
-	DLLAPI_SE Vec2 Vec2::minus_(Vec2& arg)
+	DLLAPI_SE Vector2 Vector2::plus_(float_precision arg)
 	{
-		return Vec2(this->x - arg.x_(), this->y - arg.y_());
+		return Vector2(this->x + arg, this->y + arg);
 	}
 
-	DLLAPI_SE Vec2 Vec2::operator-(Vec2& arg)
+	DLLAPI_SE Vector2 Vector2::operator+(float_precision arg)
+	{
+		return this->plus_(arg);
+	}
+
+	DLLAPI_SE Vector2 Vector2::minus_(Vector2& arg)
+	{
+		return Vector2(this->x - arg.x_(), this->y - arg.y_());
+	}
+
+	DLLAPI_SE Vector2 Vector2::operator-(Vector2& arg)
 	{
 		return this->minus_(arg);
 	}
 
-	DLLAPI_SE Vec2 Vec2::minus_(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::minus_(float_precision arg)
 	{
-		return Vec2(this->x - arg, this->y - arg);
+		return Vector2(this->x - arg, this->y - arg);
 	}
 
-	DLLAPI_SE Vec2 Vec2::operator-(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator-(float_precision arg)
 	{
 		return this->minus_(arg);
 	}
 
-	DLLAPI_SE Vec2 Vec2::ride_(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::ride_(float_precision arg)
 	{
-		return Vec2(this->x * arg, this->y * arg);
+		return Vector2(this->x * arg, this->y * arg);
 	}
 
-	DLLAPI_SE Vec2 Vec2::operator*(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator*(float_precision arg)
 	{
 		return this->ride_(arg);
 	}
 
-	DLLAPI_SE float_precision Vec2::dot_(Vec2& arg)
+	DLLAPI_SE float_precision Vector2::dot_(Vector2& arg)
 	{
 		return this->x * arg.x_() + this->y * arg.y_();
 	}
 
-	DLLAPI_SE float_precision Vec2::cross_(Vec2& arg)
+	DLLAPI_SE float_precision Vector2::cross_(Vector2& arg)
 	{
 		return this->x * arg.y_() - this->y * arg.x_();
 	}
 
-	DLLAPI_SE Vec2 Vec2::divide_(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::divide_(float_precision arg)
 	{
-		return Vec2(this->x / arg, this->y / arg);
+		return Vector2(this->x / arg, this->y / arg);
 	}
 
-	DLLAPI_SE Vec2 Vec2::operator/(float_precision arg)
+	DLLAPI_SE Vector2 Vector2::operator/(float_precision arg)
 	{
 		return this->divide_(arg);
 	}
 
-	DLLAPI_SE float_precision Vec2::norm_without_radical_()
+	DLLAPI_SE float_precision Vector2::norm_without_radical_()
 	{
 		return x * x + y * y;
 	}
 
-	DLLAPI_SE void Vec2::operator+=(Vec2& arg)
+	DLLAPI_SE void Vector2::operator+=(Vector2& arg)
 	{
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vec2::operator+=(float_precision arg)
+	DLLAPI_SE void Vector2::operator+=(float_precision arg)
 	{
 		*this = this->plus_(arg);
 	}
 
-	DLLAPI_SE void Vec2::operator-=(Vec2& arg)
+	DLLAPI_SE void Vector2::operator-=(Vector2& arg)
 	{
 		*this = this->minus_(arg);
 	}
 
-	DLLAPI_SE void Vec2::operator-=(float_precision arg)
+	DLLAPI_SE void Vector2::operator-=(float_precision arg)
 	{
 		*this = this->minus_(arg);
 	}
 
-	DLLAPI_SE void Vec2::operator*=(float_precision arg)
+	DLLAPI_SE void Vector2::operator*=(float_precision arg)
 	{
 		*this = this->ride_(arg);
 	}
 
-	DLLAPI_SE void Vec2::operator/=(float_precision arg)
+	DLLAPI_SE void Vector2::operator/=(float_precision arg)
 	{
 		*this = this->divide_(arg);
 	}
 
-	DLLAPI_SE bool Vec2::equal_(Vec2& arg)
+	DLLAPI_SE bool Vector2::equal_(Vector2& arg)
 	{
 #ifdef USING_DOUBLE_VEC
 		return (fabs(this->x - arg.x_()) < EPS) && (fabs(this->y - arg.y_()) < EPS);
@@ -137,28 +137,28 @@ namespace stapler_engine::vector
 #endif
 	}
 
-	DLLAPI_SE bool Vec2::operator==(Vec2& arg)
+	DLLAPI_SE bool Vector2::operator==(Vector2& arg)
 	{
 		return this->equal_(arg);
 	}
 
-	DLLAPI_SE bool Vec2::unequal_(Vec2& arg)
+	DLLAPI_SE bool Vector2::unequal_(Vector2& arg)
 	{
 		return !(this->equal_(arg));
 	}
 
-	DLLAPI_SE bool Vec2::operator!=(Vec2& arg)
+	DLLAPI_SE bool Vector2::operator!=(Vector2& arg)
 	{
 		return this->unequal_(arg);
 	}
 
-	Vec2::Vec2()
+	Vector2::Vector2()
 	{
 		this->x = 0.0;
 		this->y = 0.0;
 	}
 
-	Vec2::Vec2(float_precision arg_x, float_precision arg_y)
+	Vector2::Vector2(float_precision arg_x, float_precision arg_y)
 	{
 		this->x = arg_x;
 		this->y = arg_y;

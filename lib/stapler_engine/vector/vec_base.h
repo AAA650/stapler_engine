@@ -20,7 +20,7 @@ typedef float float_precision;
 #define OT_VEC_2(vec,type) (type)(vec).y_, (type)(vec).x_
 
 namespace stapler_engine::vector {
-	class Vec : public Object {
+	class Vector : public Object {
 
 	};
 }

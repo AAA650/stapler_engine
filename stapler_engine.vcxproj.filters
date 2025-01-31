@@ -16,9 +16,6 @@
     <Filter Include="头文件\vec">
       <UniqueIdentifier>{f15af1ee-cd83-4631-8b57-0ca7cd06d21c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\struct">
-      <UniqueIdentifier>{b697c101-5047-4638-9e79-39db9ac21cad}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\object">
       <UniqueIdentifier>{9acff051-3991-4744-bd1d-aba133aeb0b6}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,9 @@
     </Filter>
     <Filter Include="源文件\dll">
       <UniqueIdentifier>{4515336f-4083-4dae-9750-caca00765287}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\structure">
+      <UniqueIdentifier>{b697c101-5047-4638-9e79-39db9ac21cad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,19 +64,19 @@
       <Filter>头文件\vec</Filter>
     </ClInclude>
     <ClInclude Include="lib\stapler_engine\structure\structure_ui.h">
-      <Filter>头文件\struct</Filter>
+      <Filter>头文件\structure</Filter>
     </ClInclude>
     <ClInclude Include="lib\stapler_engine\structure\structure.h">
-      <Filter>头文件\struct</Filter>
+      <Filter>头文件\structure</Filter>
     </ClInclude>
     <ClInclude Include="lib\stapler_engine\structure\structure_2d.h">
-      <Filter>头文件\struct</Filter>
+      <Filter>头文件\structure</Filter>
     </ClInclude>
     <ClInclude Include="lib\stapler_engine\structure\structure_3d.h">
-      <Filter>头文件\struct</Filter>
+      <Filter>头文件\structure</Filter>
     </ClInclude>
     <ClInclude Include="lib\stapler_engine\structure\structure_base.h">
-      <Filter>头文件\struct</Filter>
+      <Filter>头文件\structure</Filter>
     </ClInclude>
     <ClInclude Include="lib\stapler_engine\object\object.h">
       <Filter>头文件\object</Filter>

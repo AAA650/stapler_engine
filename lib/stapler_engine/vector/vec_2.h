@@ -5,7 +5,7 @@
 
 namespace stapler_engine::vector 
 {
-	class DLLAPI_SE Vec2 : public Vec {
+	class DLLAPI_SE Vector2 : public Vector {
 	protected:
 		float_precision x, y;
 	public:
@@ -17,50 +17,50 @@ namespace stapler_engine::vector
 		virtual inline const float_precision y_();
 		//Set y axis
 		virtual inline void y_(float_precision num);
-		//Plus Vec2
-		virtual inline Vec2 plus_(Vec2& vec2);
-		virtual inline Vec2 operator+(Vec2& vec2);
+		//Plus Vector2
+		virtual inline Vector2 plus_(Vector2& vec2);
+		virtual inline Vector2 operator+(Vector2& vec2);
 		//Plus num
-		virtual inline Vec2 plus_(float_precision num);
-		virtual inline Vec2 operator+(float_precision num);
-		//Minus Vec2
-		virtual inline Vec2 minus_(Vec2& vec2);
-		virtual inline Vec2 operator-(Vec2& vec2);
+		virtual inline Vector2 plus_(float_precision num);
+		virtual inline Vector2 operator+(float_precision num);
+		//Minus Vector2
+		virtual inline Vector2 minus_(Vector2& vec2);
+		virtual inline Vector2 operator-(Vector2& vec2);
 		//Minus num
-		virtual inline Vec2 minus_(float_precision num);
-		virtual inline Vec2 operator-(float_precision num);
+		virtual inline Vector2 minus_(float_precision num);
+		virtual inline Vector2 operator-(float_precision num);
 		//Ride num
-		virtual inline Vec2 ride_(float_precision num);
-		virtual inline Vec2 operator*(float_precision num);
-		//Dot Vec2
-		virtual inline float_precision dot_(Vec2& vec2);
-		//Cross Vec2
-		virtual inline float_precision cross_(Vec2& vec2);
+		virtual inline Vector2 ride_(float_precision num);
+		virtual inline Vector2 operator*(float_precision num);
+		//Dot Vector2
+		virtual inline float_precision dot_(Vector2& vec2);
+		//Cross Vector2
+		virtual inline float_precision cross_(Vector2& vec2);
 		//Divide num
-		virtual inline Vec2 divide_(float_precision num);
-		virtual inline Vec2 operator/(float_precision num);
+		virtual inline Vector2 divide_(float_precision num);
+		virtual inline Vector2 operator/(float_precision num);
 		//Norm without radical
 		virtual inline float_precision norm_without_radical_();
 		//Self add
-		virtual inline void operator+=(Vec2& vec2);
+		virtual inline void operator+=(Vector2& vec2);
 		virtual inline void operator+=(float_precision num);
 		//Self minus
-		virtual inline void operator-=(Vec2&);
+		virtual inline void operator-=(Vector2&);
 		virtual inline void operator-=(float_precision num);
 		//Self ride
 		virtual inline void operator*=(float_precision num);
 		//Self divide
 		virtual inline void operator/=(float_precision num);
 		//Is equal
-		virtual inline bool equal_(Vec2& vec2);
-		virtual inline bool operator==(Vec2& vec2);
+		virtual inline bool equal_(Vector2& vec2);
+		virtual inline bool operator==(Vector2& vec2);
 		//Is unequal
-		virtual inline bool unequal_(Vec2& vec2);
-		virtual inline bool operator!=(Vec2& vec2);
+		virtual inline bool unequal_(Vector2& vec2);
+		virtual inline bool operator!=(Vector2& vec2);
 		//Init as (0,0)
-		Vec2();
+		Vector2();
 		//Init as (x,y)
-		Vec2(float_precision x, float_precision y);
+		Vector2(float_precision x, float_precision y);
 	};
 }
 
