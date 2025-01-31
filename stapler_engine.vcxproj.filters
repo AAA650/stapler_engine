@@ -139,6 +139,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
+    <None Include="cpp.hint">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

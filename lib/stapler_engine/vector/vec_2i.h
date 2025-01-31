@@ -10,11 +10,11 @@ namespace stapler_engine::vec {
 		int x, y;
 	public:
 		//Get x axis
-		virtual inline const int x_();
+		virtual inline int& x_();
 		//Set x axis
 		virtual inline void x_(int num);
 		//Get y axis
-		virtual inline const int y_();
+		virtual inline int& y_();
 		//Set y axis
 		virtual inline void y_(int num);
 		//Plus Vector2i

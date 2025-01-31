@@ -3,7 +3,7 @@
 
 namespace stapler_engine::vec 
 {
-	DLLAPI_SE const int Vector3i::x_()
+	DLLAPI_SE int& Vector3i::x_()
 	{
 		return x;
 	}
@@ -13,7 +13,7 @@ namespace stapler_engine::vec
 		this->x = arg;
 	}
 
-	DLLAPI_SE const int Vector3i::y_()
+	DLLAPI_SE int& Vector3i::y_()
 	{
 		return y;
 	}
@@ -23,7 +23,7 @@ namespace stapler_engine::vec
 		this->y = arg;
 	}
 
-	DLLAPI_SE const int Vector3i::z_()
+	DLLAPI_SE int& Vector3i::z_()
 	{
 		return z;
 	}

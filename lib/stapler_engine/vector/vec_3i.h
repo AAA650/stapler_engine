@@ -9,15 +9,15 @@ namespace stapler_engine::vec {
 		int x, y, z;
 	public:
 		//Get x axis
-		virtual inline const int x_();
+		virtual inline int& x_();
 		//Set x axis
 		virtual inline void x_(int num);
 		//Get y axis
-		virtual inline const int y_();
+		virtual inline int& y_();
 		//Set y axis
 		virtual inline void y_(int num);
 		//Get z axis
-		virtual inline const int z_();
+		virtual inline int& z_();
 		//Set z axis
 		virtual inline void z_(int num);
 		//Plus Vector3i

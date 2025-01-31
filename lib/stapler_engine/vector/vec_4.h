@@ -9,19 +9,19 @@ namespace stapler_engine::vec {
 		float_precision x, y, z, w;
 	public:
 		//Get x axis
-		virtual inline const float_precision x_();
+		virtual inline float_precision& x_();
 		//Set x axis
 		virtual inline void x_(float_precision num);
 		//Get y axis
-		virtual inline const float_precision y_();
+		virtual inline float_precision& y_();
 		//Set y axis
 		virtual inline void y_(float_precision num);
 		//Get z axis
-		virtual inline const float_precision z_();
+		virtual inline float_precision& z_();
 		//Set z axis
 		virtual inline void z_(float_precision num);
 		//Get z axis
-		virtual inline const float_precision w_();
+		virtual inline float_precision& w_();
 		//Set z axi
 		virtual inline void w_(float_precision num);
 		//Plus Vector4

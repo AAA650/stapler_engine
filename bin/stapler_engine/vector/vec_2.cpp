@@ -3,7 +3,7 @@
 
 namespace stapler_engine::vec 
 {
-	DLLAPI_SE const float_precision Vector2::x_()
+	DLLAPI_SE float_precision& Vector2::x_()
 	{
 		return x;
 	}
@@ -13,7 +13,7 @@ namespace stapler_engine::vec
 		this->x = arg;
 	}
 
-	DLLAPI_SE const float_precision Vector2::y_()
+	DLLAPI_SE float_precision& Vector2::y_()
 	{
 		return y;
 	}
