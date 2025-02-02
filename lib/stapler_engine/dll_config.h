@@ -18,6 +18,7 @@
 #endif
 
 #include <stdlib.h>
-#include <typeinfo>
+#include <iostream>
+#include <string>
 
 #endif // !SE_DLL_CONFIG

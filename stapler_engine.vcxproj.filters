@@ -137,6 +137,9 @@
     <ClCompile Include="bin\stapler_engine\vector\vec_4i.cpp">
       <Filter>源文件\vec</Filter>
     </ClCompile>
+    <ClCompile Include="bin\stapler_engine\object\connector.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint">

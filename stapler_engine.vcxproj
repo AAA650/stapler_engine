@@ -163,6 +163,7 @@
     <ClInclude Include="lib\stapler_engine\vector\vec_base.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bin\stapler_engine\object\connector.cpp" />
     <ClCompile Include="bin\stapler_engine\object\object.cpp" />
     <ClCompile Include="bin\stapler_engine\stapler_engine.cpp" />
     <ClCompile Include="bin\stapler_engine\vector\vec_2.cpp" />

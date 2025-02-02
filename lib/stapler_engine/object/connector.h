@@ -9,9 +9,11 @@ namespace stapler_engine
 	class Connector :public Object
 	{
 	protected:
-		std::vector<Object>* children_list;
+		std::vector<Object>* children;
+		Object* parent;
 	public:
-		void add_(Object);
+		void add_(Object*);
+		std::vector<Object*> get_children();
 		Connector();
 	};
 }
