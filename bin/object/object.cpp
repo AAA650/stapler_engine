@@ -1,5 +1,5 @@
 // object.cpp
-#include "../../../lib/stapler_engine/object/object.h"
+#include "../../lib/object/object.h"
 
 namespace stapler_engine
 {

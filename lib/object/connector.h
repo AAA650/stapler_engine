@@ -1,6 +1,8 @@
 // connector.h
-#ifndef CONNECTOR_H
-#define CONNECTOR_H
+#ifndef SE_CONNECTOR_H
+#define SE_CONNECTOR_H
+
+#include "object.h"
 
 #include <vector>
 
@@ -12,7 +14,9 @@ namespace stapler_engine
 		std::vector<Object>* children;
 		Object* parent;
 	public:
-		void add_(Object*);
+		void add_child_(Object*);
+		Object* get_child_() const;
+		Object* get_parent_() const;
 		std::vector<Object*> get_children();
 		Connector();
 	};

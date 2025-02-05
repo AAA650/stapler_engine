@@ -1,6 +1,6 @@
 // plugin_base.h
-#ifndef PLUGIN_BASE_H
-#define PLUGIN_BASE_H
+#ifndef SE_PLUGIN_BASE_H
+#define SE_PLUGIN_BASE_H
 
 #include "../object/object.h"
 

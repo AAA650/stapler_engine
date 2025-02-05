@@ -9,13 +9,6 @@ namespace stapler_engine
 	public:
 		//Stapler engine main function
 		static void se_main();
-	protected:
-		Object* child;
-		Object* parent;
-	public:
-		void add_child_(Object*);
-		Object* get_child_() const;
-		Object* get_parent_() const;
 		Object();
 	};
 
