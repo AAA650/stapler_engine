@@ -75,7 +75,7 @@
     <ClInclude Include="lib\type_defs.h">
       <Filter>头文件\dll</Filter>
     </ClInclude>
-    <ClInclude Include="lib\math\math.h">
+    <ClInclude Include="lib\math\math_func.h">
       <Filter>头文件\math</Filter>
     </ClInclude>
     <ClInclude Include="lib\object\connector.h">
@@ -116,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="lib\structure\structure_ui.h">
       <Filter>头文件\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\math\s_math.h">
+      <Filter>头文件\math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

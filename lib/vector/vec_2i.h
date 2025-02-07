@@ -4,15 +4,35 @@
 #include "vec_base.h"
 
 namespace stapler_engine::vec {
-	class DLLAPI_SE Vector2i : public Vector 
-	{
+	class DLLAPI_SE Vector2i : public Vector {
+	public:
+		static const int AXIS_COUNT = 2;
+		enum Axis { AX, AY };
 	protected:
-		int x, y;
+		union {
+			struct {
+				union {
+					int x;
+					int width;
+				};
+				union {
+					int y;
+					int height;
+				};
+			};
+			int coord[2];
+		};
 	public:
 		//X axis
 		virtual inline int& x_();
 		//Y axis
 		virtual inline int& y_();
+		//Vec width
+		virtual inline int& width_();
+		//Vec height
+		virtual inline int& height_();
+		//Find axis by offset
+		virtual inline int& operator[](int axis_index);
 		//Plus Vector2i
 		virtual inline Vector2i plus_(const Vector2i& vec2i) const;
 		virtual inline Vector2i operator+(const Vector2i& vec2i) const;
@@ -26,7 +46,7 @@ namespace stapler_engine::vec {
 		virtual inline Vector2i minus_(int num) const;
 		virtual inline Vector2i operator-(int num) const;
 		//Ride num
-		virtual inline Vector2i ride_(int num) const;
+		virtual inline Vector2i multiply_(int num) const;
 		virtual inline Vector2i operator*(int num) const;
 		//Dot Vector2i
 		virtual inline int dot_(const Vector2i& vec2i) const;
@@ -36,7 +56,7 @@ namespace stapler_engine::vec {
 		virtual inline Vector2i divide_(int num) const;
 		virtual inline Vector2i operator/(int num) const;
 		//Norm without radical
-		virtual inline int norm_without_radical_() const;
+		virtual inline int length_squared_() const;
 		//Self add
 		virtual inline void operator+=(const Vector2i& vec2i);
 		virtual inline void operator+=(int num);

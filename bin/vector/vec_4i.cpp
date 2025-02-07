@@ -1,26 +1,42 @@
 // vec_4i.cpp
 #include "../../lib/vector/vec_4i.h"
 
-namespace stapler_engine::vec 
-{
-	DLLAPI_SE int& Vector4i::x_()
-	{
+namespace stapler_engine::vec {
+
+	DLLAPI_SE int& Vector4i::x_() {
 		return x;
 	}
 
-	DLLAPI_SE int& Vector4i::y_()
-	{
+	DLLAPI_SE int& Vector4i::y_() {
 		return y;
 	}
 
-	DLLAPI_SE int& Vector4i::z_()
-	{
+	DLLAPI_SE int& Vector4i::z_() {
 		return z;
 	}
 
-	DLLAPI_SE int& Vector4i::w_()
-	{
+	DLLAPI_SE int& Vector4i::w_() {
 		return w;
+	}
+
+	DLLAPI_SE int& Vector4i::r_() {
+		return x;
+	}
+
+	DLLAPI_SE int& Vector4i::g_() {
+		return y;
+	}
+
+	DLLAPI_SE int& Vector4i::b_() {
+		return z;
+	}
+
+	DLLAPI_SE int& Vector4i::a_() {
+		return w;
+	}
+
+	DLLAPI_SE int& Vector4i::operator[](int axis_index) {
+		return coord[axis_index];
 	}
 
 	DLLAPI_SE Vector4i Vector4i::plus_(const Vector4i& arg) const
@@ -63,14 +79,14 @@ namespace stapler_engine::vec
 		return this->minus_(arg);
 	}
 
-	DLLAPI_SE Vector4i Vector4i::ride_(int arg) const
+	DLLAPI_SE Vector4i Vector4i::multiply_(int arg) const
 	{
 		return Vector4i(this->x * arg, this->y * arg, this->z * arg, this->w * arg);
 	}
 
 	DLLAPI_SE Vector4i Vector4i::operator*(int arg) const
 	{
-		return this->ride_(arg);
+		return this->multiply_(arg);
 	}
 
 	DLLAPI_SE int Vector4i::dot_(const Vector4i& arg) const
@@ -81,9 +97,9 @@ namespace stapler_engine::vec
 	DLLAPI_SE Vector4i Vector4i::cross_(const Vector4i& arg) const
 	{
 		Vector4i ret = Vector4i();
-		ret.x_() = this->y * arg.z - this->z * arg.y;
-		ret.y_() = this->z * arg.x - this->x * arg.z;
-		ret.z_() = this->x * arg.y - this->y * arg.x;
+		ret.x = this->y * arg.z - this->z * arg.y;
+		ret.y = this->z * arg.x - this->x * arg.z;
+		ret.z = this->x * arg.y - this->y * arg.x;
 		return ret;
 	}
 
@@ -97,7 +113,7 @@ namespace stapler_engine::vec
 		return this->divide_(arg);
 	}
 
-	DLLAPI_SE int Vector4i::norm_without_radical_() const
+	DLLAPI_SE int Vector4i::length_squared_() const
 	{
 		return x * x + y * y + z * z + w * w;
 	}
@@ -124,7 +140,7 @@ namespace stapler_engine::vec
 
 	DLLAPI_SE void Vector4i::operator*=(int arg)
 	{
-		*this = this->ride_(arg);
+		*this = this->multiply_(arg);
 	}
 
 	DLLAPI_SE void Vector4i::operator/=(int arg)
@@ -154,17 +170,17 @@ namespace stapler_engine::vec
 
 	Vector4i::Vector4i()
 	{
-		this->x = 0;
-		this->y = 0;
-		this->z = 0;
-		this->w = 0;
+		coord[0] = 0;
+		coord[1] = 0;
+		coord[2] = 0;
+		coord[3] = 0;
 	}
 
 	Vector4i::Vector4i(int arg_x, int arg_y, int arg_z, int arg_w)
 	{
-		this->x = arg_x;
-		this->y = arg_y;
-		this->z = arg_z;
-		this->w = arg_w;
+		coord[0] = arg_x;
+		coord[1] = arg_y;
+		coord[2] = arg_z;
+		coord[3] = arg_w;
 	}
 }

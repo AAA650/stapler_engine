@@ -8,9 +8,11 @@
 #include "object/object.h"
 #include "object/connector.h"
 #include "vector/vec.h"
+#include "math/s_math.h"
 
 namespace se = stapler_engine;
 namespace se_vec = stapler_engine::vec;
+namespace se_math = stapler_engine::math;
 
 namespace stapler_engine 
 {

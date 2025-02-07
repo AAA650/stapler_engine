@@ -2,7 +2,7 @@
 #ifndef SE_VECTOR_BASE_H
 #define SE_VECTOR_BASE_H
 
-#include <math.h>
+#include "../math/s_math.h"
 
 #include "../object/object.h"
 

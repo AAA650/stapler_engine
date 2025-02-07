@@ -139,7 +139,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="lib\dll_config.h" />
-    <ClInclude Include="lib\math\math.h" />
+    <ClInclude Include="lib\math\math_func.h" />
+    <ClInclude Include="lib\math\s_math.h" />
     <ClInclude Include="lib\object\connector.h" />
     <ClInclude Include="lib\object\object.h" />
     <ClInclude Include="lib\plugin\controller.h" />

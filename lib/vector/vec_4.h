@@ -6,7 +6,19 @@
 namespace stapler_engine::vec {
 	class DLLAPI_SE Vector4 : public Vector {
 	protected:
-		float_precision x, y, z, w;
+	public:
+		static const int AXIS_COUNT = 4;
+		enum Axis { AX, AY, AZ, AW };
+	protected:
+		union {
+			struct {
+				float_precision x;
+				float_precision y;
+				float_precision z;
+				float_precision w;
+			};
+			float_precision coord[4];
+		};
 	public:
 		//X axis
 		virtual inline float_precision& x_();
@@ -16,6 +28,8 @@ namespace stapler_engine::vec {
 		virtual inline float_precision& z_();
 		//W axis
 		virtual inline float_precision& w_();
+		//Find axis by offset
+		virtual inline float_precision& operator[](int axis_index);
 		//Plus Vector4
 		virtual inline Vector4 plus_(const Vector4& vec4) const;
 		virtual inline Vector4 operator+(const Vector4& vec4) const;
@@ -29,7 +43,7 @@ namespace stapler_engine::vec {
 		virtual inline Vector4 minus_(float_precision num) const;
 		virtual inline Vector4 operator-(float_precision num) const;
 		//Ride num
-		virtual inline Vector4 ride_(float_precision num) const;
+		virtual inline Vector4 multiply_(float_precision num) const;
 		virtual inline Vector4 operator*(float_precision num) const;
 		//Dot Vector4
 		virtual inline float_precision dot_(const Vector4& vec4) const;
@@ -39,7 +53,7 @@ namespace stapler_engine::vec {
 		virtual inline Vector4 divide_(float_precision num) const;
 		virtual inline Vector4 operator/(float_precision num) const;
 		//Norm without radical
-		virtual inline float_precision norm_without_radical_() const;
+		virtual inline float_precision length_squared_() const;
 		//Self add
 		virtual inline void operator+=(const Vector4& vec4);
 		virtual inline void operator+=(float_precision num);

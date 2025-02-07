@@ -8,6 +8,7 @@ namespace stapler_engine::plugin
 {
 	class Plugin :public Object
 	{
+	private:
 
 	};
 }
