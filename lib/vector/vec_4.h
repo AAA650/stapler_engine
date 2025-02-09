@@ -21,55 +21,55 @@ namespace stapler_engine::vec {
 		};
 	public:
 		//X axis
-		virtual inline float_precision& x_();
+		virtual float_precision& x_();
 		//Y axis
-		virtual inline float_precision& y_();
+		virtual float_precision& y_();
 		//Z axis
-		virtual inline float_precision& z_();
+		virtual float_precision& z_();
 		//W axis
-		virtual inline float_precision& w_();
+		virtual float_precision& w_();
 		//Find axis by offset
-		virtual inline float_precision& operator[](int axis_index);
+		virtual float_precision& operator[](int axis_index);
 		//Plus Vector4
-		virtual inline Vector4 plus_(const Vector4& vec4) const;
-		virtual inline Vector4 operator+(const Vector4& vec4) const;
+		virtual Vector4 plus_(const Vector4& vec4) const;
+		virtual Vector4 operator+(const Vector4& vec4) const;
 		//Plus num
-		virtual inline Vector4 plus_(float_precision num) const;
-		virtual inline Vector4 operator+(float_precision num) const;
+		virtual Vector4 plus_(float_precision num) const;
+		virtual Vector4 operator+(float_precision num) const;
 		//Minus Vector4
-		virtual inline Vector4 minus_(const Vector4& vec4) const;
-		virtual inline Vector4 operator-(const Vector4& vec4) const;
+		virtual Vector4 minus_(const Vector4& vec4) const;
+		virtual Vector4 operator-(const Vector4& vec4) const;
 		//Minus num
-		virtual inline Vector4 minus_(float_precision num) const;
-		virtual inline Vector4 operator-(float_precision num) const;
+		virtual Vector4 minus_(float_precision num) const;
+		virtual Vector4 operator-(float_precision num) const;
 		//Ride num
-		virtual inline Vector4 multiply_(float_precision num) const;
-		virtual inline Vector4 operator*(float_precision num) const;
+		virtual Vector4 multiply_(float_precision num) const;
+		virtual Vector4 operator*(float_precision num) const;
 		//Dot Vector4
-		virtual inline float_precision dot_(const Vector4& vec4) const;
+		virtual float_precision dot_(const Vector4& vec4) const;
 		//Cross Vector4
-		virtual inline Vector4 cross_(const Vector4& vec4) const;
+		virtual Vector4 cross_(const Vector4& vec4) const;
 		//Divide num
-		virtual inline Vector4 divide_(float_precision num) const;
-		virtual inline Vector4 operator/(float_precision num) const;
+		virtual Vector4 divide_(float_precision num) const;
+		virtual Vector4 operator/(float_precision num) const;
 		//Norm without radical
-		virtual inline float_precision length_squared_() const;
+		virtual float_precision length_squared_() const;
 		//Self add
-		virtual inline void operator+=(const Vector4& vec4);
-		virtual inline void operator+=(float_precision num);
+		virtual void operator+=(const Vector4& vec4);
+		virtual void operator+=(float_precision num);
 		//Self minus
-		virtual inline void operator-=(const Vector4& vec4);
-		virtual inline void operator-=(float_precision num);
+		virtual void operator-=(const Vector4& vec4);
+		virtual void operator-=(float_precision num);
 		//Self ride
-		virtual inline void operator*=(float_precision num);
+		virtual void operator*=(float_precision num);
 		//Self divide
-		virtual inline void operator/=(float_precision num);
+		virtual void operator/=(float_precision num);
 		//Is equal
-		virtual inline bool equal_(const Vector4& vec4) const;
-		virtual inline bool operator==(const Vector4& vec4) const;
+		virtual bool equal_(const Vector4& vec4) const;
+		virtual bool operator==(const Vector4& vec4) const;
 		//Is unequal
-		virtual inline bool unequal_(const Vector4& vec4) const;
-		virtual inline bool operator!=(const Vector4& vec4) const;
+		virtual bool unequal_(const Vector4& vec4) const;
+		virtual bool operator!=(const Vector4& vec4) const;
 		//Init as (0,0,0,0)
 		Vector4();
 		//Init as (x,y,z,w)

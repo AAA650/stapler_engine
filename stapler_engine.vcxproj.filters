@@ -25,20 +25,26 @@
     <Filter Include="源文件\object">
       <UniqueIdentifier>{41c99f13-9378-4a4d-b6a6-98f7989c3c6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\plugin">
-      <UniqueIdentifier>{03b11ef5-2b30-4481-8efd-92cfbc9d5785}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\dll">
       <UniqueIdentifier>{cd706c36-0b11-47c8-9f8c-23738474df7b}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\dll">
       <UniqueIdentifier>{4515336f-4083-4dae-9750-caca00765287}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\structure">
-      <UniqueIdentifier>{b697c101-5047-4638-9e79-39db9ac21cad}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\math">
       <UniqueIdentifier>{35b21292-460d-4398-8ef2-5062451d935d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\node">
+      <UniqueIdentifier>{b697c101-5047-4638-9e79-39db9ac21cad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component">
+      <UniqueIdentifier>{03b11ef5-2b30-4481-8efd-92cfbc9d5785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\component">
+      <UniqueIdentifier>{691c1335-1ead-4df9-95ef-5bb987276807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\node">
+      <UniqueIdentifier>{717d97b8-ed4a-40a9-bdb1-1ef23b3713b5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -78,47 +84,44 @@
     <ClInclude Include="lib\math\math_func.h">
       <Filter>头文件\math</Filter>
     </ClInclude>
-    <ClInclude Include="lib\object\connector.h">
-      <Filter>头文件\object</Filter>
-    </ClInclude>
     <ClInclude Include="lib\object\object.h">
       <Filter>头文件\object</Filter>
     </ClInclude>
-    <ClInclude Include="lib\plugin\controller.h">
-      <Filter>头文件\plugin</Filter>
+    <ClInclude Include="lib\plugin\component.h">
+      <Filter>头文件\component</Filter>
     </ClInclude>
-    <ClInclude Include="lib\plugin\delegate.h">
-      <Filter>头文件\plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\plugin\plugin.h">
-      <Filter>头文件\plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\plugin\plugin_base.h">
-      <Filter>头文件\plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\plugin\random_eng.h">
-      <Filter>头文件\plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\plugin\timer.h">
-      <Filter>头文件\plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\structure\structure.h">
-      <Filter>头文件\structure</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\structure\structure_2d.h">
-      <Filter>头文件\structure</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\structure\structure_3d.h">
-      <Filter>头文件\structure</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\structure\structure_base.h">
-      <Filter>头文件\structure</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\structure\structure_ui.h">
-      <Filter>头文件\structure</Filter>
+    <ClInclude Include="lib\plugin\component_base.h">
+      <Filter>头文件\component</Filter>
     </ClInclude>
     <ClInclude Include="lib\math\s_math.h">
       <Filter>头文件\math</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\component\controller.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\component\delegate.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\component\random_eng.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\component\timer.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\node\node.h">
+      <Filter>头文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\node\node_2d.h">
+      <Filter>头文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\node\node_3d.h">
+      <Filter>头文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\node\node_base.h">
+      <Filter>头文件\node</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\node\node_ui.h">
+      <Filter>头文件\node</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -146,11 +149,14 @@
     <ClCompile Include="bin\stapler_engine.cpp">
       <Filter>源文件\dll</Filter>
     </ClCompile>
-    <ClCompile Include="bin\object\connector.cpp">
-      <Filter>源文件\object</Filter>
-    </ClCompile>
     <ClCompile Include="bin\object\object.cpp">
       <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\node\node_base.cpp">
+      <Filter>源文件\node</Filter>
+    </ClCompile>
+    <ClCompile Include="bin\component\random_eng.cpp">
+      <Filter>源文件\component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

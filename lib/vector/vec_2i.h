@@ -24,60 +24,63 @@ namespace stapler_engine::vec {
 		};
 	public:
 		//X axis
-		virtual inline int& x_();
+		virtual int& x_();
 		//Y axis
-		virtual inline int& y_();
+		virtual int& y_();
 		//Vec width
-		virtual inline int& width_();
+		virtual int& width_();
 		//Vec height
-		virtual inline int& height_();
+		virtual int& height_();
 		//Find axis by offset
-		virtual inline int& operator[](int axis_index);
+		virtual int& operator[](int axis_index);
 		//Plus Vector2i
-		virtual inline Vector2i plus_(const Vector2i& vec2i) const;
-		virtual inline Vector2i operator+(const Vector2i& vec2i) const;
+		virtual Vector2i plus_(const Vector2i& vec2i) const;
+		virtual Vector2i operator+(const Vector2i& vec2i) const;
 		//Plus num
-		virtual inline Vector2i plus_(int num) const;
-		virtual inline Vector2i operator+(int num) const;
+		virtual Vector2i plus_(int num) const;
+		virtual Vector2i operator+(int num) const;
 		//Minus Vector2i
-		virtual inline Vector2i minus_(const Vector2i& vec2i) const;
-		virtual inline Vector2i operator-(const Vector2i& vec2i) const;
+		virtual Vector2i minus_(const Vector2i& vec2i) const;
+		virtual Vector2i operator-(const Vector2i& vec2i) const;
 		//Minus num
-		virtual inline Vector2i minus_(int num) const;
-		virtual inline Vector2i operator-(int num) const;
+		virtual Vector2i minus_(int num) const;
+		virtual Vector2i operator-(int num) const;
 		//Ride num
-		virtual inline Vector2i multiply_(int num) const;
-		virtual inline Vector2i operator*(int num) const;
+		virtual Vector2i multiply_(int num) const;
+		virtual Vector2i operator*(int num) const;
 		//Dot Vector2i
-		virtual inline int dot_(const Vector2i& vec2i) const;
+		virtual int dot_(const Vector2i& vec2i) const;
 		//Cross Vector2i
-		virtual inline int cross_(const Vector2i& vec2i) const;
+		virtual int cross_(const Vector2i& vec2i) const;
 		//Divide num
-		virtual inline Vector2i divide_(int num) const;
-		virtual inline Vector2i operator/(int num) const;
+		virtual Vector2i divide_(int num) const;
+		virtual Vector2i operator/(int num) const;
 		//Norm without radical
-		virtual inline int length_squared_() const;
+		virtual int length_squared_() const;
 		//Self add
-		virtual inline void operator+=(const Vector2i& vec2i);
-		virtual inline void operator+=(int num);
+		virtual void operator+=(const Vector2i& vec2i);
+		virtual void operator+=(int num);
 		//Self minus
-		virtual inline void operator-=(const Vector2i&);
-		virtual inline void operator-=(int num);
+		virtual void operator-=(const Vector2i&);
+		virtual void operator-=(int num);
 		//Self ride
-		virtual inline void operator*=(int num);
+		virtual void operator*=(int num);
 		//Self divide
-		virtual inline void operator/=(int num);
+		virtual void operator/=(int num);
 		//Is equal
-		virtual inline bool equal_(const Vector2i& vec2i) const;
-		virtual inline bool operator==(const Vector2i& vec2i) const;
+		virtual bool equal_(const Vector2i& vec2i) const;
+		virtual bool operator==(const Vector2i& vec2i) const;
 		//Is unequal
-		virtual inline bool unequal_(const Vector2i& vec2i) const;
-		virtual inline bool operator!=(const Vector2i& vec2i) const;
+		virtual bool unequal_(const Vector2i& vec2i) const;
+		virtual bool operator!=(const Vector2i& vec2i) const;
 		//Init as (0,0)
 		Vector2i();
 		//Init as (x,y)
 		Vector2i(int x, int y);
 	};
+
+	typedef Vector2i Point2i;
+	typedef Vector2i Size2i;
 }
 
 #endif

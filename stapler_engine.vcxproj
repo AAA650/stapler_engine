@@ -126,6 +126,9 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,26 +138,26 @@
       <Version>
       </Version>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="lib\component\controller.h" />
+    <ClInclude Include="lib\component\delegate.h" />
+    <ClInclude Include="lib\component\random_eng.h" />
+    <ClInclude Include="lib\component\timer.h" />
     <ClInclude Include="lib\dll_config.h" />
     <ClInclude Include="lib\math\math_func.h" />
     <ClInclude Include="lib\math\s_math.h" />
-    <ClInclude Include="lib\object\connector.h" />
+    <ClInclude Include="lib\node\node.h" />
+    <ClInclude Include="lib\node\node_2d.h" />
+    <ClInclude Include="lib\node\node_3d.h" />
+    <ClInclude Include="lib\node\node_base.h" />
+    <ClInclude Include="lib\node\node_ui.h" />
     <ClInclude Include="lib\object\object.h" />
-    <ClInclude Include="lib\plugin\controller.h" />
-    <ClInclude Include="lib\plugin\delegate.h" />
-    <ClInclude Include="lib\plugin\plugin.h" />
-    <ClInclude Include="lib\plugin\plugin_base.h" />
-    <ClInclude Include="lib\plugin\random_eng.h" />
-    <ClInclude Include="lib\plugin\timer.h" />
+    <ClInclude Include="lib\plugin\component.h" />
+    <ClInclude Include="lib\plugin\component_base.h" />
     <ClInclude Include="lib\stapler_engine.h" />
-    <ClInclude Include="lib\structure\structure.h" />
-    <ClInclude Include="lib\structure\structure_2d.h" />
-    <ClInclude Include="lib\structure\structure_3d.h" />
-    <ClInclude Include="lib\structure\structure_base.h" />
-    <ClInclude Include="lib\structure\structure_ui.h" />
     <ClInclude Include="lib\type_defs.h" />
     <ClInclude Include="lib\vector\vec.h" />
     <ClInclude Include="lib\vector\vec_2.h" />
@@ -166,7 +169,8 @@
     <ClInclude Include="lib\vector\vec_base.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bin\object\connector.cpp" />
+    <ClCompile Include="bin\component\random_eng.cpp" />
+    <ClCompile Include="bin\node\node_base.cpp" />
     <ClCompile Include="bin\object\object.cpp" />
     <ClCompile Include="bin\stapler_engine.cpp" />
     <ClCompile Include="bin\vector\vec_2.cpp" />
