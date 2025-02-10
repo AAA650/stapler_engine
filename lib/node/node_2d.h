@@ -8,6 +8,8 @@
 
 namespace stapler_engine::node {
 	class DLLAPI_SE Node2D : public Node {
+	public:
+		vec::Vector2 position;
 
 	};
 }
