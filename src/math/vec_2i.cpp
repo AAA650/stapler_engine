@@ -3,21 +3,6 @@
 
 namespace stapler_engine::vec {
 
-	DLLAPI_SE int& Vector2i::x_() {
-		return x;
-	}
-
-	DLLAPI_SE int& Vector2i::y_() {
-		return y;
-	}
-
-	DLLAPI_SE int& Vector2i::width_() {
-		return x;
-	}
-
-	DLLAPI_SE int& Vector2i::height_() {
-		return y;
-	}
 	DLLAPI_SE int& Vector2i::operator[](int axis_index) {
 		return coord[axis_index];
 	}

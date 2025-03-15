@@ -3,8 +3,8 @@
 #define SE_NODE_2D_H
 
 #include "node_base.h"
-#include "../vector/vec_2.h"
-#include "../vector/vec_2i.h"
+#include "../math/vec_2.h"
+#include "../math/vec_2i.h"
 
 namespace stapler_engine::node {
 	class DLLAPI_SE Node2D : public Node {

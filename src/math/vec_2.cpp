@@ -3,22 +3,6 @@
 
 namespace stapler_engine::vec {
 
-	DLLAPI_SE float_precision& Vector2::x_() {
-		return x;
-	}
-
-	DLLAPI_SE float_precision& Vector2::y_() {
-		return y;
-	}
-
-	DLLAPI_SE float_precision& Vector2::width_() {
-		return x;
-	}
-
-	DLLAPI_SE float_precision& Vector2::height_() {
-		return y;
-	}
-
 	DLLAPI_SE float_precision& Vector2::operator[](int axis_index) {
 		return coord[axis_index];
 	}
