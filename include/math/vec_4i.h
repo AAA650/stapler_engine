@@ -31,22 +31,6 @@ namespace stapler_engine::vec {
 			int coord[4];
 		};
 	public:
-		//X axis
-		virtual int& x_();
-		//Y axis
-		virtual int& y_();
-		//Z axis
-		virtual int& z_();
-		//W axis
-		virtual int& w_();
-		//R color
-		virtual int& r_();
-		//G color
-		virtual int& g_();
-		//B color
-		virtual int& b_();
-		//A color
-		virtual int& a_();
 		//Find axis by offset
 		virtual int& operator[](int axis_index);
 		//Plus Vector4i

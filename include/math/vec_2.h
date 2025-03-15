@@ -9,7 +9,7 @@ namespace stapler_engine::vec
 	public:
 		static const int AXIS_COUNT = 2;
 		enum Axis { AX, AY };
-	protected:
+	public:
 		union {
 			struct {
 				union {
@@ -24,14 +24,6 @@ namespace stapler_engine::vec
 			float_precision coord[2];
 		};
 	public:
-		//X axis
-		virtual float_precision& x_();
-		//Y axis
-		virtual float_precision& y_();
-		//Vec width
-		virtual float_precision& width_();
-		//Vec height
-		virtual float_precision& height_();
 		//Find axis by offset
 		virtual float_precision& operator[](int axis_index);
 		//Plus Vector2

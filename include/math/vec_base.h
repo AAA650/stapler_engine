@@ -1,8 +1,9 @@
 // vec_base.h
+// Base class for vectors
 #ifndef SE_VECTOR_BASE_H
 #define SE_VECTOR_BASE_H
 
-#include "../math/s_math.h"
+#include "s_math.h"
 
 #include "../object/object.h"
 
