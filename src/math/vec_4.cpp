@@ -1,5 +1,5 @@
 // vec_4.cpp
-#include "../../include/vector/vec_4.h"
+#include "../../include/math/vec_4.h"
 
 namespace stapler_engine::vec {
 
