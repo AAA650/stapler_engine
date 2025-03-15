@@ -1,4 +1,5 @@
-//
+// random_eng.h
+// A random engine
 #ifndef SE_RANDOM_ENG_H
 #define SE_RANDOM_ENG_H
 
