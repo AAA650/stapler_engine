@@ -1,15 +1,15 @@
-//object.h
+//s_object.h
 #ifndef SE_OBJECT_H
 #define SE_OBJECT_H
-#include "../dll_config.h"
+#include "dll_config.h"
 namespace stapler_engine 
 {
-	class DLLAPI_SE Object
+	class DLLAPI_SE SObject
 	{
 	public:
 		//Stapler engine main function
 		static void se_main();
-		Object();
+		SObject();
 	};
 
 	template<typename Tdata>

@@ -5,7 +5,7 @@
 #pragma comment(lib,"stapler_engine.lib")
 #endif
 
-#include "object/object.h"
+#include "s_object.h"
 #include "math/vec.h"
 #include "component/component.h"
 #include "node/node.h"

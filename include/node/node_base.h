@@ -2,14 +2,14 @@
 #ifndef SE_STRUCTURE_BASE_H
 #define SE_STRUCTURE_BASE_H
 
-#include "../object/object.h"
+#include "../s_object.h"
 #include <vector>
 #include <string>
 
 typedef unsigned int NodeIndex;
 
 namespace stapler_engine::node {
-	class DLLAPI_SE Node :public Object {
+	class DLLAPI_SE Node :public SObject {
 	protected:
 		Node* parent;
 		std::vector<Node*> children;

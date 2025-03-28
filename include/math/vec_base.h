@@ -5,7 +5,7 @@
 
 #include "s_math.h"
 
-#include "../object/object.h"
+#include "../s_object.h"
 
 #ifdef USING_DOUBLE_VEC
 typedef double float_precision
@@ -21,7 +21,7 @@ typedef float float_precision;
 #define OT_VEC_2(vec,type) (type)(vec).y_(), (type)(vec).x_()
 
 namespace stapler_engine::vec {
-	class Vector : public Object {
+	class Vector : public SObject {
 
 	};
 }
