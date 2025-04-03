@@ -12,6 +12,7 @@ project ("stapler_engine")
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_definitions(-DSE_DLL_LIB)
 add_definitions(-DSTAPLER_ENGINE_EXPORTS)
 
 include_directories("include")

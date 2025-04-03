@@ -3,7 +3,7 @@
 #ifndef SE_VECTOR_BASE_H
 #define SE_VECTOR_BASE_H
 
-#include "s_math.h"
+#include "s_math_func.h"
 
 #include "../s_object.h"
 

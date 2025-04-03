@@ -96,10 +96,10 @@ namespace stapler_engine::vec {
 	}
 
 	DLLAPI_SE bool Vector4::equal_(const Vector4& arg) const {
-		return (math::Math::fabs(this->x - arg.x) < EPS)
-			&& (math::Math::fabs(this->y - arg.y) < EPS)
-			&& (math::Math::fabs(this->z - arg.z) < EPS)
-			&& (math::Math::fabs(this->w - arg.w) < EPS);
+		return (math::SMath::fabs(this->x - arg.x) < EPS)
+			&& (math::SMath::fabs(this->y - arg.y) < EPS)
+			&& (math::SMath::fabs(this->z - arg.z) < EPS)
+			&& (math::SMath::fabs(this->w - arg.w) < EPS);
 	}
 
 	DLLAPI_SE bool Vector4::operator==(const Vector4& arg) const {

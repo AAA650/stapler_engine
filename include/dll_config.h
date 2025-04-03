@@ -1,20 +1,14 @@
-#ifndef SE_DLL_CONFIG
-#define	SE_DLL_CONFIG
+#ifndef SE_DLL_CONFIG_H
+#define	SE_DLL_CONFIG_H
 
+#ifdef SE_DLL_LIB //shared lib
 #ifdef STAPLER_ENGINE_EXPORTS
 #define DLLAPI_SE _declspec(dllexport)
 #else
 #define DLLAPI_SE _declspec(dllimport)
 #endif
-
-#ifdef UNICODE //UNICODE
-#define TSTR wstring
-#define COUT wcout
-#define CIN wcin
-#else  //ASCII
-#define TSTR string
-#define COUT cout
-#define CIN cin
+#else //static lib
+#define DLLAPI_SE
 #endif
 
 #include <stdlib.h>
