@@ -1,4 +1,5 @@
-//
+// s_math_func.h
+// Functions of math
 #ifndef SE_MATH_FUNC_H
 #define SE_MATH_FUNC_H
 
@@ -7,7 +8,7 @@
 #include <math.h>
 
 namespace stapler_engine::math {
-	class Math {
+	class SMath {
 	public:
 		static inline double sin(double n) { return sin(n); };
 		static inline float sin(float n) { return sinf(n); };

@@ -96,9 +96,9 @@ namespace stapler_engine::vec {
 	}
 
 	DLLAPI_SE bool Vector3::equal_(const Vector3& arg) const {
-		return (math::Math::fabs(this->x - arg.x) < EPS)
-			&& (math::Math::fabs(this->y - arg.y) < EPS)
-			&& (math::Math::fabs(this->z - arg.z) < EPS);
+		return (math::SMath::fabs(this->x - arg.x) < EPS)
+			&& (math::SMath::fabs(this->y - arg.y) < EPS)
+			&& (math::SMath::fabs(this->z - arg.z) < EPS);
 	}
 
 	DLLAPI_SE bool Vector3::operator==(const Vector3& arg) const {

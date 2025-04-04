@@ -1,5 +1,5 @@
-//vec.h
-//Generate vector files
+// vec.h
+// Generate vector files
 #include "vec_base.h"
 #include "vec_2.h"
 #include "vec_2i.h"

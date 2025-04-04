@@ -1,7 +1,7 @@
 //
-#ifndef SE_S_MATH_H
-#define SE_S_MATH_H
+#ifndef SE_MATH_H
+#define SE_MATH_H
 
-#include "math_func.h"
+#include "s_math_func.h"
 
 #endif
