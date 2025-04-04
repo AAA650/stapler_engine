@@ -1,5 +1,5 @@
 // object.cpp
-#include "../include/s_object.h"
+#include "s_object.h"
 
 namespace stapler_engine
 {
@@ -9,6 +9,10 @@ namespace stapler_engine
 	}
 
 	SObject::SObject()
+	{
+	}
+
+	SObject::~SObject()
 	{
 	}
 }

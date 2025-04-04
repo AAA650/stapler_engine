@@ -1,4 +1,4 @@
-ï»¿# CMakeList.txt: CMake project of stapler_engine
+# CMakeList.txt: CMake project of stapler_engine
 #
 cmake_minimum_required (VERSION 3.12)
 
@@ -12,13 +12,28 @@ project ("stapler_engine")
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_definitions(-DSE_DLL_LIB)
+add_definitions(-DS_DLL_LIB)
 add_definitions(-DSTAPLER_ENGINE_EXPORTS)
 
-include_directories("include")
+file(GLOB_RECURSE S_HEADER_FILE RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.h")
 
-file(GLOB_RECURSE SE_SRC_FILE "src/*.cpp")
+file(GLOB_RECURSE S_SRC_FILE "src/*.cpp")
 
-add_library(stapler_engine SHARED ${SE_SRC_FILE})
+# ±éÀúÎÄ¼þ²¢¸´ÖÆ
+foreach(file ${S_HEADER_FILE})
+    # »ñÈ¡ÎÄ¼þµÄÄ¿Â¼²¿·Ö
+    get_filename_component(file_dir ${file} DIRECTORY)
+    
+    # ´´½¨Ä¿±êÄ¿Â¼
+    file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${file_dir})
+    
+    # ¸´ÖÆÎÄ¼þ
+    configure_file(
+        ${CMAKE_CURRENT_SOURCE_DIR}/${file}
+        ${CMAKE_CURRENT_BINARY_DIR}/${file}
+        COPYONLY
+    )
+endforeach()
 
+add_library(stapler_engine SHARED ${S_SRC_FILE})
 
