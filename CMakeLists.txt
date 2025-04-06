@@ -39,5 +39,9 @@ foreach(file ${S_HEADER_FILE})
     )
 endforeach()
 
+file(REMOVE_RECURSE ${CMAKE_CURRENT_BINARY_DIR}/include)
+
+file(RENAME ${CMAKE_CURRENT_BINARY_DIR}/src ${CMAKE_CURRENT_BINARY_DIR}/include)
+
 add_library(stapler_engine SHARED ${S_SRC_FILE})
 
