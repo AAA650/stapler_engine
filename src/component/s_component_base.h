@@ -6,9 +6,8 @@
 
 namespace stapler_engine::component
 {
-	class DLLAPI_SE Component :public SObject
+	class DLLAPI_SE SComponent :public SObject
 	{
-	private:
 
 	};
 }

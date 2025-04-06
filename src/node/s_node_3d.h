@@ -5,7 +5,7 @@
 #include "s_node_base.h"
 
 namespace stapler_engine::node {
-	class DLLAPI_SE Node3D :public Node {
+	class DLLAPI_SE Node3D :public SNode {
 
 	};
 }

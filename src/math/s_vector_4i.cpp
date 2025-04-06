@@ -6,151 +6,151 @@
 namespace stapler_engine::vector {
 
 	DLLAPI_SE int& SVector4i::operator[](int axis_index) {
-		return coord[axis_index];
+		return coord_[axis_index];
 	}
 
-	DLLAPI_SE SVector4i SVector4i::plus_(const SVector4i& arg) const
+	DLLAPI_SE SVector4i SVector4i::plus(const SVector4i& arg) const
 	{
-		return SVector4i(this->x + arg.x, this->y + arg.y, this->z + arg.z, this->w + arg.w);
+		return SVector4i(this->x_ + arg.x_, this->y_ + arg.y_, this->z_ + arg.z_, this->w_ + arg.w_);
 	}
 
 	DLLAPI_SE SVector4i SVector4i::operator+(const SVector4i& arg) const
 	{
-		return this->plus_(arg);
+		return this->plus(arg);
 	}
 
-	DLLAPI_SE SVector4i SVector4i::plus_(int arg) const
+	DLLAPI_SE SVector4i SVector4i::plus(int arg) const
 	{
-		return SVector4i(this->x + arg, this->y + arg, this->z + arg, this->w + arg);
+		return SVector4i(this->x_ + arg, this->y_ + arg, this->z_ + arg, this->w_ + arg);
 	}
 
 	DLLAPI_SE SVector4i SVector4i::operator+(int arg) const
 	{
-		return this->plus_(arg);
+		return this->plus(arg);
 	}
 
-	DLLAPI_SE SVector4i SVector4i::minus_(const SVector4i& arg) const
+	DLLAPI_SE SVector4i SVector4i::minus(const SVector4i& arg) const
 	{
-		return SVector4i(this->x - arg.x, this->y - arg.y, this->z - arg.z, this->w - arg.z);
+		return SVector4i(this->x_ - arg.x_, this->y_ - arg.y_, this->z_ - arg.z_, this->w_ - arg.z_);
 	}
 
 	DLLAPI_SE SVector4i SVector4i::operator-(const SVector4i& arg) const
 	{
-		return this->minus_(arg);
+		return this->minus(arg);
 	}
 
-	DLLAPI_SE SVector4i SVector4i::minus_(int arg) const
+	DLLAPI_SE SVector4i SVector4i::minus(int arg) const
 	{
-		return SVector4i(this->x - arg, this->y - arg, this->z - arg, this->w - arg);
+		return SVector4i(this->x_ - arg, this->y_ - arg, this->z_ - arg, this->w_ - arg);
 	}
 
 	DLLAPI_SE SVector4i SVector4i::operator-(int arg) const
 	{
-		return this->minus_(arg);
+		return this->minus(arg);
 	}
 
-	DLLAPI_SE SVector4i SVector4i::multiply_(int arg) const
+	DLLAPI_SE SVector4i SVector4i::multiply(int arg) const
 	{
-		return SVector4i(this->x * arg, this->y * arg, this->z * arg, this->w * arg);
+		return SVector4i(this->x_ * arg, this->y_ * arg, this->z_ * arg, this->w_ * arg);
 	}
 
 	DLLAPI_SE SVector4i SVector4i::operator*(int arg) const
 	{
-		return this->multiply_(arg);
+		return this->multiply(arg);
 	}
 
-	DLLAPI_SE int SVector4i::dot_(const SVector4i& arg) const
+	DLLAPI_SE int SVector4i::dot(const SVector4i& arg) const
 	{
-		return this->x * arg.x + this->y * arg.y + this->z * arg.z + this->w * arg.w;
+		return this->x_ * arg.x_ + this->y_ * arg.y_ + this->z_ * arg.z_ + this->w_ * arg.w_;
 	}
 
-	DLLAPI_SE SVector4i SVector4i::cross_(const SVector4i& arg) const
+	DLLAPI_SE SVector4i SVector4i::cross(const SVector4i& arg) const
 	{
 		SVector4i ret = SVector4i();
-		ret.x = this->y * arg.z - this->z * arg.y;
-		ret.y = this->z * arg.x - this->x * arg.z;
-		ret.z = this->x * arg.y - this->y * arg.x;
+		ret.x_ = this->y_ * arg.z_ - this->z_ * arg.y_;
+		ret.y_ = this->z_ * arg.x_ - this->x_ * arg.z_;
+		ret.z_ = this->x_ * arg.y_ - this->y_ * arg.x_;
 		return ret;
 	}
 
-	DLLAPI_SE SVector4i SVector4i::divide_(int arg) const
+	DLLAPI_SE SVector4i SVector4i::divide(int arg) const
 	{
-		return SVector4i(this->x / arg, this->y / arg, this->z / arg, this->w / arg);
+		return SVector4i(this->x_ / arg, this->y_ / arg, this->z_ / arg, this->w_ / arg);
 	}
 
 	DLLAPI_SE SVector4i SVector4i::operator/(int arg) const
 	{
-		return this->divide_(arg);
+		return this->divide(arg);
 	}
 
-	DLLAPI_SE int SVector4i::length_squared_() const
+	DLLAPI_SE int SVector4i::length_squared() const
 	{
-		return x * x + y * y + z * z + w * w;
+		return x_ * x_ + y_ * y_ + z_ * z_ + w_ * w_;
 	}
 
 	DLLAPI_SE void SVector4i::operator+=(const SVector4i& arg)
 	{
-		*this = this->plus_(arg);
+		*this = this->plus(arg);
 	}
 
 	DLLAPI_SE void SVector4i::operator+=(int arg)
 	{
-		*this = this->plus_(arg);
+		*this = this->plus(arg);
 	}
 
 	DLLAPI_SE void SVector4i::operator-=(const SVector4i& arg)
 	{
-		*this = this->minus_(arg);
+		*this = this->minus(arg);
 	}
 
 	DLLAPI_SE void SVector4i::operator-=(int arg)
 	{
-		*this = this->minus_(arg);
+		*this = this->minus(arg);
 	}
 
 	DLLAPI_SE void SVector4i::operator*=(int arg)
 	{
-		*this = this->multiply_(arg);
+		*this = this->multiply(arg);
 	}
 
 	DLLAPI_SE void SVector4i::operator/=(int arg)
 	{
-		*this = this->divide_(arg);
+		*this = this->divide(arg);
 	}
 
-	DLLAPI_SE bool SVector4i::equal_(const SVector4i& arg) const
+	DLLAPI_SE bool SVector4i::equal(const SVector4i& arg) const
 	{
-		return (this->x == arg.x) && (this->y == arg.y) && (this->z == arg.z) && (this->w == arg.w);
+		return (this->x_ == arg.x_) && (this->y_ == arg.y_) && (this->z_ == arg.z_) && (this->w_ == arg.w_);
 	}
 
 	DLLAPI_SE bool SVector4i::operator==(const SVector4i& arg) const
 	{
-		return this->equal_(arg);
+		return this->equal(arg);
 	}
 
-	DLLAPI_SE bool SVector4i::unequal_(const SVector4i& arg) const
+	DLLAPI_SE bool SVector4i::unequal(const SVector4i& arg) const
 	{
-		return !(this->equal_(arg));
+		return !(this->equal(arg));
 	}
 
 	DLLAPI_SE bool SVector4i::operator!=(const SVector4i& arg) const
 	{
-		return this->unequal_(arg);
+		return this->unequal(arg);
 	}
 
 	SVector4i::SVector4i()
 	{
-		coord[0] = 0;
-		coord[1] = 0;
-		coord[2] = 0;
-		coord[3] = 0;
+		coord_[0] = 0;
+		coord_[1] = 0;
+		coord_[2] = 0;
+		coord_[3] = 0;
 	}
 
 	SVector4i::SVector4i(int arg_x, int arg_y, int arg_z, int arg_w)
 	{
-		coord[0] = arg_x;
-		coord[1] = arg_y;
-		coord[2] = arg_z;
-		coord[3] = arg_w;
+		coord_[0] = arg_x;
+		coord_[1] = arg_y;
+		coord_[2] = arg_z;
+		coord_[3] = arg_w;
 	}
 }

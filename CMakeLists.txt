@@ -12,8 +12,12 @@ project ("stapler_engine")
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_C_COMPILER_WORKS TRUE)
+set(CMAKE_CXX_COMPILER_WORKS TRUE)
+
 add_definitions(-DS_DLL_LIB)
 add_definitions(-DSTAPLER_ENGINE_EXPORTS)
+add_definitions(-DUNICODE)
 
 file(GLOB_RECURSE S_HEADER_FILE RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.h")
 

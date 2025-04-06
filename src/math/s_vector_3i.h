@@ -17,19 +17,19 @@ namespace stapler_engine::vector
 		union {
 			struct {
 				union {
-					int x;
-					int width;
+					int x_;
+					int width_;
 				};
 				union {
-					int y;
-					int height;
+					int y_;
+					int height_;
 				};
 				union {
-					int z;
-					int depth;
+					int z_;
+					int depth_;
 				};
 			};
-			int coord[3];
+			int coord_[3];
 		};
 
 	public:
@@ -37,37 +37,37 @@ namespace stapler_engine::vector
 		virtual int& operator[](int axis_index);
 
 		//Plus SVector3i
-		virtual SVector3i plus_(const SVector3i& vec3) const;
+		virtual SVector3i plus(const SVector3i& vec3) const;
 		virtual SVector3i operator+(const SVector3i& vec3) const;
 
 		//Plus num
-		virtual SVector3i plus_(int num) const;
+		virtual SVector3i plus(int num) const;
 		virtual SVector3i operator+(int num) const;
 
 		//Minus SVector3i
-		virtual SVector3i minus_(const SVector3i& vec3) const;
+		virtual SVector3i minus(const SVector3i& vec3) const;
 		virtual SVector3i operator-(const SVector3i& vec3) const;
 
 		//Minus num
-		virtual SVector3i minus_(int num) const;
+		virtual SVector3i minus(int num) const;
 		virtual SVector3i operator-(int num) const;
 
 		//Ride num
-		virtual SVector3i multiply_(int num) const;
+		virtual SVector3i multiply(int num) const;
 		virtual SVector3i operator*(int num) const;
 
 		//Dot SVector3i
-		virtual int dot_(const SVector3i& vec3) const;
+		virtual int dot(const SVector3i& vec3) const;
 
 		//Cross SVector3i
-		virtual SVector3i cross_(const SVector3i& vec3) const;
+		virtual SVector3i cross(const SVector3i& vec3) const;
 
 		//Divide num
-		virtual SVector3i divide_(int num) const;
+		virtual SVector3i divide(int num) const;
 		virtual SVector3i operator/(int num) const;
 
 		//Norm without radical
-		virtual int length_squared_() const;
+		virtual int length_squared() const;
 
 		//Self add
 		virtual void operator+=(const SVector3i& vec3);
@@ -84,11 +84,11 @@ namespace stapler_engine::vector
 		virtual void operator/=(int num);
 
 		//Is equal
-		virtual bool equal_(const SVector3i& vec3) const;
+		virtual bool equal(const SVector3i& vec3) const;
 		virtual bool operator==(const SVector3i& vec3) const;
 
 		//Is unequal
-		virtual bool unequal_(const SVector3i& vec3) const;
+		virtual bool unequal(const SVector3i& vec3) const;
 		virtual bool operator!=(const SVector3i& vec3) const;
 
 		//Init as (0,0,0)

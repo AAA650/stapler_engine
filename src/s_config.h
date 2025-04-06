@@ -1,17 +1,33 @@
 #ifndef S_DLL_CONFIG_H
 #define	S_DLL_CONFIG_H
 
-#ifdef S_DLL_LIB //shared lib
+// shared lib
+#ifdef S_DLL_LIB
+// exporting dll
 #ifdef STAPLER_ENGINE_EXPORTS
+// using msvc
+#ifdef _MSC_VER
 #define DLLAPI_SE _declspec(dllexport)
+// using gnu complier
+#elif __GNUC__
+#define DLLAPI_SE
+#endif
+// importing dll
 #else
 #define DLLAPI_SE _declspec(dllimport)
 #endif
-#else //static lib
+//static lib
+#else
 #define DLLAPI_SE
 #endif
 
+#ifndef STAPLER_ENGINE_EXPORTS
+#pragma comment(lib,"stapler_engine.lib")
+#endif
+
 #include <iostream>
-#include <string>
+#include <cstring>
+
+#include "s_type_def.h"
 
 #endif // !S_DLL_CONFIG

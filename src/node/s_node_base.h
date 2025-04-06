@@ -6,38 +6,50 @@
 #include <vector>
 #include <string>
 
-typedef unsigned int NodeIndex;
+typedef unsigned int SNodeIndex;
 
 namespace stapler_engine::node {
-	class DLLAPI_SE Node :public SObject {
+	class DLLAPI_SE SNode :public SObject {
 	protected:
-		Node* parent;
-		std::vector<Node*> children;
-		char* name;
-		void set_name_(char* name);
+		// using this can make a tree structure
+		SNode* parent_;
+		std::vector<SNode*> children_;
+
+		// name of SNode
+		tstring name_;
+
 	public:
-		//Add a child
-		virtual void add_child_(Node* child);
-		//Add a vector of children
-		virtual void add_children_(std::vector<Node*>* children);
+		//Set name
+		void set_name_(tchar* name_);
+
+		//Add parent
+		virtual void set_parent_(SNode* parent);
+
+		//Disconnect this and its parent
+		virtual void erase_parent_();
+
 		//Get child by index
-		virtual Node* get_child_(unsigned int index) const;
+		virtual SNode* get_child_(SNodeIndex index) const noexcept;
+
 		//Get child index by name
-		virtual Node* get_child_(char* name) const;
-		//Earse child by pointer (same as: children.earse();)
-		virtual void erase_child_(Node* node);
+		virtual SNode* get_child_(char* name) const noexcept;
+
 		//Get name
-		virtual char* get_name_() const;
+		virtual tstring get_name_() const;
+
 		//Get a vector of children
-		virtual std::vector<Node*> get_children_() const;
+		virtual std::vector<SNode*> get_children_() const;
+
 		//Get the child's parent
-		virtual Node* get_parent_() const;
+		virtual SNode* get_parent_() const;
+
 		virtual void destory_();
-		Node(char* name);
-		Node(Node* child, char* name);
-		Node(std::vector<Node*>* children, char* name);
+
+		SNode(SNode* parent = nullptr);
+
+		SNode(tchar* name, SNode* parent = nullptr);
 	protected:
-		~Node();
+		~SNode();
 	};
 }
 

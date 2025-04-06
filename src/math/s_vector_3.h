@@ -17,19 +17,19 @@ namespace stapler_engine::vector
 		union {
 			struct {
 				union {
-					float_precision x;
-					float_precision width;
+					float_precision x_;
+					float_precision width_;
 				};
 				union {
-					float_precision y;
-					float_precision height;
+					float_precision y_;
+					float_precision height_;
 				};
 				union {
-					float_precision z;
-					float_precision depth;
+					float_precision z_;
+					float_precision depth_;
 				};
 			};
-			float_precision coord[3];
+			float_precision coord_[3];
 		};
 
 	public:
@@ -37,37 +37,37 @@ namespace stapler_engine::vector
 		virtual float_precision& operator[](int axis_index);
 
 		//Plus SVector3
-		virtual SVector3 plus_(const SVector3& vec3) const;
+		virtual SVector3 plus(const SVector3& vec3) const;
 		virtual SVector3 operator+(const SVector3& vec3) const;
 
 		//Plus num
-		virtual SVector3 plus_(float_precision num) const;
+		virtual SVector3 plus(float_precision num) const;
 		virtual SVector3 operator+(float_precision num) const;
 
 		//Minus SVector3
-		virtual SVector3 minus_(const SVector3& vec3) const;
+		virtual SVector3 minus(const SVector3& vec3) const;
 		virtual SVector3 operator-(const SVector3& vec3) const;
 
 		//Minus num
-		virtual SVector3 minus_(float_precision num) const;
+		virtual SVector3 minus(float_precision num) const;
 		virtual SVector3 operator-(float_precision num) const;
 
 		//Ride num
-		virtual SVector3 multiply_(float_precision num) const;
+		virtual SVector3 multiply(float_precision num) const;
 		virtual SVector3 operator*(float_precision num) const;
 
 		//Dot SVector3
-		virtual float_precision dot_(const SVector3& vec3) const;
+		virtual float_precision dot(const SVector3& vec3) const;
 
 		//Cross SVector3
-		virtual SVector3 cross_(const SVector3& vec3) const;
+		virtual SVector3 cross(const SVector3& vec3) const;
 
 		//Divide num
-		virtual SVector3 divide_(float_precision num) const;
+		virtual SVector3 divide(float_precision num) const;
 		virtual SVector3 operator/(float_precision num) const;
 
 		//Norm without radical
-		virtual float_precision length_squared_() const;
+		virtual float_precision length_squared() const;
 
 		//Self add
 		virtual void operator+=(const SVector3& vec3);
@@ -84,11 +84,11 @@ namespace stapler_engine::vector
 		virtual void operator/=(float_precision num);
 
 		//Is equal
-		virtual bool equal_(const SVector3& vec3) const;
+		virtual bool equal(const SVector3& vec3) const;
 		virtual bool operator==(const SVector3& vec3) const;
 
 		//Is unequal
-		virtual bool unequal_(const SVector3& vec3) const;
+		virtual bool unequal(const SVector3& vec3) const;
 		virtual bool operator!=(const SVector3& vec3) const;
 
 		//Init as (0,0,0)

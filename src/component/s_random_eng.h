@@ -1,33 +1,40 @@
-// random_eng.h
-// A random engine
+// s_random_eng.h
+// a random engine
+
 #ifndef S_RANDOM_ENG_H
 #define S_RANDOM_ENG_H
 
 #include "s_component_base.h"
 #include <random>
 
-namespace stapler_engine::component {
-	class DLLAPI_SE RandomEng :public Component {
+namespace stapler_engine::component
+{
+	class DLLAPI_SE SRandomEng :public SComponent
+	{
 	protected:
 		std::mt19937* generator_;
+
 	public:
-		void reset_();
-		void reset_(int);
+		void reset();
+		void reset(int);
 		unsigned int auto_reset_freq_ = NULL;
+
 	private:
 		unsigned int current_freq_ = NULL;
-		bool auto_reset_();
+		bool auto_reset();
+
 	public:
-		int uniform_int_rand_(int, int);
-		double uniform_real_rand_(double, double);
+		int uniform_int_rand(int, int);
+		double uniform_real_rand(double, double);
 		//... Other random types
-		int uniform_int_odd_(int[], const int&);
-		int uniform_real_odd_(double[], const int&);
+		int uniform_int_odd(int[], const int&);
+		int uniform_real_odd(double[], const int&);
 		//... Other Percentage random types
 
-		RandomEng() { reset_(); };
-		RandomEng(int seed) { reset_(seed); };
-		~RandomEng() { delete generator_; };
+	public:
+		SRandomEng() { reset(); };
+		SRandomEng(int seed) { reset(seed); };
+		~SRandomEng() { delete generator_; };
 	};
 }
 

@@ -1,116 +1,143 @@
 //
 #include "s_node_base.h"
 
-namespace stapler_engine::node {
-
-	DLLAPI_SE void Node::set_name_(char* name_arg) {
+namespace stapler_engine::node
+{
+	DLLAPI_SE void SNode::set_name_(tchar* name_arg)
+	{
+		// if name is nullptr, throw exception
 		if (name_arg == nullptr)
-			throw("Node: Cannot use nullptr");
-		if (strcmp(name_arg, "") == 0)
-			throw("Node: Cannot use empty name");
-		name = name_arg;
+			throw("SNode: Cannot use nullptr");
+
+		// if name is empty, throw exception
+		if (tstrcmp(name_arg, L"") == 0)
+			throw("SNode: Cannot use empty name_");
+
+		// write name
+		name_ = name_arg;
 	}
 
-	DLLAPI_SE void Node::add_child_(Node* node) {
-		if (node == nullptr)
-			throw std::exception("Node: Cannot use nullptr.");
-		for (auto it = children.begin(); it != children.end(); it++) {
-			if (*it == node)
-				throw std::exception("Node: Already have it.");
-			if ((*it)->name == node->name)
-				throw std::exception("Node: Cannot use same name.");
+	DLLAPI_SE void SNode::set_parent_(SNode* parent_node)
+	{
+		// if arg is nullptr, throw exception
+		if (parent_node == nullptr)
+			throw("SNode: Cannot use nullptr as parent_.");
+
+		// if its parent is already the arg, return
+		if (parent_node == parent_)
+			return;
+
+		// if have a parent before, remove it from its brothers
+		if (parent_ != nullptr) {
+			// get brothers
+			auto& brothers = parent_->children_;
+			// find itself, and then erase itself
+			for (auto it = brothers.begin(); it != brothers.end(); it++) {
+				if (*it == this) {
+					brothers.erase(it);
+					break;
+				}
+			}
 		}
-		node->parent = this;
-		children.push_back(node);
+
+		// set current parent
+		parent_ = parent_node;
+
+		// add into brothers
+		parent_->children_.push_back(this);
 	}
 
-	DLLAPI_SE void Node::add_children_(std::vector<Node*>* nodes) {
-		for (auto it = nodes->begin(); it != nodes->end(); it++) {
-			(*it)->parent = this;
+	DLLAPI_SE void SNode::erase_parent_()
+	{
+		// if have a parent before, remove it from its brothers
+		if (parent_ != nullptr) {
+			// get brothers
+			auto& brothers = parent_->children_;
+			// find itself, and then erase itself
+			for (auto it = brothers.begin(); it != brothers.end(); it++) {
+				if (*it == this) {
+					brothers.erase(it);
+					break;
+				}
+			}
 		}
-		children.insert(children.end(), nodes->begin(), nodes->end());
+
+		// set parent to nullptr
+		parent_ = nullptr;
 	}
 
-	DLLAPI_SE Node* Node::get_child_(unsigned int index) const {
-		if (index < children.size())
-			return children[index];
+	DLLAPI_SE SNode* SNode::get_child_(SNodeIndex index) const noexcept
+	{
+		// if is in vector, return the ptr
+		if (index < children_.size())
+			return children_[index];
+
+		// else return nullptr
 		return nullptr;
 	}
 
-	DLLAPI_SE Node* Node::get_child_(char* name) const {
-		for (auto it = children.begin(); it != children.end(); it++) {
-			if ((*it)->name == name)
+	DLLAPI_SE SNode* SNode::get_child_(char* name_) const noexcept
+	{
+		// if find a name as same as the arg, return it
+		for (auto it = children_.begin(); it != children_.end(); it++) {
+			if ((*it)->name_ == this->name_)
 				return *it;
 		}
+
+		// else return nullptr
 		return nullptr;
 	}
 
-	DLLAPI_SE void Node::erase_child_(Node* node) {
-		for (auto it = children.begin(); it != children.end(); it++) {
-			if (*it == node)
-				children.erase(it);
-		}
+	DLLAPI_SE tstring SNode::get_name_() const
+	{
+		return name_.c_str();
 	}
 
-	DLLAPI_SE char* Node::get_name_() const {
-		return name;
+	DLLAPI_SE std::vector<SNode*> SNode::get_children_() const
+	{
+		return children_;
 	}
 
-	DLLAPI_SE std::vector<Node*> Node::get_children_() const {
-		return children;
+	DLLAPI_SE SNode* SNode::get_parent_() const
+	{
+		return parent_;
 	}
 
-	DLLAPI_SE Node* Node::get_parent_() const {
-		return parent;
-	}
-
-	DLLAPI_SE void Node::destory_() {
+	DLLAPI_SE void SNode::destory_()
+	{
 		delete this;
 	}
 
-	Node::Node(char* name_arg) {
+	SNode::SNode(SNode* parent_node)
+	{
 		try {
-			set_name_(name_arg);
-			parent = nullptr;
-			children = std::vector<Node*>();
+			set_parent_(parent_node);
+			children_ = std::vector<SNode*>();
 		}
 		catch (std::exception ex) {
-			delete this;
+			destory_();
 			throw ex;
 		}
 	}
 
-	Node::Node(Node* node ,char* name_arg) {
+	SNode::SNode(tchar* name_arg, SNode* parent_node) {
 		try {
 			set_name_(name_arg);
-			parent = nullptr;
-			children = std::vector<Node*>();
-			add_child_(node);
+			set_parent_(parent_node);
+			children_ = std::vector<SNode*>();
 		}
 		catch (std::exception ex) {
-			delete this;
+			destory_();
 			throw ex;
 		}
 	}
 
-	Node::Node(std::vector<Node*>* nodes,char* name_arg) {
-		try {
-			set_name_(name_arg);
-			parent = nullptr;
-			children = std::vector<Node*>();
-			add_children_(nodes);
+	SNode::~SNode() {
+		for (auto it = children_.begin(); it != children_.end(); it++) {
+			if ((*it) != nullptr)
+				delete* it;
 		}
-		catch (std::exception ex) {
-			delete this;
-			throw ex;
-		}
-	}
-
-	Node::~Node() {
-		for (auto it = children.begin(); it != children.end(); it++) {
-			delete* it;
-		}
-		parent = nullptr;
+		erase_parent_();
 	}
 
 }

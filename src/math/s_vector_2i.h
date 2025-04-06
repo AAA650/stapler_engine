@@ -17,15 +17,15 @@ namespace stapler_engine::vector
 		union {
 			struct {
 				union {
-					int x;
-					int width;
+					int x_;
+					int width_;
 				};
 				union {
-					int y;
-					int height;
+					int y_;
+					int height_;
 				};
 			};
-			int coord[2];
+			int coord_[2];
 		};
 
 	public:
@@ -33,44 +33,44 @@ namespace stapler_engine::vector
 		virtual int& operator[](int axis_index);
 
 		//Plus SVector2i
-		virtual SVector2i plus_(const SVector2i& vec2i) const;
+		virtual SVector2i plus(const SVector2i& vec2i) const;
 		virtual SVector2i operator+(const SVector2i& vec2i) const;
 
 		//Plus num
-		virtual SVector2i plus_(int num) const;
+		virtual SVector2i plus(int num) const;
 		virtual SVector2i operator+(int num) const;
 
 		//Minus SVector2i
-		virtual SVector2i minus_(const SVector2i& vec2i) const;
+		virtual SVector2i minus(const SVector2i& vec2i) const;
 		virtual SVector2i operator-(const SVector2i& vec2i) const;
 
 		//Minus num
-		virtual SVector2i minus_(int num) const;
+		virtual SVector2i minus(int num) const;
 		virtual SVector2i operator-(int num) const;
 
 		//Ride num
-		virtual SVector2i multiply_(int num) const;
+		virtual SVector2i multiply(int num) const;
 		virtual SVector2i operator*(int num) const;
 
 		//Dot SVector2i
-		virtual int dot_(const SVector2i& vec2i) const;
+		virtual int dot(const SVector2i& vec2i) const;
 
 		//Cross SVector2i
-		virtual int cross_(const SVector2i& vec2i) const;
+		virtual int cross(const SVector2i& vec2i) const;
 
 		//Divide num
-		virtual SVector2i divide_(int num) const;
+		virtual SVector2i divide(int num) const;
 		virtual SVector2i operator/(int num) const;
 
 		//Norm without radical
-		virtual int length_squared_() const;
+		virtual int length_squared() const;
 
 		//Self add
 		virtual void operator+=(const SVector2i& vec2i);
 		virtual void operator+=(int num);
 
 		//Self minus
-		virtual void operator-=(const SVector2i&);
+		virtual void operator-=(const SVector2i& vec2i);
 		virtual void operator-=(int num);
 
 		//Self ride
@@ -80,11 +80,11 @@ namespace stapler_engine::vector
 		virtual void operator/=(int num);
 
 		//Is equal
-		virtual bool equal_(const SVector2i& vec2i) const;
+		virtual bool equal(const SVector2i& vec2i) const;
 		virtual bool operator==(const SVector2i& vec2i) const;
 
 		//Is unequal
-		virtual bool unequal_(const SVector2i& vec2i) const;
+		virtual bool unequal(const SVector2i& vec2i) const;
 		virtual bool operator!=(const SVector2i& vec2i) const;
 
 		//Init as (0,0)
