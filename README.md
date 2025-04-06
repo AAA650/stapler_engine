@@ -9,6 +9,7 @@ We will develop more in the future.
 ## Download
 Download source code and build it by yourself.  
 Or directly to the release page to download the lastest.  
+[Latest Release](https://github.com/AAA650/stapler_engine/releases/latest)
 ## Others
 Made by AAA650 with ❤️.  
 thanks to other contributers and thanks for your support.  
