@@ -5,7 +5,7 @@
 #define S_VECTOR_3_H
 #include "s_vector_base.h"
 
-namespace stapler_engine::vector
+namespace stapler_engine::math
 {
 	class DLLAPI_SE SVector3 : public SVector
 	{

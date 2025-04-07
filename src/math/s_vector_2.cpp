@@ -3,7 +3,7 @@
 
 #include "s_vector_2.h"
 
-namespace stapler_engine::vector
+namespace stapler_engine::math
 {
 
 	DLLAPI_SE float_precision& SVector2::operator[](int axis_index) {

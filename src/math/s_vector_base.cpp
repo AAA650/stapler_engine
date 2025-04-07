@@ -3,7 +3,7 @@
 
 #include "s_vector_base.h"
 
-namespace stapler_engine::vector
+namespace stapler_engine::math
 {
 
 }

@@ -14,7 +14,7 @@
 #define O_VEC_2(vec)       (vec).y_(), (vec).x_()
 #define OT_VEC_2(vec,type) (type)(vec).y_(), (type)(vec).x_()
 
-namespace stapler_engine::vector
+namespace stapler_engine::math
 {
 	class DLLAPI_SE SVector : public SObject
 	{

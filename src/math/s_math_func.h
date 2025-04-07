@@ -1,5 +1,6 @@
 // s_math_func.h
 // Functions of math
+
 #ifndef S_MATH_FUNC_H
 #define S_MATH_FUNC_H
 

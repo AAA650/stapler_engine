@@ -3,7 +3,7 @@
 
 #include "s_vector_3i.h"
 
-namespace stapler_engine::vector {
+namespace stapler_engine::math {
 
 	DLLAPI_SE int& SVector3i::operator[](int axis_index) {
 		return coord_[axis_index];
