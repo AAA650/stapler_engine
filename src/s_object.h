@@ -8,9 +8,12 @@ namespace stapler_engine
 {
 	class DLLAPI_SE SObject
 	{
+
 	public:
 		//Stapler engine main function
 		static void se_main();
+
+	public:
 		SObject();
 		virtual ~SObject();
 	};
