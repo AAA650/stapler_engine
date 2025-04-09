@@ -4,11 +4,16 @@
 namespace stapler_engine::component {
 
 	DLLAPI_SE void SRandomEng::reset() {
-		std::random_device RandDevice;
-		generator_ = new std::mt19937(RandDevice());
+		//get a rand_device to get seed
+		std::random_device rand_device;
+		if (generator_ != nullptr)
+			delete generator_;
+		generator_ = new std::mt19937(rand_device());
 	};
 
 	DLLAPI_SE void SRandomEng::reset(int seed) {
+		if (generator_ != nullptr)
+			delete generator_;
 		generator_ = new std::mt19937(seed);
 	};
 
@@ -86,5 +91,12 @@ namespace stapler_engine::component {
 		};
 		throw std::bad_exception();
 		return -1;
-	};
+	}
+
+	SRandomEng::~SRandomEng()
+	{
+		if (generator_ != nullptr)
+			delete generator_;
+	}
+	;
 }
