@@ -24,8 +24,8 @@ namespace stapler_engine::component
 		bool auto_reset();
 
 	public:
-		int uniform_int_rand(int, int);
-		double uniform_real_rand(double, double);
+		int uniform_int_num(int, int);
+		double uniform_real_num(double, double);
 		//... Other random types
 		int uniform_int_odd(int[], const int&);
 		int uniform_real_odd(double[], const int&);
