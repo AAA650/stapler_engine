@@ -34,7 +34,7 @@ namespace stapler_engine::component
 	public:
 		SRandomEng() { reset(); };
 		SRandomEng(int seed) { reset(seed); };
-		~SRandomEng() { delete generator_; };
+		~SRandomEng();
 	};
 }
 
