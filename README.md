@@ -1,15 +1,7 @@
-# Stapler Engine 
-A game engine, otherwish U can call it a toolkit.  
-## Language 
-Written by c++.  
-Use cmake to build up.  
-## Plantform
-Currently windows only.  
-We will develop more in the future.  
-## Download
-Download source code and build it by yourself.  
-Or directly to the release page to download the lastest.  
-[Latest Release](https://github.com/AAA650/stapler_engine/releases/latest)
+# Stapler Engine Page 
+This is a web page of Stapler Engine
+## Platform
+Web
 ## Others
-Made by AAA650 with ❤️.  
-thanks to other contributers and thanks for your support.  
+The engine is made by AAA650 with ❤️.  
+Thanks to the contributers and thanks for your support.  
