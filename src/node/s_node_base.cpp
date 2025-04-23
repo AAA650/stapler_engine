@@ -1,4 +1,6 @@
-//
+// s_node_base.cpp
+// implement of SNode
+
 #include "s_node_base.h"
 
 namespace stapler_engine::node

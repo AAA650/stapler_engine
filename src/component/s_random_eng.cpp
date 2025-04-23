@@ -1,4 +1,6 @@
-//
+// s_random_eng.cpp
+// implement of random engine
+
 #include "s_random_eng.h"
 
 namespace stapler_engine::component {
