@@ -2,7 +2,7 @@
 #ifndef S_PLUGIN_BAS_H
 #define S_PLUGIN_BAS_H
 
-#include "../s_object.h"
+#include "../core/s_object.h"
 
 namespace stapler_engine::component
 {

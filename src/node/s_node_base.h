@@ -2,7 +2,7 @@
 #ifndef S_NODE_BAS_H
 #define S_NODE_BAS_H
 
-#include "../s_object.h"
+#include "../core/s_object.h"
 #include <vector>
 #include <string>
 
@@ -20,30 +20,30 @@ namespace stapler_engine::node {
 
 	public:
 		//Set name
-		void set_name_(tchar* name_);
+		void set_name(tchar* name_);
 
 		//Add parent
-		virtual void set_parent_(SNode* parent);
+		virtual void set_parent(SNode* parent);
 
 		//Disconnect this and its parent
-		virtual void erase_parent_();
+		virtual void erase_parent();
 
 		//Get child by index
-		virtual SNode* get_child_(SNodeIndex index) const noexcept;
+		virtual SNode* get_child(SNodeIndex index) const noexcept;
 
 		//Get child index by name
-		virtual SNode* get_child_(char* name) const noexcept;
+		virtual SNode* get_child(char* name) const noexcept;
 
 		//Get name
-		virtual tstring get_name_() const;
+		virtual tstring get_name() const;
 
 		//Get a vector of children
-		virtual std::vector<SNode*> get_children_() const;
+		virtual std::vector<SNode*> get_children() const;
 
 		//Get the child's parent
-		virtual SNode* get_parent_() const;
+		virtual SNode* get_parent() const;
 
-		virtual void destory_();
+		virtual void destory();
 
 		SNode(SNode* parent = nullptr);
 

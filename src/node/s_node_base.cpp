@@ -5,7 +5,7 @@
 
 namespace stapler_engine::node
 {
-	DLLAPI_SE void SNode::set_name_(tchar* name_arg)
+	DLLAPI_SE void SNode::set_name(tchar* name_arg)
 	{
 		// if name is nullptr, throw exception
 		if (name_arg == nullptr)
@@ -19,7 +19,7 @@ namespace stapler_engine::node
 		name_ = name_arg;
 	}
 
-	DLLAPI_SE void SNode::set_parent_(SNode* parent_node)
+	DLLAPI_SE void SNode::set_parent(SNode* parent_node)
 	{
 		// if arg is nullptr, throw exception
 		if (parent_node == nullptr)
@@ -49,7 +49,7 @@ namespace stapler_engine::node
 		parent_->children_.push_back(this);
 	}
 
-	DLLAPI_SE void SNode::erase_parent_()
+	DLLAPI_SE void SNode::erase_parent()
 	{
 		// if have a parent before, remove it from its brothers
 		if (parent_ != nullptr) {
@@ -68,7 +68,7 @@ namespace stapler_engine::node
 		parent_ = nullptr;
 	}
 
-	DLLAPI_SE SNode* SNode::get_child_(SNodeIndex index) const noexcept
+	DLLAPI_SE SNode* SNode::get_child(SNodeIndex index) const noexcept
 	{
 		// if is in vector, return the ptr
 		if (index < children_.size())
@@ -78,7 +78,7 @@ namespace stapler_engine::node
 		return nullptr;
 	}
 
-	DLLAPI_SE SNode* SNode::get_child_(char* name_) const noexcept
+	DLLAPI_SE SNode* SNode::get_child(char* name_) const noexcept
 	{
 		// if find a name as same as the arg, return it
 		for (auto it = children_.begin(); it != children_.end(); it++) {
@@ -90,22 +90,22 @@ namespace stapler_engine::node
 		return nullptr;
 	}
 
-	DLLAPI_SE tstring SNode::get_name_() const
+	DLLAPI_SE tstring SNode::get_name() const
 	{
 		return name_.c_str();
 	}
 
-	DLLAPI_SE std::vector<SNode*> SNode::get_children_() const
+	DLLAPI_SE std::vector<SNode*> SNode::get_children() const
 	{
 		return children_;
 	}
 
-	DLLAPI_SE SNode* SNode::get_parent_() const
+	DLLAPI_SE SNode* SNode::get_parent() const
 	{
 		return parent_;
 	}
 
-	DLLAPI_SE void SNode::destory_()
+	DLLAPI_SE void SNode::destory()
 	{
 		delete this;
 	}
@@ -113,23 +113,23 @@ namespace stapler_engine::node
 	SNode::SNode(SNode* parent_node)
 	{
 		try {
-			set_parent_(parent_node);
+			set_parent(parent_node);
 			children_ = std::vector<SNode*>();
 		}
 		catch (std::exception ex) {
-			destory_();
+			destory();
 			throw ex;
 		}
 	}
 
 	SNode::SNode(tchar* name_arg, SNode* parent_node) {
 		try {
-			set_name_(name_arg);
-			set_parent_(parent_node);
+			set_name(name_arg);
+			set_parent(parent_node);
 			children_ = std::vector<SNode*>();
 		}
 		catch (std::exception ex) {
-			destory_();
+			destory();
 			throw ex;
 		}
 	}
@@ -139,7 +139,7 @@ namespace stapler_engine::node
 			if ((*it) != nullptr)
 				delete* it;
 		}
-		erase_parent_();
+		erase_parent();
 	}
 
 }

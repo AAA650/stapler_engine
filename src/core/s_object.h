@@ -24,15 +24,23 @@ namespace stapler_engine
 	class DLLAPI_SE SAttribute :public SObject
 	{
 	protected:
+		//the value of attribute
 		t_type value;
+
 	public:
-		virtual inline t_type get() { return value; };
-		virtual inline t_type set(t_type& in_arg) { value = *in_arg; return value; };
-		inline t_type operator()() { return get(); };
-		inline t_type operator=(t_type& in_arg) { return set(in_arg); };
+		//get value
+		virtual inline const t_type& get() { return value; };
+		//set value
+		virtual inline const t_type& set(const t_type& in_arg) { value = *in_arg; return value; };
+		
+		inline const t_type& operator()() { return get(); };
+
+		inline const t_type& operator=(const t_type& in_arg) { return set(in_arg); };
 		
 	public:
+		//init attribute using value
 		SAttribute(const t_type& in_arg) { set(in_arg); };
+		//move value into attribute
 		SAttribute(t_type&& in_arg) { set(in_arg); };
 
 	public:

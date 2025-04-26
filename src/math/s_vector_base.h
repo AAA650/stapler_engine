@@ -5,7 +5,7 @@
 #ifndef S_VECTOR_BASE_H
 #define S_VECTOR_BASE_H
 
-#include "../s_object.h"
+#include "../core/s_object.h"
 
 #include "s_math_func.h"
 
