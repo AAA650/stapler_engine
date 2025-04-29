@@ -4,7 +4,7 @@
 #ifndef S_PRIME_LIB_H
 #define S_PRIME_LIB_H
 
-#include "../core/s_object.h"
+#include "../core/s_core.h"
 
 namespace stapler_engine::math
 {
