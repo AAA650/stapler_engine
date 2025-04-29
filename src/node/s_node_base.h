@@ -2,7 +2,7 @@
 #ifndef S_NODE_BAS_H
 #define S_NODE_BAS_H
 
-#include "../core/s_object.h"
+#include "../core/s_core.h"
 #include <vector>
 #include <string>
 
