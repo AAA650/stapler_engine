@@ -18,13 +18,18 @@ namespace stapler_engine
 		class DLLAPI_SE SDelegateContainer
 		{
 		protected:
-			void* invk_func_;
 			friend class SDelegate;
 
 		public:
 			template<typename t_type,typename... t_args>
 			t_type invoke(const t_args&... in_args) {
-
+				void** vfptr = *(void***)this;
+				union {
+					t_type(SDelegateContainer::* invk_func_)(t_args...);
+					void* invk_func_ptr_;
+				}u;
+				u.invk_func_ptr_ = vfptr[3];
+				return (this->*(u.invk_func_ptr_))(in_args...);
 			}
 
 			virtual bool is_class() = 0;
@@ -41,7 +46,7 @@ namespace stapler_engine
 			t_type(*callback_)(t_args...);
 
 		public:
-			t_type _invoke(const t_args&... in_args) {
+			t_type invoke(const t_args&... in_args) {
 				return callback_(in_args...);
 			}
 
@@ -52,7 +57,6 @@ namespace stapler_engine
 		public:
 			SDelegateMetadataMethod(t_type(*in_function)(t_args...), void* in_target = nullptr)
 				: target_(in_target), callback_(in_function) {
-				invk_func_ = (void*)_invoke;
 			}
 			~SDelegateMetadataMethod() {
 				target_ = nullptr;
@@ -70,7 +74,7 @@ namespace stapler_engine
 			t_type(t_targ::* callback_)(t_args...);
 
 		public:
-			t_type _invoke(const t_args&... in_args) {
+			t_type invoke(const t_args&... in_args) {
 				return (target_->callback_)(in_args...);
 			}
 
@@ -81,7 +85,6 @@ namespace stapler_engine
 		public:
 			SDelegateMetadataClass(t_type(t_targ::* in_function)(t_args...), t_targ* in_target)
 				: target_(in_target), callback_(in_function) {
-				invk_func_ = (void*)_invoke;
 			}
 			~SDelegateMetadataClass() {
 				target_ = nullptr;
