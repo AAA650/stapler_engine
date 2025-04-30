@@ -18,18 +18,18 @@ namespace stapler_engine
 		class DLLAPI_SE SDelegateContainer
 		{
 		protected:
+			void* invk_func_;
 			friend class SDelegate;
 
 		public:
 			template<typename t_type,typename... t_args>
 			t_type invoke(const t_args&... in_args) {
-				void** vfptr = *(void***)this;
 				union {
-					t_type(SDelegateContainer::* invk_func_)(t_args...);
-					void* invk_func_ptr_;
-				}u;
-				u.invk_func_ptr_ = vfptr[3];
-				return (this->*(u.invk_func_ptr_))(in_args...);
+					t_type(SDelegateContainer::*func)(const t_args&...);
+					void* func_ptr;
+				} conv_u;
+				conv_u.func_ptr = invk_func_;
+				return (this->*(conv_u.func))(in_args...);
 			}
 
 			virtual bool is_class() = 0;
@@ -47,7 +47,7 @@ namespace stapler_engine
 
 		public:
 			t_type invoke(const t_args&... in_args) {
-				return callback_(in_args...);
+				return (*callback_)(in_args...);
 			}
 
 			virtual bool is_class() override {
@@ -57,6 +57,12 @@ namespace stapler_engine
 		public:
 			SDelegateMetadataMethod(t_type(*in_function)(t_args...), void* in_target = nullptr)
 				: target_(in_target), callback_(in_function) {
+				union {
+					t_type(SDelegateMetadataMethod::*func)(const t_args&...);
+					void* func_ptr;
+				} conv_u;
+				conv_u.func = &SDelegateMetadataMethod::invoke;
+				invk_func_ = conv_u.func_ptr;
 			}
 			~SDelegateMetadataMethod() {
 				target_ = nullptr;
@@ -75,7 +81,7 @@ namespace stapler_engine
 
 		public:
 			t_type invoke(const t_args&... in_args) {
-				return (target_->callback_)(in_args...);
+				return (target_->*callback_)(in_args...);
 			}
 
 			virtual bool is_class() override {
@@ -85,6 +91,12 @@ namespace stapler_engine
 		public:
 			SDelegateMetadataClass(t_type(t_targ::* in_function)(t_args...), t_targ* in_target)
 				: target_(in_target), callback_(in_function) {
+				union {
+					t_type(SDelegateMetadataClass::*func)(const t_args&...);
+					void* func_ptr;
+				} conv_u;
+				conv_u.func = &SDelegateMetadataClass::invoke;
+				invk_func_ = conv_u.func_ptr;
 			}
 			~SDelegateMetadataClass() {
 				target_ = nullptr;

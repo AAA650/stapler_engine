@@ -21,9 +21,11 @@
 #define DLLAPI_SE
 #endif
 
+/*
 #ifndef STAPLER_ENGINE_EXPORTS
 #pragma comment(lib,"stapler_engine.lib")
 #endif
+*/
 
 #include <iostream>
 #include <cstring>
