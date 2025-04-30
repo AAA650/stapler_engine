@@ -5,7 +5,7 @@ using namespace se;
 
 class test {
 public:
-	void testout(void* hhh) {
+	void testout() {
 		std::cout << "test!" << std::endl;
 	}
 };
@@ -13,8 +13,8 @@ public:
 int main() {
 	test ttsstt;
 	SDelegate testdelegate;
-	testdelegate.join<test, void, void*>(&test::testout, &ttsstt);
-	testdelegate.invoke<void*>(nullptr);
+	testdelegate.join<test, void>(&test::testout, &ttsstt);
+	testdelegate.invoke();
 	system("pause");
 	return 0;
 }

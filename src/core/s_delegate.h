@@ -22,6 +22,15 @@ namespace stapler_engine
 			friend class SDelegate;
 
 		public:
+			template<typename t_type>
+			t_type invoke() {
+				union {
+					t_type(SDelegateContainer::* func)();
+					void* func_ptr;
+				} conv_u;
+				conv_u.func_ptr = invk_func_;
+				return (this->*(conv_u.func))();
+			}
 			template<typename t_type,typename... t_args>
 			t_type invoke(const t_args&... in_args) {
 				union {
@@ -33,6 +42,8 @@ namespace stapler_engine
 			}
 
 			virtual bool is_class() = 0;
+
+			virtual bool is_valid() = 0;
 		};
 
 		// delegate metadata
@@ -41,7 +52,7 @@ namespace stapler_engine
 		template<typename t_type,typename... t_args>
 		class DLLAPI_SE SDelegateMetadataMethod<t_type(t_args...)> : public SDelegateContainer
 		{
-		private:
+		protected:
 			void* target_;
 			t_type(*callback_)(t_args...);
 
@@ -52,6 +63,10 @@ namespace stapler_engine
 
 			virtual bool is_class() override {
 				return false;
+			}
+
+			virtual bool is_valid() override {
+				return target_ != nullptr && callback_ != nullptr;
 			}
 
 		public:
@@ -75,7 +90,7 @@ namespace stapler_engine
 		template<typename t_targ,typename t_type, typename... t_args>
 		class DLLAPI_SE SDelegateMetadataClass<t_targ,t_type(t_args...)> : public SDelegateContainer
 		{
-		private:
+		protected:
 			t_targ* target_;
 			t_type(t_targ::* callback_)(t_args...);
 
@@ -86,6 +101,10 @@ namespace stapler_engine
 
 			virtual bool is_class() override {
 				return true;
+			}
+
+			virtual bool is_valid() override {
+				return target_ != nullptr && callback_ != nullptr;
 			}
 
 		public:
@@ -110,9 +129,17 @@ namespace stapler_engine
 
 	public:
 		//join methods into delegate
+		template<typename t_type>
+		void join(t_type(*in_method)()) {
+			clients_.push_back(new SDelegateMetadataMethod<t_type()>(in_method));
+		}
 		template<typename t_type, typename... t_args>
 		void join(t_type(*in_method)(t_args...)) {
 			clients_.push_back(new SDelegateMetadataMethod<t_type(t_args...)>(in_method));
+		}
+		template<typename t_targ, typename t_type>
+		void join(t_type(t_targ::* in_method)(), t_targ* target) {
+			clients_.push_back(new SDelegateMetadataClass<t_targ, t_type()>(in_method, target));
 		}
 		template<typename t_targ, typename t_type, typename... t_args>
 		void join(t_type(t_targ::* in_method)(t_args...), t_targ* target) {
@@ -120,6 +147,11 @@ namespace stapler_engine
 		}
 
 		//invoke delegate
+		void invoke() {
+			for (auto client : clients_) {
+				client->invoke<void>();
+			}
+		}
 		template<typename... t_args>
 		void invoke(const t_args&... in_args) {
 			for (auto client : clients_) {
