@@ -6,6 +6,5 @@
 
 #include "s_random_eng.h"
 #include "s_timer.h"
-#include "s_delegate.h"
 
 #endif

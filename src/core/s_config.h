@@ -29,6 +29,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <vector>
 
 #include "s_type_def.h"
 

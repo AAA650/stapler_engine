@@ -10,14 +10,59 @@
 
 namespace stapler_engine
 {
+	/*
+	class DLLAPI_SE SSignal : public SObject
+	{
+	protected:
+		class DLLAPI_SE SSignalContainer
+		{
+		protected:
+			void* invk_func_;
+			friend class SSignal;
+
+		public:
+			template<typename... t_args>
+			void invoke(const t_args&... in_args) {
+				union {
+					void(SSignalContainer::* func)(const t_args&...);
+					void* func_ptr;
+				} conv_u;
+				conv_u.func_ptr = invk_func_;
+				(this->*(conv_u.func))(in_args...);
+			}
+
+			virtual bool is_class() = 0;
+
+			virtual bool is_vaild() = 0;
+
+			virtual void* get_target() = 0;
+
+			virtual void* get_method() = 0;
+		};
+
+
+		template<typename... t_args>
+		class DLLAPI_SE SSignalMetadataMethod: public SObject
+		{
+		protected:
+			void* target_;
+			void(*callback_)(t_args...);
+
+		public:
+			void invoke(const t_args& in_args...) {
+				(*callback_)(in_args...);
+			}
+		};
+	};*/
+
 	class DLLAPI_SE SDelegate : public SObject
 	{
 	protected:
 		// delegate container
-		// containing functions
 		class DLLAPI_SE SDelegateContainer
 		{
 		protected:
+			//invoke function pointer
 			void* invk_func_;
 			friend class SDelegate;
 
@@ -34,7 +79,7 @@ namespace stapler_engine
 			template<typename t_type,typename... t_args>
 			t_type invoke(const t_args&... in_args) {
 				union {
-					t_type(SDelegateContainer::*func)(const t_args&...);
+					t_type(SDelegateContainer::* func)(const t_args&...);
 					void* func_ptr;
 				} conv_u;
 				conv_u.func_ptr = invk_func_;
@@ -108,10 +153,10 @@ namespace stapler_engine
 			}
 
 		public:
-			SDelegateMetadataClass(t_type(t_targ::* in_function)(t_args...), t_targ* in_target)
+			SDelegateMetadataClass(t_targ* in_target, t_type(t_targ::* in_function)(t_args...))
 				: target_(in_target), callback_(in_function) {
 				union {
-					t_type(SDelegateMetadataClass::*func)(const t_args&...);
+					t_type(SDelegateMetadataClass::* func)(const t_args&...);
 					void* func_ptr;
 				} conv_u;
 				conv_u.func = &SDelegateMetadataClass::invoke;
@@ -138,22 +183,22 @@ namespace stapler_engine
 			clients_.push_back(new SDelegateMetadataMethod<t_type(t_args...)>(in_method));
 		}
 		template<typename t_targ, typename t_type>
-		void join(t_type(t_targ::* in_method)(), t_targ* target) {
-			clients_.push_back(new SDelegateMetadataClass<t_targ, t_type()>(in_method, target));
+		void join(t_targ* target, t_type(t_targ::* in_method)()) {
+			clients_.push_back(new SDelegateMetadataClass<t_targ, t_type()>(target, in_method));
 		}
 		template<typename t_targ, typename t_type, typename... t_args>
-		void join(t_type(t_targ::* in_method)(t_args...), t_targ* target) {
-			clients_.push_back(new SDelegateMetadataClass<t_targ, t_type(t_args...)>(in_method, target));
+		void join(t_targ* target, t_type(t_targ::* in_method)(t_args...)) {
+			clients_.push_back(new SDelegateMetadataClass<t_targ, t_type(t_args...)>(target, in_method, target));
 		}
 
 		//invoke delegate
-		void invoke() {
+		void invoke_all() {
 			for (auto client : clients_) {
 				client->invoke<void>();
 			}
 		}
 		template<typename... t_args>
-		void invoke(const t_args&... in_args) {
+		void invoke_all(const t_args&... in_args) {
 			for (auto client : clients_) {
 				client->invoke<void, t_args...>(in_args...);
 			}
