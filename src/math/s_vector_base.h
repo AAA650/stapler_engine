@@ -1,4 +1,4 @@
-// vec_base.h
+// s_vector_base.h
 // basic declaration for vectors
 // declaration of SVector
 

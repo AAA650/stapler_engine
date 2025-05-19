@@ -3,31 +3,31 @@
 
 // shared lib
 #ifdef S_DLL_LIB
-// exporting dll
-#ifdef STAPLER_ENGINE_EXPORTS
-// using msvc
-#ifdef _MSC_VER
-#define DLLAPI_SE _declspec(dllexport)
-// using gnu complier
-#elif __GNUC__
-#define DLLAPI_SE
-#endif
-// importing dll
-#else
-#define DLLAPI_SE _declspec(dllimport)
-#endif
+	// Using msvc compiler
+#	ifdef _MSC_VER
+#		ifdef STAPLER_ENGINE_EXPORTS
+#			define DLLAPI_SE _declspec(dllexport)
+#		else
+#			define DLLAPI_SE _declspec(dllimport)
+#		endif
+	// Using GNU Compiler
+#	elif __GNUC__
+#		define DLLAPI_SE
+#	endif
+
 //static lib
 #else
-#define DLLAPI_SE
+#	define DLLAPI_SE
 #endif
 
 /*
 #ifndef STAPLER_ENGINE_EXPORTS
-#pragma comment(lib,"stapler_engine.lib")
+#	pragma comment(lib,"stapler_engine.lib")
 #endif
 */
 
 #include <iostream>
+#include <stdint.h>
 #include <cstring>
 #include <vector>
 

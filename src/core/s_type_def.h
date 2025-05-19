@@ -4,24 +4,25 @@
 #ifndef S_TYPE_DEF_H
 #define S_TYPE_DEF_H
 
-#include "s_config.h"
+namespace stapler_engine {
 
-#ifdef UNICODE //UNICODE
-typedef std::wstring tstring;
-typedef wchar_t tchar;
+#ifdef UNICODE
+	typedef std::wstring tstring;
+	typedef wchar_t tchar;
 
-#define tcout std::wcout
-#define tcin std::wcin
-#define tstrcmp wcscmp
+#	define tcout std::wcout
+#	define tcin std::wcin
+#	define tstrcmp wcscmp
 
-#else  //ASCII
-typedef std::string tstring;
-typedef char tchar;
+#else //UNICODE
+	typedef std::string tstring;
+	typedef char tchar;
 
-#define tcout std::cout
-#define tcin std::cin
-#define tstrcmp strcmp
+#	define tcout std::cout
+#	define tcin std::cin
+#	define tstrcmp strcmp
 
-#endif
+#endif //ASCII
+}
 
 #endif

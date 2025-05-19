@@ -17,10 +17,10 @@ namespace stapler_engine::component
 	public:
 		void reset();
 		void reset(int);
-		unsigned int auto_reset_freq_ = NULL;
+		unsigned int auto_reset_freq_ = 0;
 
 	private:
-		unsigned int current_freq_ = NULL;
+		unsigned int current_freq_ = 0;
 		bool auto_reset();
 
 	public:

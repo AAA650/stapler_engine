@@ -1,6 +1,5 @@
 #include "../src/stapler_engine.h"
 #include <iostream>
-#pragma comment(lib, "stapler_engine.lib")
 using namespace std;
 
 int tstfunc(int a) {
@@ -13,7 +12,7 @@ public:
 	int clsfunc(int a) {
 		cout << "cls called " << a << endl;
 		return a;
-	}
+	}	
 };
 
 int main() {
@@ -25,11 +24,14 @@ int main() {
 		cout << "lambda called " << a << endl;
 		return a;
 		});
-	tstdel.invoke(1);
+
 	vector<int> results;
 	tstdel.invoke(results, 2);
 	for (auto& it : results) {
 		cout << "invk res " << it << endl;
 	}
+
+	system("pause");
+
 	return 0;
 }
