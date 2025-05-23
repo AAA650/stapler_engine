@@ -17,18 +17,17 @@ namespace stapler_engine::component
 	public:
 		void reset();
 		void reset(int);
-		unsigned int auto_reset_freq_ = 0;
+		uint16_t auto_reset_freq_ = 0;
 
 	private:
 		unsigned int current_freq_ = 0;
 		bool auto_reset();
 
 	public:
-		int uniform_int_num(int, int);
-		double uniform_real_num(double, double);
+		int uniform_int_dist(int min, int max);
+		double uniform_real_dist(double min, double max);
 		//... Other random types
-		int uniform_int_odd(int[], const int&);
-		int uniform_real_odd(double[], const int&);
+		int discrete_dist(std::initializer_list<double> odd_list);
 		//... Other Percentage random types
 
 	public:

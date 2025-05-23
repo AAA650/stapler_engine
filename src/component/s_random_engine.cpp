@@ -33,67 +33,24 @@ namespace stapler_engine::component {
 		return false;
 	};
 
-	DLLAPI_SE int SRandomEng::uniform_int_num(int min, int max) {
+	DLLAPI_SE int SRandomEng::uniform_int_dist(int min, int max) {
 		auto_reset();
 		std::uniform_int_distribution<> distribution(min, max);
 		return distribution(*generator_);
 	};
 
-	DLLAPI_SE double SRandomEng::uniform_real_num(double min, double max) {
+	DLLAPI_SE double SRandomEng::uniform_real_dist(double min, double max) {
 		auto_reset();
 		std::uniform_real_distribution<> distribution(min, max);
 		return distribution(*generator_);
 	};
 
-	DLLAPI_SE int SRandomEng::uniform_int_odd(int odd[], const int& size) {
-		if (size <= 0)
-			return -1;
-		int sum_num = 0;
-		for (int i = 1; i < size; i++) {
-			if (odd[i] < 0) {
-				throw std::range_error("Cannot below zero");
-				return -1;
-			};
-			sum_num += odd[i];
-		};
-		if (sum_num < 0) {
-			throw std::overflow_error("Overflowed");
-			return -1;
-		}
-		int minus_num = uniform_int_num(0, sum_num - 1);
-		for (int i = 0; i < size; i++) {
-			minus_num -= odd[i];
-			if (minus_num < 0)
-				return i;
-		};
-		throw std::bad_exception();
-		return -1;
-	};
+	DLLAPI_SE int SRandomEng::discrete_dist(std::initializer_list<double> odd_list) {
+		auto_reset();
+		std::discrete_distribution<> distribution(odd_list);
+		return distribution(*generator_);
 
-	DLLAPI_SE int SRandomEng::uniform_real_odd(double odd[], const int& size) {
-		if (size <= 0)
-			return -1;
-		double sum_num = 0;
-		for (int i = 1; i < size; i++) {
-			if (odd[i] < 0) {
-				throw std::range_error("Cannot below zero");
-				return -1;
-			};
-			sum_num += odd[i];
-		};
-		if (sum_num < 0) {
-			throw std::overflow_error("Overflowed");
-			return -1;
-		}
-		double minus_num = uniform_real_num(0, sum_num - 1);
-		for (int i = 0; i < size; i++) {
-			minus_num -= odd[i];
-			if (minus_num < 0)
-				return i;
-		};
-		throw std::bad_exception();
-		return -1;
-	}
+	};
 
 	SRandomEng::~SRandomEng()
 	{
