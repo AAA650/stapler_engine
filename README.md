@@ -3,6 +3,8 @@ A game engine, otherwise U can call it a toolkit.
 ## Language
 Written by c++.  
 Use cmake to build.  
+## Compilers
+MSVC, MinGW (Tested).  
 ## Platform
 Currently windows only.  
 We will develop for more in the future.  
