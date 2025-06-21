@@ -19,7 +19,7 @@ namespace se_node = stapler_engine::node;
 namespace stapler_engine 
 {
 	//Stapler engine main function
-	int se_main(int argc, char* argv[]);
+	DLLAPI_SE int se_main(int argc, char* argv[]);
 }
 
 #endif // !STAPLER_ENGINE_H

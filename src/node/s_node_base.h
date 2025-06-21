@@ -1,6 +1,6 @@
 //
-#ifndef S_NODE_BAS_H
-#define S_NODE_BAS_H
+#ifndef S_NODE_BASE_H
+#define S_NODE_BASE_H
 
 #include "../core/s_core.h"
 #include <vector>
