@@ -4,7 +4,7 @@
 #ifndef S_MATH_FUNC_H
 #define S_MATH_FUNC_H
 
-#include "../core/s_core.h"
+#include "core/s_object.h"
 
 #include "s_math_defs.h"
 

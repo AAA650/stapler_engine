@@ -7,6 +7,7 @@
 namespace stapler_engine::node {
 	class DLLAPI_SE Node2D : public SNode {
 	public:
+		math::SVector2 position;
 
 	};
 }

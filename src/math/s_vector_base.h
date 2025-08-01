@@ -5,8 +5,6 @@
 #ifndef S_VECTOR_BASE_H
 #define S_VECTOR_BASE_H
 
-#include "../core/s_core.h"
-
 #include "s_math_func.h"
 
 #define VEC_2(vec)         (vec).x_(), (vec).y_()

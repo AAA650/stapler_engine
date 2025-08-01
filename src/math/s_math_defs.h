@@ -5,15 +5,14 @@
 #define S_MATH_DEFS_H
 
 #define _USE_MATH_DEFINES
-
 #include <math.h>
 
 #ifdef USE_HIGH_PRECISION
-typedef double float_precision
-#define EPS 1e-15
+typedef double float_precision;
+#	define EPS 1e-15
 #else
-typedef float float_precision;
-#define EPS 1e-8f
+	typedef float float_precision;
+#	define EPS 1e-8f
 #endif
 
 #endif
