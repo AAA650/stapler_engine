@@ -13,14 +13,14 @@ namespace stapler_engine::node {
 	protected:
 		// using this can make a tree structure
 		SNode* parent_;
-		std::vector<SNode*> children_;
+		std::vector<SNode*>* children_;
 
 		// name of SNode
-		tstring name_;
+		tstring* name_;
 
 	public:
 		//Set name
-		void set_name(tchar* name_);
+		inline void set_name(tchar* name_);
 
 		//Add parent
 		virtual void set_parent(SNode* parent);
@@ -35,10 +35,10 @@ namespace stapler_engine::node {
 		virtual SNode* get_child(char* name) const noexcept;
 
 		//Get name
-		virtual tstring get_name() const;
+		virtual const tchar* get_name() const;
 
 		//Get a vector of children
-		virtual std::vector<SNode*> get_children() const;
+		virtual const std::vector<SNode*>* get_children() const;
 
 		//Get the child's parent
 		virtual SNode* get_parent() const;

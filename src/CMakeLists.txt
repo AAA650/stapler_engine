@@ -9,7 +9,7 @@ file(GLOB_RECURSE S_HEADER_FILE RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.h")
 
 file(GLOB_RECURSE S_SRC_FILE "*.cpp")
 
-# 遍历文件并复制
+# Copy all headers
 foreach(file ${S_HEADER_FILE})
 	# copy file
 	configure_file(

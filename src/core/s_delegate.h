@@ -111,7 +111,6 @@ namespace stapler_engine
 		public:
 			SDelegateMetadataClass(t_targ_m* in_target, t_type_m(t_targ_m::* in_function)(t_args_m...))
 				: target_(in_target), callback_(in_function) {
-
 			}
 			~SDelegateMetadataClass() {
 				target_ = nullptr;
@@ -120,20 +119,20 @@ namespace stapler_engine
 		};
 
 	protected:
-		std::vector<SDelegateMetadata<t_type(t_args...)>*> clients_;
+		std::vector<SDelegateMetadata<t_type(t_args...)>*>* clients_;
 
 	public:
 		void join(t_type(*func)(t_args...)) {
-			clients_.push_back(new SDelegateMetadataMethod<t_type(t_args...)>(func));
+			clients_->push_back(new SDelegateMetadataMethod<t_type(t_args...)>(func));
 		}
 
 		template<typename t_targ>
 		void join(t_targ* target, t_type(t_targ::* func)(t_args...)) {
-			clients_.push_back(new SDelegateMetadataClass<t_targ, t_type(t_args...)>(target, func));
+			clients_->push_back(new SDelegateMetadataClass<t_targ, t_type(t_args...)>(target, func));
 		}
 
 		void invoke(const t_args&... in_args) {
-			for (auto& client : clients_) {
+			for (auto& client : *clients_) {
 				if (client->is_valid()) {
 					continue;
 				}
@@ -144,12 +143,21 @@ namespace stapler_engine
 		void invoke(std::vector<t_type>& results, const t_args&... in_args) {
 			results.clear();
 			results.reserve(clients_.size());
-			for (auto& client : clients_) {
+			for (auto& client : *clients_) {
 				if (client->is_valid()) {
 					continue;
 				}
 				results.push_back(client->invoke(in_args...));
 			}
+		}
+
+		SDelegate() {
+			clients_ = new std::vector<SDelegateMetadata<t_type(t_args...)>*>;
+		}
+
+		~SDelegate() {
+			delete clients_;
+			clients_ = nullptr;
 		}
 
 	};

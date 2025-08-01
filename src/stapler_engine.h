@@ -12,9 +12,9 @@
 #include "node/s_node.h"
 
 namespace se = stapler_engine;
-namespace se_math = stapler_engine::math;
-namespace se_comp = stapler_engine::component;
-namespace se_node = stapler_engine::node;
+namespace smath = stapler_engine::math;
+namespace scomp = stapler_engine::component;
+namespace snode = stapler_engine::node;
 
 namespace stapler_engine 
 {
