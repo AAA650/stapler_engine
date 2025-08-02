@@ -151,11 +151,16 @@ namespace stapler_engine
 			}
 		}
 
+		// TODO: Add search and remove function
+
 		SDelegate() {
 			clients_ = new std::vector<SDelegateMetadata<t_type(t_args...)>*>;
 		}
 
 		~SDelegate() {
+			for (auto client : *clients_) {
+				delete client;
+			}
 			delete clients_;
 			clients_ = nullptr;
 		}

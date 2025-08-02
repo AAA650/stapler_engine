@@ -7,6 +7,9 @@ void add_vector(smath::SVector2& vec) {
 }
 
 int main() {
+	PROPERTY(int, val, { return value + 1; }, { value = in_arg + 1; });
+	val.set(22);
+	cout << val() << endl;
 	se::SDelegate<void(smath::SVector2&)> dele1;
 	dele1.join(add_vector);
 	smath::SVector2 vector2(0.1f, 5);

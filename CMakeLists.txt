@@ -1,5 +1,7 @@
-# CMakeList.txt: CMake project of stapler_engine
+# CMakeList.txt
+# CMake project of stapler_engine
 #
+
 cmake_minimum_required(VERSION 3.12)
 
 project(stapler_engine)
@@ -21,6 +23,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories("src")
 
-add_subdirectory(src)
+add_subdirectory("src")
 
-add_subdirectory(test)
+add_subdirectory("test")
