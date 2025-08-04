@@ -1,9 +1,10 @@
-// s_random_eng.cpp
+// s_random.cpp
 // implement of random engine
 
-#include "s_random_engine.h"
+#include "s_random.h"
 
-namespace stapler_engine::component {
+namespace stapler_engine::math
+{
 
 	DLLAPI_SE void SRandomEng::reset() {
 		//get a rand_device to get seed

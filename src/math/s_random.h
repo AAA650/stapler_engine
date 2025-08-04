@@ -1,15 +1,15 @@
-// s_random_eng.h
+// s_random.h
 // a random engine
 
-#ifndef S_RANDOM_ENG_H
-#define S_RANDOM_ENG_H
+#ifndef S_RANDOM_H
+#define S_RANDOM_H
 
-#include "s_component_base.h"
+#include "s_math_func.h"
 #include <random>
 
-namespace stapler_engine::component
+namespace stapler_engine::math
 {
-	class DLLAPI_SE SRandomEng :public SComponent
+	class DLLAPI_SE SRandomEng :public SObject
 	{
 	protected:
 		std::mt19937* generator_;
