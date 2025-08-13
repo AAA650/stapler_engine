@@ -17,6 +17,6 @@ int main() {
 	printf("%f,%f\n", vector2.x_, vector2.y_);
 
 	cout << "Thanks for using Stapler Engine!" << endl;
-	system("pause");
+	//system("pause");
 	return 0;
 }

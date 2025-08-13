@@ -16,11 +16,11 @@ namespace stapler_engine
 
 	public:
 		//get value
-		virtual inline const t_type& get() { return value; };
+		virtual inline const t_type get() { return value; };
 		//set value
 		virtual inline void set(const t_type& in_arg) { value = in_arg; };
 
-		inline const t_type& operator()() { return get(); };
+		inline const t_type operator()() { return get(); };
 
 		inline void operator=(const t_type& in_arg) { set(in_arg); };
 
@@ -33,12 +33,12 @@ namespace stapler_engine
 		SProperty& operator=(const SProperty&) = delete;
 	};
 
-#define PROPERTY(type, name, get_func, set_func) \
-	class :public se::SProperty<type> {\
+#define PROPERTY(prop_type, prop_name, prop_get_func, prop_set_func) \
+	class :public se::SProperty<prop_type> {\
 	public:\
-		virtual inline const type& get() override get_func;\
-		virtual inline void set(const type& in_arg) override set_func;\
-	}val
+		virtual inline const prop_type get() override prop_get_func;\
+		virtual inline void set(const prop_type& in_arg) override prop_set_func;\
+	}prop_name;
 
 #define GET { return value; }
 #define SET { value = in_arg; }
