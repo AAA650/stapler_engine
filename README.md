@@ -2,18 +2,14 @@
 A game engine, otherwise U can call it a toolkit.  
 ## Language
 Written by c++.  
-Use cmake to build.  
-## Compilers
-MSVC, GCC.  
 ## Platform
-Windows and Linux(Mainly Debian and Ubuntu).  
-We will develop for more in the future.  
+This is a lib project, generated with Cmake 3.15.  
+We support Windows and Linux, both MSVC and GCC are OK.  
+MacOS is not in our roadmap now.(Probably be supported in the future)  
 ## Download
-Download source code and build it by yourself.  
-Or directly to the release page to download the lastest (Only VS17 x64 provided). 
-[Latest Release](https://github.com/AAA650/stapler_engine/releases/latest).  
-## Donations
-For now, we do not need that.  
+Stapler Engine will no longer provide pre-built releases.  
+Download the source code and compile by yourself.  
+TODO: Add cmake compile script here.  
 ## Others
-Made by AAA650 and other contributors with ❤️.  
-Thanks to the other contributors, and thank you for your support.  
+Made by contributors with ❤️.  
+Thanks to all the contributors, and thank you for your support.  
