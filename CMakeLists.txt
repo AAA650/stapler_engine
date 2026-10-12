@@ -1,28 +1,13 @@
-# CMakeList.txt
-# CMake project of stapler_engine
+cmake_minimum_required(VERSION 3.15)
+set(CMAKE_CXX_STANDARD 17)
+# stapler_engine CMakeLists.txt
+# CMake list of stapler_engine
+# Copyright (c) 2026 AAA650
 #
-
-cmake_minimum_required(VERSION 3.12)
-
 project(stapler_engine)
 
-# Use hot cmp0141
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
-endif()
+include_directories(./)
+add_subdirectory(base)
+add_subdirectory(core)
+add_subdirectory(main)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
-
-set(CMAKE_CXX_STANDARD 17)
-
-# set(CMAKE_C_COMPILER_WORKS TRUE)
-# set(CMAKE_CXX_COMPILER_WORKS TRUE)
-
-include_directories("src")
-
-add_subdirectory("src")
-
-add_subdirectory("test")

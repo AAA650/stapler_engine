@@ -1,10 +1,13 @@
-# CMakeLists.txt
-# Make test se exe
+cmake_minimum_required(VERSION 3.15)
+set(CMAKE_CXX_STANDARD 17)
+# stapler_engine CMakeLists.txt
+# CMake list of stapler_engine
+# Copyright (c) 2026 AAA650
+#
+project(stapler_engine)
 
-add_definitions(-DUNICODE)
+include_directories(./)
+add_subdirectory(base)
+add_subdirectory(core)
+add_subdirectory(main)
 
-remove_definitions(-DSTAPLER_ENGINE_EXPORTS)
-
-add_executable(test_se main.cpp)
-
-target_link_libraries(test_se stapler_engine)
