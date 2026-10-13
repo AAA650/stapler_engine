@@ -15,7 +15,6 @@
 #define SE_MATH_VECTOR2_H
 
 #include "math/vector.h"
-#include <initializer_list>
 
 namespace stapler_engine {
 namespace math {
@@ -32,8 +31,8 @@ public:
   SE_FORCE_INLINE Scalar &Y() noexcept { return this->data_[1]; }
   SE_FORCE_INLINE const Scalar &Y() const noexcept { return this->data_[1]; }
 
-  inline Scalar Cross(const Self &other) noexcept {
-    return this->data_[0] * other.data_[1] - this->data_[1] * other.data_[0];
+  inline Scalar Cross(const Self &rhs) noexcept {
+    return this->data_[0] * rhs.data_[1] - this->data_[1] * rhs.data_[0];
   }
 };
 

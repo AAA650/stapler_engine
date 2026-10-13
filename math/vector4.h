@@ -37,15 +37,16 @@ public:
   SE_FORCE_INLINE Scalar &W() noexcept { return this->data_[3]; }
   SE_FORCE_INLINE const Scalar &W() const noexcept { return this->data_[3]; }
 
-  inline Self Cross(const Self &other) const noexcept {
-    return Self{
-        {this->data_[1] * other.data_[2] - this->data_[2] * other.data_[1],
-         this->data_[2] * other.data_[0] - this->data_[0] * other.data_[2],
-         this->data_[0] * other.data_[1] - this->data_[1] * other.data_[0]}};
+  inline Self Cross(const Self &rhs) const noexcept {
+    return Self{{this->data_[1] * rhs.data_[2] - this->data_[2] * rhs.data_[1],
+                 this->data_[2] * rhs.data_[0] - this->data_[0] * rhs.data_[2],
+                 this->data_[0] * rhs.data_[1] - this->data_[1] * rhs.data_[0],
+                 1}};
   }
 
-  inline Self CrossWith(const Self &other) noexcept {
-    *this = this->Cross(other);
+  inline Self CrossWith(const Self &rhs) noexcept {
+    *this = this->Cross(rhs);
+    return *this;
   }
 };
 

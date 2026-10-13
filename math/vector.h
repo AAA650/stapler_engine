@@ -31,70 +31,79 @@ public:
     assert(data.size() == size);
     Size i = 0;
     for (Scalar v : data)
-      data_[i++] = v;
+      this->data_[i++] = v;
   }
 
 public:
   SE_FORCE_INLINE Scalar &operator[](Size index) noexcept {
-    return data_[index];
+    return this->data_[index];
   }
   SE_FORCE_INLINE const Scalar &operator[](Size index) const noexcept {
-    return data_[index];
+    return this->data_[index];
+  }
+
+  inline Scalar &At(Index index) noexcept {
+    assert(index >= -size && index < size);
+    return this->data_[index % size];
+  }
+
+  inline const Scalar &At(Index index) const noexcept {
+    assert(index >= -size && index < size);
+    return this->data_[index % size];
   }
 
   inline Scalar LengthPow2() const noexcept {
-    Scalar result = data_[0] * data_[0];
-    for (Size i = 1; i < size; i++) {
-      result += data_[i] * data_[i];
+    Scalar result = static_cast<Scalar>(0.0);
+    for (Size i = 0; i < size; i++) {
+      result += this->data_[i] * this->data_[i];
     }
     return result;
   }
 
   inline Scalar Length() const noexcept { return Sqrt(LengthPow2()); }
 
-  inline Self Normalize() const noexcept {
+  inline Self &Normalize() const noexcept {
     Scalar factor = 1 / Length();
-    Self result;
     for (Size i = 0; i < size; i++) {
-      result.data_[i] = data_[i] * factor;
+      this->data_[i] *= factor;
     }
-    return result;
+    return &this;
   }
 
   inline Self &operator+=(const Self &rhs) noexcept {
     for (Size i = 0; i < size; i++)
-      data_[i] += rhs.data_[i];
+      this->data_[i] += rhs.data_[i];
     return *this;
   }
 
   inline Self &operator+=(Scalar rhs) noexcept {
     for (Size i = 0; i < size; i++)
-      data_[i] += rhs;
+      this->data_[i] += rhs;
     return *this;
   }
 
   inline Self &operator-=(const Self &rhs) noexcept {
     for (Size i = 0; i < size; i++)
-      data_[i] -= rhs.data_[i];
+      this->data_[i] -= rhs.data_[i];
     return *this;
   }
 
   inline Self &operator-=(Scalar rhs) noexcept {
     for (Size i = 0; i < size; i++)
-      data_[i] -= rhs;
+      this->data_[i] -= rhs;
     return *this;
   }
 
   inline Self &operator*=(Scalar rhs) noexcept {
     for (Size i = 0; i < size; i++)
-      data_[i] *= rhs;
+      this->data_[i] *= rhs;
     return *this;
   }
 
   inline Self &operator/=(Scalar rhs) noexcept {
     assert(rhs != 0);
     for (Size i = 0; i < size; i++)
-      data_[i] /= rhs;
+      this->data_[i] /= rhs;
     return *this;
   }
 
@@ -133,8 +142,8 @@ public:
   }
 
   friend inline Scalar operator*(const Self &lhs, const Self &rhs) noexcept {
-    Scalar result = lhs.data_[0] * rhs.data_[0];
-    for (Size i = 1; i < size; i++) {
+    Scalar result = static_cast<Scalar>(0.0);
+    for (Size i = 0; i < size; i++) {
       result += lhs.data_[i] * rhs.data_[i];
     }
     return result;
