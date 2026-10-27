@@ -51,6 +51,12 @@ SE_FORCE_INLINE Bool IsEqual<Float64>(const Float64 &lhs,
   return std::fabs(lhs - rhs) <= kFloat64Epsilon;
 }
 
+template <typename Scalar> SE_FORCE_INLINE Scalar Zero() noexcept { return 0; }
+
+template <> SE_FORCE_INLINE Float32 Zero<Float32>() noexcept { return 0.0f; }
+
+template <> SE_FORCE_INLINE Float64 Zero<Float64>() noexcept { return 0.0; }
+
 template <typename T> SE_FORCE_INLINE T Sqrt(const T &x) {
   return std::sqrt(x);
 }

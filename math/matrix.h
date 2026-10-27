@@ -15,6 +15,7 @@
 #define SE_MATH_MATRIX_H
 
 #include "math/common.h"
+#include "math/vector.h"
 
 namespace stapler_engine {
 namespace math {
@@ -108,7 +109,7 @@ public:
     Matrix<Scalar, R, C> result;
     for (Size r = 0; r < R; ++r) {
       for (Size c = 0; c < C; ++c) {
-        Scalar sum = static_cast<Scalar>(0.0);
+        Scalar sum = Zero<Scalar>();
         for (int k = 0; k < K; ++k) {
           sum += lhs.data_[k][c] * rhs.data_[r][k];
         }
@@ -117,7 +118,22 @@ public:
     }
     return result;
   }
+
+  template <Size R, Size C>
+  friend Vector<Scalar, R> operator*(const Matrix<Scalar, R, C> &lhs,
+                                     const Vector<Scalar, C> &rhs) noexcept {
+    Vector<Scalar, R> result;
+    for (Size r = 0; r < R; r++) {
+      Scalar sum = Zero<Scalar>();
+      for (Size c = 0; c < C; c++) {
+        sum += lhs.data_[r][c] * rhs[c];
+      }
+      result.data_[r] = sum;
+    }
+    return result;
+  }
 };
+
 } // namespace math
 } // namespace stapler_engine
 
