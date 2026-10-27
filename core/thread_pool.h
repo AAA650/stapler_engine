@@ -92,7 +92,7 @@ public:
     return;
   }
 
-  void OpenThread() { workers_.push_back(Worker(this)); }
+  void OpenThread() { workers_.emplace_back(this); }
 
   void CloseThread() {
     workers_.pop_back();
