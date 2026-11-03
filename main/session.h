@@ -2,8 +2,8 @@
 // Created by aaa650 on 2026/8/24.
 //
 
-#ifndef SE_SESSION_H
-#define SE_SESSION_H
+#ifndef SE_MAIN_SESSION_H
+#define SE_MAIN_SESSION_H
 
 #include <iostream>
 #include <stdexcept>
@@ -11,18 +11,18 @@
 
 namespace stapler_engine {
 namespace main {
-class SeSession {
+class Session {
 private:
-  void _init_() {};
+  void init() {};
 
-  void _loop_() {};
+  void loop() {};
 
-  void _clean_up_() {};
+  void clean() {};
 
 public:
-  void run_() {
+  void Run() {
     // Initalize
-    _init_();
+    init();
     // Main loop
     // Clean up
   }

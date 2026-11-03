@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 project(stapler_engine)
 
 include_directories(./)
-add_subdirectory(base)
 add_subdirectory(core)
 add_subdirectory(main)
 

@@ -12,12 +12,12 @@
 ///
 ///===-------------------------------------------------------------------------------===//
 
-#ifndef SE_WINDOW_H
-#define SE_WINDOW_H
+#ifndef SE_MAIN_WINDOW_H
+#define SE_MAIN_WINDOW_H
 
 #define GLFW_INCLUDE_VULKAN
 #include "base/string.h"
-#include "base/types.h"
+#include "base/type.h"
 #include "math/vector2.h"
 #include <GLFW/glfw3.h>
 
