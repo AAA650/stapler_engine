@@ -102,16 +102,39 @@ public:
     return false;
   }
 
-  template <Size R, Size K, Size C>
-  friend Matrix<Scalar, R, C>
-  operator*(const Matrix<Scalar, R, K> &lhs,
-            const Matrix<Scalar, K, C> &rhs) noexcept {
-    Matrix<Scalar, R, C> result;
-    for (Size r = 0; r < R; ++r) {
-      for (Size c = 0; c < C; ++c) {
-        Scalar sum = Zero<Scalar>();
-        for (int k = 0; k < K; ++k) {
-          sum += lhs.data_[k][c] * rhs.data_[r][k];
+  static constexpr Self Identity() {
+    Self result;
+    for (Size i = 0; i < x; i++) {
+      for (Size j = 0; j < y; j++) {
+        if (i == j)
+          result.data_[i][j] = 1;
+        else
+          result.data_[i][j] = 0;
+      }
+    }
+    return result;
+  }
+
+  static constexpr Self Zero() {
+    Self result;
+    for (Size i = 0; i < x; i++) {
+      for (Size j = 0; j < y; j++) {
+        result.data_[i][j] = 0;
+      }
+    }
+    return result;
+  }
+
+  template <Size row, Size inr, Size col>
+  friend Matrix<Scalar, row, col>
+  operator*(const Matrix<Scalar, row, inr> &lhs,
+            const Matrix<Scalar, inr, col> &rhs) noexcept {
+    Matrix<Scalar, row, col> result;
+    for (Size r = 0; r < row; r++) {
+      for (Size c = 0; c < col; c++) {
+        Scalar sum = math::Zero<Scalar>();
+        for (int k = 0; k < inr; k++) {
+          sum += lhs.data_[r][k] * rhs.data_[k][c];
         }
         result.data_[r][c] = sum;
       }
@@ -119,18 +142,45 @@ public:
     return result;
   }
 
-  template <Size R, Size C>
-  friend Vector<Scalar, R> operator*(const Matrix<Scalar, R, C> &lhs,
-                                     const Vector<Scalar, C> &rhs) noexcept {
-    Vector<Scalar, R> result;
-    for (Size r = 0; r < R; r++) {
-      Scalar sum = Zero<Scalar>();
-      for (Size c = 0; c < C; c++) {
+  template <Size row, Size col>
+  friend Vector<Scalar, row>
+  operator*(const Matrix<Scalar, row, col> &lhs,
+            const Vector<Scalar, col> &rhs) noexcept {
+    Vector<Scalar, row> result;
+    for (Size r = 0; r < row; r++) {
+      Scalar sum = math::Zero<Scalar>();
+      for (Size c = 0; c < col; c++) {
         sum += lhs.data_[r][c] * rhs[c];
       }
       result.data_[r] = sum;
     }
     return result;
+  }
+
+  template <Size s>
+  friend Matrix<Scalar, s, s>
+  Inverse(Matrix<Scalar, s, s> lhs,
+          Matrix<Scalar, s, s> rhs = Matrix<Scalar, s, s>::Identity()) {
+    for (Size r = 0; r < s; r++) {
+      Size m = r;
+      for (Size i = r + 1; i < s; i++) {
+        if (std::abs(lhs[i][r]) > std::abs(lhs[m][r]))
+          m = i;
+      }
+      if (lhs[m][r] == 0)
+        return math::Zero<Self>();
+      if (m != r) {
+        Scalar tmp = math::Zero<Scalar>();
+        for (Size i = r; i < s; i++) {
+          tmp = lhs[m][i];
+          lhs[m][i] = lhs[r][i];
+          lhs[r][i] = tmp;
+        }
+        for (Size i = 0; i < s; i++) {
+        }
+      }
+    }
+    return lhs;
   }
 };
 

@@ -27,7 +27,12 @@ protected:
   Scalar data_[size];
 
 public:
-  Vector(std::initializer_list<Scalar> data) : Vector<Scalar, 3>(data) {}
+  Vector(std::initializer_list<Scalar> data) {
+    assert(data.size() == size);
+    Size i = 0;
+    for (Scalar v : data)
+      this->data_[i++] = v;
+  }
 
   SE_FORCE_INLINE Scalar &X() noexcept { return this->data_[0]; }
   SE_FORCE_INLINE const Scalar &X() const noexcept { return this->data_[0]; }
@@ -63,14 +68,33 @@ public:
     return result;
   }
 
-  inline Scalar Length() const noexcept { return Sqrt(LengthPow2()); }
+  template <typename FloatType = Float>
+  inline FloatType Length() const noexcept {
+    return Sqrt(static_cast<FloatType>(LengthPow2()));
+  }
 
-  inline Self &Normalize() const noexcept {
-    Scalar factor = 1 / Length();
+  template <typename S = Scalar>
+  inline std::enable_if_t<std::is_floating_point_v<S>, Self &>
+  Normalize() noexcept {
+    Scalar factor = 1 / Length<Scalar>();
     for (Size i = 0; i < size; i++) {
       this->data_[i] *= factor;
     }
-    return &this;
+    return *this;
+  }
+
+  template <typename S = Scalar>
+  inline std::enable_if_t<std::is_integral_v<S>, Self &> Normalize() noexcept {
+    Scalar factor = Zero<Scalar>();
+    for (Size i = 0; i < size; i++) {
+      factor = std::gcd(factor, (data_[i] > 0) ? data_[i] : -data_[i]);
+    }
+    if (factor > 1) {
+      for (Size i = 0; i < size; i++) {
+        data_[i] /= factor;
+      }
+    }
+    return *this;
   }
 
   inline Self &operator+=(const Self &rhs) noexcept {
@@ -175,7 +199,7 @@ public:
   }
 };
 
-typedef Vector<Int32, 3> Vector3I;
+typedef Vector<Int, 3> Vector3I;
 typedef Vector<Float, 3> Vector3;
 
 } // namespace math

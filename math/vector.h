@@ -53,21 +53,40 @@ public:
   }
 
   inline Scalar LengthPow2() const noexcept {
-    Scalar result = static_cast<Scalar>(0.0);
+    Scalar result = Zero<Scalar>();
     for (Size i = 0; i < size; i++) {
       result += this->data_[i] * this->data_[i];
     }
     return result;
   }
 
-  inline Scalar Length() const noexcept { return Sqrt(LengthPow2()); }
+  template <typename FloatType = Float>
+  inline FloatType Length() const noexcept {
+    return Sqrt(static_cast<FloatType>(LengthPow2()));
+  }
 
-  inline Self &Normalize() const noexcept {
-    Scalar factor = 1 / Length();
+  template <typename S = Scalar>
+  inline std::enable_if_t<std::is_floating_point_v<S>, Self &>
+  Normalize() noexcept {
+    Scalar factor = 1 / Length<Scalar>();
     for (Size i = 0; i < size; i++) {
       this->data_[i] *= factor;
     }
-    return &this;
+    return *this;
+  }
+
+  template <typename S = Scalar>
+  inline std::enable_if_t<std::is_integral_v<S>, Self &> Normalize() noexcept {
+    Scalar factor = Zero<Scalar>();
+    for (Size i = 0; i < size; i++) {
+      factor = std::gcd(factor, (data_[i] > 0) ? data_[i] : -data_[i]);
+    }
+    if (factor > 1) {
+      for (Size i = 0; i < size; i++) {
+        data_[i] /= factor;
+      }
+    }
+    return *this;
   }
 
   inline Self &operator+=(const Self &rhs) noexcept {

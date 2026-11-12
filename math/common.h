@@ -18,13 +18,27 @@
 #include <cmath>
 #include <initializer_list>
 #include <limits>
+#include <numeric>
+#include <type_traits>
 
 namespace stapler_engine {
-
-#ifndef SE_MATH_HIGH_PRECISION
-typedef Float32 Float;
+#ifdef SE_MATH_LONG_INT
+typedef Int64 Int;
+typedef UInt64 UInt;
 #else
+#ifdef SE_MATH_SHORT_INT
+typedef Int16 Int;
+typedef UInt16 UInt;
+#else
+typedef Int32 Int;
+typedef UInt32 UInt;
+#endif
+#endif
+
+#ifdef SE_MATH_FLOAT_HIGH_PRECISION
 typedef Float64 Float;
+#else
+typedef Float32 Float;
 #endif
 
 namespace math {
@@ -51,11 +65,39 @@ SE_FORCE_INLINE Bool IsEqual<Float64>(const Float64 &lhs,
   return std::fabs(lhs - rhs) <= kFloat64Epsilon;
 }
 
-template <typename Scalar> SE_FORCE_INLINE Scalar Zero() noexcept { return 0; }
+template <typename Type> SE_FORCE_INLINE constexpr Type Zero() noexcept {
+  return Type::Zero();
+}
 
-template <> SE_FORCE_INLINE Float32 Zero<Float32>() noexcept { return 0.0f; }
+template <> SE_FORCE_INLINE constexpr Int64 Zero<Int64>() noexcept { return 0; }
 
-template <> SE_FORCE_INLINE Float64 Zero<Float64>() noexcept { return 0.0; }
+template <> SE_FORCE_INLINE constexpr UInt64 Zero<UInt64>() noexcept {
+  return 0;
+}
+
+template <> SE_FORCE_INLINE constexpr Int32 Zero<Int32>() noexcept { return 0; }
+
+template <> SE_FORCE_INLINE constexpr UInt32 Zero<UInt32>() noexcept {
+  return 0;
+}
+
+template <> SE_FORCE_INLINE constexpr Int16 Zero<Int16>() noexcept { return 0; }
+
+template <> SE_FORCE_INLINE constexpr UInt16 Zero<UInt16>() noexcept {
+  return 0;
+}
+
+template <> SE_FORCE_INLINE constexpr Int8 Zero<Int8>() noexcept { return 0; }
+
+template <> SE_FORCE_INLINE constexpr UInt8 Zero<UInt8>() noexcept { return 0; }
+
+template <> SE_FORCE_INLINE constexpr Float32 Zero<Float32>() noexcept {
+  return 0.0f;
+}
+
+template <> SE_FORCE_INLINE constexpr Float64 Zero<Float64>() noexcept {
+  return 0.0;
+}
 
 template <typename T> SE_FORCE_INLINE T Sqrt(const T &x) {
   return std::sqrt(x);

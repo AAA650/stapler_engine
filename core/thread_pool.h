@@ -28,16 +28,18 @@
 namespace stapler_engine {
 namespace core {
 class ThreadPool {
+  using Task = std::function<void()>;
+
 private:
   enum class Status { kRun = 0, kStop };
 
   struct Exceptions {
     std::exception err;
-    std::function<void()> task;
+    Task task;
   };
 
   struct PoolData {
-    std::queue<std::function<void()>> pool_tasks;
+    std::queue<Task> pool_tasks;
     std::queue<Exceptions> pool_exceptions;
     std::mutex pool_lock;
     std::mutex exception_lock;
@@ -65,7 +67,7 @@ private:
           pool_locker.unlock();
           continue;
         }
-        std::function<void()> task = worker_data->pool_data->pool_tasks.front();
+        Task task = worker_data->pool_data->pool_tasks.front();
         worker_data->pool_data->pool_tasks.pop();
         pool_locker.unlock();
         if (!task)
@@ -82,14 +84,14 @@ private:
     }
 
     std::shared_ptr<WorkerData> worker_data_;
+    std::thread worker_thread_;
 
   public:
     Worker(const std::shared_ptr<PoolData> &pool_data) {
       worker_data_ = std::make_shared<WorkerData>();
       worker_data_->worker_status = Status::kRun;
       worker_data_->pool_data = pool_data;
-      std::thread worker_thread(WorkerMain, worker_data_);
-      worker_thread.detach();
+      worker_thread_ = std::thread(WorkerMain, worker_data_);
       return;
     }
 
@@ -98,6 +100,7 @@ private:
       worker_data_->worker_status = Status::kStop;
       pool_locker.unlock();
       worker_data_->pool_data->notificator.notify_all();
+      worker_thread_.join();
     }
   };
   std::shared_ptr<PoolData> pool_data_;
@@ -121,7 +124,7 @@ public:
     return;
   }
 
-  void PushTask(std::function<void()> task) {
+  void PushTask(Task task) {
     Size task_cnt = 0;
     std::unique_lock<std::mutex> pool_locker(pool_data_->pool_lock);
     pool_data_->pool_tasks.push(task);
